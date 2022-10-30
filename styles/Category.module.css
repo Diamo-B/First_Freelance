@@ -1,0 +1,29 @@
+.products
+{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    text-align: center;
+    margin-bottom: 1em;
+    gap: 1em;
+}
+
+.product
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.productImg
+{
+    border: 1px solid hsla(0, 0%, 0%, 0.5);
+    border-radius: 10px;
+}
+
+.price
+{
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: #00C896;
+}

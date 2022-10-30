@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
-const Navbar = ({setIsActive, isActive}) => {
+const DetailPageNav = ({setIsActive, isActive}) => {
     const changeMenuState = () => {
         setIsActive(!isActive);
     }
+
 
     return ( 
         <nav>
@@ -17,16 +17,8 @@ const Navbar = ({setIsActive, isActive}) => {
             <div className="search">
                 <input type="text" placeholder="Rechercher un produit"/>
             </div>
-            <div className="categories-box">
-                <div className="categories">
-                    <Link href='/Categories/Nouriture'>Nouriture</Link>
-                    <Link href='/Categories/Cosmétiques'>Cosmétiques</Link>
-                    <Link href='/Categories/Cuisine'>Cuisine</Link>
-                    <Link href='/Categories/Divers'>Divers</Link>
-                </div>
-            </div>
         </nav>
     );
-}
- 
-export default Navbar;
+};
+
+export default DetailPageNav;

@@ -13,7 +13,7 @@ const MySwiper = ({products}) => {
     return ( 
         <Swiper
           effect="fade"
-          fadeEffect={ { // Add this
+          fadeEffect={{
             crossFade: true
           }}
           speed= {2000}

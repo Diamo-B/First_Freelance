@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
     return ( 
-        <footer>
+        <footer className="body">
             <div className="Footerlogo">
                 <Image src="/logo.svg" alt="logo" width={38.8} height={40}/>
                 <p>LoremIpsum.com</p>

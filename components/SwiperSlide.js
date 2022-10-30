@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import styles from '../styles/SwiperSlide.module.css'
 
 const MySwiperSlide = ({product}) => {

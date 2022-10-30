@@ -1,5 +1,6 @@
 import styles from '../styles/Home.module.css'
 import MySwiper from '../components/Swiper'
+import Head from 'next/head';
 
 export const getStaticProps = async () => {
   let res = await fetch("https://fakestoreapi.com/products?limit=4");

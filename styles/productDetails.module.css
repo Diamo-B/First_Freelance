@@ -1,0 +1,125 @@
+.img
+{
+    width: 85%;
+    max-width: 20.9375em;
+    height: auto;
+    max-height: 14.6875em;
+    margin-inline: auto;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 3em;
+}
+
+.Details
+{
+    text-align: center;
+    font-weight: var(--fw-bold);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65125em;
+    margin-bottom: 1em;
+}
+
+.Details h1
+{
+    font-size: 1.25rem;
+}
+
+.category, .marque{
+    font-size: 0.75rem;
+    color: #ACACAC;
+}
+
+.category span {
+    color: #25D366;
+}
+
+.price
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 16.875em;
+    margin-inline: auto;
+    margin-bottom: 1.3125em;
+}
+
+.actual
+{
+    font-weight: var(--fw-bold);
+    font-size: 1.5rem;
+    color: #00C896;
+
+}
+
+.oldPrice
+{
+    margin-right: auto;
+    margin-left: 1em;
+    font-weight: var(--fw-bold);
+    font-size: 1rem;
+    color: #999999;
+    text-decoration: line-through;
+    text-decoration-color: black;
+}
+
+.reduction
+{
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: var(--fw-bold);
+    border: none;
+    border-radius: 10px;
+    padding: 0.375em 0.9375em;
+    background-color: hsla(165, 100%, 33%, 0.85);
+}
+
+.Commander
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 20.9375em;
+    margin-inline: auto;
+    margin-bottom: 2em;
+}
+
+.Commander > p
+{
+    font-weight: var(--fw-regular);
+    color: #999999;
+
+}
+
+.Tel,.whatsapp
+{
+    padding: 0.75em 0.75em;
+    background-color: #D9D9D9;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.whatsapp
+{
+    padding: 0.625em 1.125em;
+    font-weight: var(--fw-bold);
+    font-size: 1rem;
+}
+
+.Disponibility
+{
+    text-align: center;
+    font-weight: var(--fw-semi-bold);
+    font-size: 1rem;
+    margin-bottom: 1.4375em;
+}
+
+.in
+{
+    color: #00B243;
+}
+
+.out
+{
+    color: #F41F1F;
+}

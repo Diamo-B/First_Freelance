@@ -15,6 +15,63 @@
 
 /*---------------------------------------------------------------------------------------*/
 
+.body
+{
+    min-width: 22.5em;
+}
+
+.Menu-active
+{
+    background-color: aqua;
+    min-width: 22.5em;
+    width: 100vw;
+    height: 50%;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background: rgb(193,193,193);
+    background: linear-gradient(0deg, rgba(193,193,193,1) 0%, rgba(179,193,190,1) 14%, rgba(162,194,186,1) 28%, rgba(147,195,183,1) 45%, rgba(130,196,179,1) 61%, rgba(111,197,175,1) 79%, rgba(63,198,164,1) 92%, rgba(0,200,150,1) 100%); 
+	opacity: 0.95; 
+    padding-top: 1em;
+    padding-bottom: 2em;
+    padding-inline: 3em;
+}
+
+.Menu-hidden
+{
+    display: none;
+}
+
+.closeButton
+{
+    margin-bottom: 2em;
+}
+
+.menuCats
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3em;
+}
+
+.menuCats a {
+    text-decoration: none;
+    width: 80%;
+}
+
+.menuCats a:hover{
+    background-color: #6D6D6D;
+    color: white;
+    opacity: 1;
+}
+
 nav
 {
     margin-top: 0.4375em;
@@ -28,6 +85,10 @@ nav
     justify-content: space-around;
     align-items: center;
     margin-bottom: 0.6875em;
+}
+
+.top img{
+    width: auto;
 }
 
 .search
@@ -76,15 +137,33 @@ nav
     font-weight: var(--fw-bold);
     text-align: center;
     padding-block: 0.625em;
-    min-width: 80px;
+    min-width: 7em;
     border-radius: 20px;
+    text-decoration: none;
+}
+
+.nav2 a
+{
+    font-size: 1rem;
+    min-width: 9em;
+}
+
+.goBack{
+    position: absolute;
+    left: 1.5em;
 }
 
 /*----*/
 .content
 {
-    min-width: 335px;
+    min-width: 20.9375em;
     margin-inline: auto;
+}
+
+.error
+{
+    width: 55%;
+    text-align: center;
 }
 
 /*----------------*/
@@ -101,6 +180,10 @@ footer
     justify-content: center;
     margin-top: 0.4375em;
     margin-bottom: 0.3125em;
+}
+
+.Footerlogo img{
+    width: auto;
 }
 
 .Footerlogo p
