@@ -11,8 +11,8 @@ const NotFound = () => {
     return ( 
         <div className="content error">
             <h1>Erreur 404</h1>
-            <h3>La page que vous souhaitez accéder n'est pas disponible</h3>
-            <p>Vous allez être redirigé vers la page d'acceuil dans 3s...</p>
+            <h3>La page que vous souhaitez accéder n&apos;est pas disponible</h3>
+            <p>Vous allez être redirigé vers la page d&apos;acceuil dans 3s...</p>
         </div>
     );
 }

@@ -1,8 +1,9 @@
 import '../styles/reset.css';
 import '../styles/globals.css';
-import Layout from '../components/GeneralLayout';
-import CategoryLayout from '../components/CategoryLayout';
-import DetailsLayout from '../components/DetailsLayout'
+import Layout from '../components/Layouts/GeneralLayout';
+import CategoryLayout from '../components/Layouts/CategoryLayout';
+import DetailsLayout from '../components/Layouts/DetailsLayout'
+import FavoritesLayout from '../components/Layouts/FavoritesLayout'
 import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
@@ -14,12 +15,20 @@ function MyApp({ Component, pageProps }) {
         </CategoryLayout>
       )
   }
-  else if(router.asPath.includes('/productDetails'))
+  else if(router.asPath.includes('/productDetails')||router.asPath.includes('/Cart'))
   {
     return (
       <DetailsLayout>
         <Component {...pageProps} />
       </DetailsLayout>
+    );
+  }
+  else if (router.asPath.includes('/Favorites'))
+  {
+    return (
+      <FavoritesLayout>
+        <Component {...pageProps} />
+      </FavoritesLayout>
     );
   }
   else

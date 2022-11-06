@@ -1,0 +1,106 @@
+.title{
+    text-align: center;
+    font-weight: var(--fw-regular);
+    color: #6D6D6D;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.item
+{
+    display: grid;
+    gap: 1em;
+    width: 100%;
+    grid-template-columns: 1fr 3fr;
+    padding-inline: 1em;
+    padding-block: 1em;
+    border-bottom: 1px solid #6D6D6D;
+
+}
+
+.img
+{
+    border: 1px solid #6D6D6D;
+    border-radius: 10px;
+}
+
+.top
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: .5em;
+}
+
+.top h2
+{
+    font-size: 1rem;
+}
+
+.bottom
+{
+    display: flex;
+    align-items: center;
+}
+
+.Unit
+{
+    color: #ACACAC;
+    font-weight: var(--fw-regular);
+    font-size: .9rem;
+}
+
+.SubTotal
+{
+    color: #565656;
+}
+
+.SubTotal span, .amount
+{
+    color: #00C896;
+    font-weight: var(--fw-semi-bold);
+}
+
+.Qte
+{
+    background-color:#00C896;
+    padding:.2em .5em;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: var(--fw-bold);
+    text-align: center;
+}
+
+.totalXsubmit
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-block: 1em;
+}
+
+.Total
+{
+    color: #565656;
+} 
+
+.totalXsubmit button
+{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: .3em 1.2em;
+    font-size: 1rem;
+    color: white;
+    font-weight: var(--fw-bold);
+    background-color: #25D366;
+    outline: white solid 2px inset;
+    border-radius: 10px;
+}

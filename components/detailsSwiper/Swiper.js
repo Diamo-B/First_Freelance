@@ -18,18 +18,14 @@ const DetailsSwiper = ({images}) => {
                 crossFade: true
             }}
             speed= {2000}
-            slidesBetween={50}
             slidesPerView={1}
             centeredSlides={true}
             pagination={{ clickable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
         >
-
         {
-            images.map((src)=>(
-                <SwiperSlide>
-                    <img className={styles.img} src={src} alt="product thumbnail"/>
+            images.map((image)=>(
+                <SwiperSlide key={image.Id}>
+                    <img className={styles.img} src={image.Path} alt="product thumbnail"/>
                 </SwiperSlide>
             ))
         }

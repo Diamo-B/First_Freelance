@@ -52,6 +52,13 @@
 
 }
 
+.maxActual
+{
+    font-weight: var(--fw-bold);
+    font-size: 1.5rem;
+    color: #F41F1F;
+}
+
 .oldPrice
 {
     margin-right: auto;
@@ -74,6 +81,25 @@
     background-color: hsla(165, 100%, 33%, 0.85);
 }
 
+.Qte
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    margin-bottom: 1em;
+    background-color: hsla(0, 0%, 67%, 0.3);
+    max-width: 60%;
+    margin-inline: auto;
+    padding: .3em 1em;
+    border-radius: 20px;
+}
+
+.QteValue
+{
+    font-size: 1.1rem;
+}
+
 .Commander
 {
     display: flex;
@@ -84,6 +110,10 @@
     margin-bottom: 2em;
 }
 
+.removeMB{
+    margin-bottom: 0;
+}
+
 .Commander > p
 {
     font-weight: var(--fw-regular);
@@ -91,7 +121,7 @@
 
 }
 
-.Tel,.whatsapp
+.Tel,.Panier
 {
     padding: 0.75em 0.75em;
     background-color: #D9D9D9;
@@ -99,11 +129,24 @@
     border-radius: 10px;
 }
 
-.whatsapp
+.Panier
 {
-    padding: 0.625em 1.125em;
+    padding: 0.625em 3.125em;
     font-weight: var(--fw-bold);
     font-size: 1rem;
+    text-align: center;
+}
+
+.Panier a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.Panier a:hover
+{
+    text-decoration: none;
+    color: red;
 }
 
 .Disponibility
@@ -122,4 +165,54 @@
 .out
 {
     color: #F41F1F;
+}
+
+.Nullpanel{
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 50%,0.9);
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.popUp
+{
+    width: 80%;
+    height: 20em;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 800;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popUp > p
+{
+    font-weight: var(--fw-bold);
+    font-size: 1rem;
+    line-height: 18.75px;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+
+.ExistingProduct
+{
+    text-align: center;
+    color: rgb(255, 22, 22);
+    font-weight: var(--fw-bold);
+    font-size: 1.2rem;
+    line-height: 1.3em;
+    text-align: center;
+    margin-bottom: 1em;
 }

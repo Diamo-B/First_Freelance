@@ -1,7 +1,9 @@
+
 .product{
     max-width: 19.125em;
     margin-inline: auto;
     margin-bottom: 1em;
+    
 }
 
 .img
@@ -19,6 +21,7 @@
     margin-inline: auto;
     margin-top: 0.8125em;
     margin-bottom: 0.27625em;
+    
 }
 
 .product_details p
@@ -26,6 +29,7 @@
     font-weight: var(--fw-semi-bold);
     color: #ACACAC;
     font-size: 0.75rem;
+    
 }
 
 .product_details div
@@ -44,6 +48,7 @@
 {
     font-weight: var(--fw-semi-bold);
     font-size: 1.25rem;
+    color: black;
 }
 
 .prices
@@ -51,6 +56,14 @@
     display: flex;
     align-items: center;
     gap: 0.875em;
+}
+
+.Onlyprice
+{
+    font-weight: var(--fw-semi-bold);
+    font-size: 1.5rem;
+    color: #00C896;
+    text-align: center;
 }
 
 .actual
@@ -68,4 +81,9 @@
     font-size: 1rem;
     text-decoration:line-through;
     text-decoration-color: black;
+}
+
+.center
+{
+    text-align: center;
 }

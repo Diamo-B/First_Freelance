@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const Footer = () => {
     return ( 
-        <footer className="body">
+        <footer>
             <div className="Footerlogo">
                 <Image src="/logo.svg" alt="logo" width={38.8} height={40}/>
                 <p>LoremIpsum.com</p>
             </div>
             <p className="text">
-            Veuillez suivez nos pages sur les platformes du social media pour toutes sortes d'actualités en cliquant sur une des boutons ci-dessous
+            Veuillez suivez nos pages sur les platformes du social media pour toutes sortes d&apos;actualités en cliquant sur une des boutons ci-dessous
             </p>
             <div className="social-media">
                 <a href=""><img src='/facebook.svg'/></a>

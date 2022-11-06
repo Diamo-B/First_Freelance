@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Status {
+  InStock
+  OutOfStock
+}
+
+model Product{
+  Id Int @id @default(autoincrement())
+  Uuid String @unique @default(uuid())
+  Title String
+  BrandName String?
+  Thumbnails Thumbnail[] //?one to many between thumbnail and Product
+  Price Float
+  DiscountRate Float?
+  Category Category @relation(fields: [CategoryId], references: [Id]) //? one to many between Category and Product
+  CategoryId Int //! The field containing the ID of the Category of this product
+  Status Status
+  Favorite Boolean @default(false)
+  Stock Int @default(0)
+  Item Item?
+}
+
+
+model Thumbnail{
+  Id Int @id @default(autoincrement())
+  Path String
+  Product Product @relation(fields: [ProductId], references: [Id]) //?one to many between thumbnail and Product
+  ProductId Int //! the field containing the ID of the product linked to this thumbnail
+}
+
+model Category{
+  Id Int @id @default(autoincrement())
+  Title String
+  Products Product[] //? one to many between Category and Product
+}
+
+model Cart{
+  Id Int @id @default(autoincrement())
+  Items Item[]
+}
+
+model Item{
+  Id Int @id @default(autoincrement())
+  Product Product @relation(fields: [ProductId], references: [Id])
+  ProductId Int  @unique
+  Quantity Int
+  Cart Cart? @relation(fields: [CartId],references: [Id])
+  CartId Int?
+}

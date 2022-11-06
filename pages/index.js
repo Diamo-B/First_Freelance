@@ -1,24 +1,54 @@
 import styles from '../styles/Home.module.css'
 import MySwiper from '../components/Swiper'
-import Head from 'next/head';
+import Link from 'next/link';
+import Cookies from 'js-cookie';
+
+import { PrismaClient } from '@prisma/client';
+import { useEffect } from 'react';
+let prisma = new PrismaClient();
 
 export const getStaticProps = async () => {
-  let res = await fetch("https://fakestoreapi.com/products?limit=4");
-  let data = await res.json();
+  let products = await prisma.product.findMany({
+    take: 5,
+    where:{
+      Favorite: true
+    },
+    include:{
+      Thumbnails: true,
+      Category: true
+    }
+  });
+  
   return {
-    props :{products: data}
+    props :{products}
   };
 }
 
+async function addCart(){
+  if(Cookies.get('cart')==undefined)
+  {
+    const res = await fetch('/api/addCart',
+    {
+      method: 'POST',
+    }
+    );
+    let cart = await res.json();
+    Cookies.set('cart', cart.Id, {expires:365});
+  } 
+}
+
 export default function Home({products}) {
-  return (
+  useEffect(()=>{
+    addCart();
+  },[]);
+return (  
       <div className="content">
         
         <div className={styles.header}>
           <h1>Favoris</h1>
-          <h3>Voir Plus &gt;</h3>
+          <Link href="/Favorites"><h3>Voir Plus &gt;</h3></Link>
         </div>
-        <MySwiper products={products}/>
+        { products.length!==0 && <MySwiper products={products}/> }
       </div>
   )
 }

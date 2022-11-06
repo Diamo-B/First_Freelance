@@ -8,6 +8,11 @@
     gap: 1em;
 }
 
+.products a 
+{
+    text-decoration: none;
+}
+
 .product
 {
     display: flex;
@@ -19,6 +24,15 @@
 {
     border: 1px solid hsla(0, 0%, 0%, 0.5);
     border-radius: 10px;
+}
+
+.title
+{
+    color: black ;
+}
+
+.title:hover{
+    text-decoration: underline;
 }
 
 .price
