@@ -115,12 +115,14 @@ const productDetails = ({data}) => {
             <QuantityChoice Quantity={Quantity} totalStock={totalStock} RemoveQte={RemoveQte} AddQte={AddQte}/>
             <div className={styles.Disponibility}>
                 {
-                    data.Status=="InStock"? <p className={styles.in}>En Stock</p> : <p className={styles.out}>Rupture de Stock</p>
+                    data.Stock>0? <p className={styles.in}>En Stock</p> : <p className={styles.out}>Rupture de Stock</p>
                 }
             </div>
             <div className= {styles.Commander} style={(!CanAddCart || ProductPresentInCart)?{marginBottom: 0+'em'}:null}>
                 <div className={styles.Tel}>
-                    <img src="/tel.svg" alt="tel" />
+                    <a href="tel:+212607232880">
+                        <img src="/tel.svg" alt="tel"/>
+                    </a>
                 </div>
                 <p>Ou</p>
                 <div className={styles.Panier}>
@@ -131,6 +133,7 @@ const productDetails = ({data}) => {
                             if(Quantity>0){
                                 let found = 0;
                                 let check = await checkProductPresenceInCart(); 
+                                console.log(check)
                                 check[0].Items.map(prod => {
                                     if(prod.ProductId == data.Id)
                                     {
