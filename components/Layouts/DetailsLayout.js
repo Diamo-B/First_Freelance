@@ -11,6 +11,7 @@ const DetailsLayout = ({children}) => {
         <>
         <Head>
             <title>LoremIpsum.com</title>
+            <meta httpEquiv='Content-Security-Policy' content="font-src https://fonts.gstatic.com https://fonts.googleapis.com data: https://*.fbcdn.net " />
         </Head> 
         <div className='body'>
             <Menu isActive={isActive} setIsActive={setIsActive}/>

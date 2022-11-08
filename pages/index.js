@@ -25,16 +25,36 @@ export const getStaticProps = async () => {
 }
 
 async function addCart(){
-  if(Cookies.get('cart')==undefined)
+  let cookieCart = Cookies.get('cart');
+  if(cookieCart==undefined)
   {
     const res = await fetch('/api/addCart',
     {
       method: 'POST',
+      headers: {
+        'Content-Type': "application/json; charset=utf-8"
+      }
     }
     );
     let cart = await res.json();
     Cookies.set('cart', cart.Id, {expires:365});
   } 
+  else
+  {
+    const res = await fetch('/api/getCart/'+parseInt(cookieCart),
+    {
+      method: 'GET',
+      headers:{
+        'Content-Type': "application/json; charset=utf-8"
+      }
+    });
+    let carts = await res.json();
+    if(carts[0]==undefined)
+    {
+      Cookies.remove('cart');
+      addCart();
+    }
+  }
 }
 
 export default function Home({products}) {

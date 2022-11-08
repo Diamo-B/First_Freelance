@@ -84,7 +84,8 @@ const Cart = () => {
                     N.B: Veuillez appuyez sur le boutton ci-dessous et envoyer le message que vous allez trouver inséré dans votre chat box Whatsapp. <br/> <span>Cart Id: X</span> Merci pour votre confiance &#128522;
                 </div>
                 <a
-                    href={"https://wa.me/212618272611?text="+encodeURIComponent(text)}
+                    href={"https://wa.me/212618272611/?text="+encodeURIComponent(text)}
+                    target="_blank"
                 >
                     { total==0?
                         <button disabled>
