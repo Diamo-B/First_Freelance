@@ -85,7 +85,6 @@ const Cart = () => {
                 </div>
                 <a
                     href={"https://wa.me/212618272611/?text="+encodeURIComponent(text)}
-                    target="_blank"
                 >
                     { total==0?
                         <button disabled>

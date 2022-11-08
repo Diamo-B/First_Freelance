@@ -14,7 +14,7 @@ const CartXProductPresence = ({setProductPresentInCart,setCanAddCart}) => {
                     >Retourner vers la page du produit</p>
                 </div>
                 <div className={styles.Panier}>
-                    <Link href="/">Retourner vers la page d'acceuil</Link>
+                    <Link href="/">Retourner vers la page d&apos;acceuil</Link>
                 </div>
             </div>
         </div>

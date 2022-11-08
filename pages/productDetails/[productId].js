@@ -36,7 +36,7 @@ export async function getServerSideProps(context) {
     }
 }
 
-const productDetails = ({data}) => {
+const ProductDetails = ({data}) => {
 
     let router = useRouter();
     let [ProductPresentInCart, setProductPresentInCart] = useState(false);
@@ -163,4 +163,4 @@ const productDetails = ({data}) => {
     );
 }
  
-export default productDetails;
+export default ProductDetails;

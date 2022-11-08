@@ -7,7 +7,7 @@ const QuantityNullPanel = ({Quantity,totalStock,RemoveQte,AddQte,CartisNull,save
     return (
         <div className={styles.Nullpanel}>
             <div className={styles.popUp}>
-                <p>Veuillez s'il vous-plaît ajouter une Quantité avant d'ajouter ce produit dans le panier</p>
+                <p>Veuillez s&apos;il vous-plaît ajouter une Quantité avant d&apos;ajouter ce produit dans le panier</p>
                 <QuantityChoice Quantity={Quantity} totalStock={totalStock} RemoveQte={RemoveQte} AddQte={AddQte} CartisNull={CartisNull}/>
                 <div className={styles.Panier} style={{marginBottom: 1+'em'}}>
                     <p
