@@ -5,6 +5,7 @@ import CategoryLayout from '../components/Layouts/CategoryLayout';
 import DetailsLayout from '../components/Layouts/DetailsLayout'
 import FavoritesLayout from '../components/Layouts/FavoritesLayout'
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

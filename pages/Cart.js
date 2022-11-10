@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Cookies from 'js-cookie';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+
+
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -50,6 +51,7 @@ const Cart = () => {
     let total;
     let text = "Cart Id: "+data[0].Id;
     
+
     return ( 
         <div className={styles.container}>
             { 
@@ -84,7 +86,7 @@ const Cart = () => {
                     N.B: Veuillez appuyez sur le boutton ci-dessous et envoyer le message que vous allez trouver inséré dans votre chat box Whatsapp. <br/> <span>Cart Id: X</span> Merci pour votre confiance &#128522;
                 </div>
                 <a
-                    href={"https://wa.me/212618272611/?text="+encodeURIComponent(text)}
+                    href={" https://wa.me/212618272611?text="+encodeURIComponent(text)}
                 >
                     { total==0?
                         <button disabled>
@@ -92,11 +94,12 @@ const Cart = () => {
                             Commander par whatsapp
                         </button>    
                     :
-                        <button> 
+                        <button>
                             <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
                             Commander par whatsapp
-                        </button>     
-                    }
+                        </button> 
+                            
+                        }
                 </a>
             </div>   
         </div>

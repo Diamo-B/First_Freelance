@@ -10,6 +10,8 @@ export default async function handler(req, res) {
     let Stock  = req.body.Stock;
     let Status = Stock>0?'InStock':'OutOfStock';
     let Favorite  = req.body.Favorite;
+    let thumbnailsPaths = req.body.thumbnailsPaths;
+
 
     let Product = await prisma.product.create({
         data:{
@@ -28,7 +30,6 @@ export default async function handler(req, res) {
         },
     })
 
-    let thumbnailsPaths = req.body.thumbnailsPaths;
     thumbnailsPaths.forEach(path => {
         prisma.thumbnail.create({
             data:{

@@ -9,8 +9,7 @@ const CategoryLayout = ({children}) => {
   return (
     <>
     <Head>
-      <title>LoremIpsum.com | {router.query.category}</title>
-      <meta httpEquiv='Content-Security-Policy' content="font-src https://fonts.gstatic.com https://fonts.googleapis.com data: https://*.fbcdn.net " />
+      <title>LoremIpsum.com | {router.query.category}</title>      
     </Head> 
     <div className='body'> 
         <CatPageNav category={router.query.category}/>
