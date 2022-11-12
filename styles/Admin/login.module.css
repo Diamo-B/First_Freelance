@@ -1,0 +1,60 @@
+.flex_column
+{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: .5em;
+}
+
+.container
+{
+  border: 2px solid #999999;
+  margin-inline: 1.5em;
+  border-radius: 1em;
+  padding-top: .7em;
+  max-width: 350px;
+  margin-inline: auto;
+}
+
+.Login,.pass
+{
+  width: 80%;
+  padding: .3em 0em;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: var(--fw-semi-bold);
+  border: 2px solid #414141;
+  border-radius: 50px;
+}
+
+.Login:focus,.pass:focus
+{
+  outline-color: #42afc2;
+}
+
+.labels
+{
+  font-size: 1rem;
+  font-weight: var(--fw-semi-bold);
+  color: #414141;
+}
+
+.connect
+{
+  text-align: center;
+  font-size: 1rem;
+  font-weight: var(--fw-semi-bold);
+  border: 2px solid #414141;
+  padding: .1em 1.5em;
+  margin-block: 1em;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.connect:hover
+{
+  color: #42afc2;
+  border-color: #999999;
+  cursor: pointer;
+}

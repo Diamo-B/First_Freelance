@@ -63,7 +63,6 @@ export default function Home({products}) {
   },[]);
 return (  
       <div className="content">
-        
         <div className={styles.header}>
           <h1>Favoris</h1>
           <Link href="/Favorites"><h3>Voir Plus &gt;</h3></Link>
