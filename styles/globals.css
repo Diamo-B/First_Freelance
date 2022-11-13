@@ -34,7 +34,7 @@ a{
     background-color: aqua;
     min-width: 22.5em;
     width: 100vw;
-    height: 50%;
+    height: 55%;
     z-index: 999;
     position: absolute;
     top: 0;
@@ -152,6 +152,20 @@ nav
     text-decoration: none;
 }
 
+.categories .AdminAccessButton
+{
+    background-color: white;
+    color: #6D6D6D;
+    font-size: 0.75rem;
+    text-align: center;
+    font-weight: var(--fw-bold);
+    color: #565656;
+    padding-block: 0.625em;
+    min-width: 7em;
+    border: none;
+    border-radius: 20px;
+}
+
 .nav2 a
 {
     font-size: 1rem;
@@ -229,4 +243,18 @@ footer
     color:#4F4F4F;
     font-size: 0.625rem;
     margin-bottom: 1em;
+}
+
+.AdminAccessButton
+{
+    background-color: white;
+    color: #6D6D6D;
+    font-size: 0.75rem;
+    text-align: center;
+    font-weight: var(--fw-bold);
+    color: #565656;
+    padding-block: 0.625em;
+    min-width: 7em;
+    border: none;
+    border-radius: 20px;
 }

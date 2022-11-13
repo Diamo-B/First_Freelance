@@ -1,33 +1,63 @@
 import Head from "next/head";
 import styles from "../../styles/Admin/login.module.css";
-import { signIn, signOut, useSession } from "next-auth/react";
-
+import { useState } from "react";
+import {signIn,useSession} from "next-auth/react";
+import { useRouter } from "next/router";
 
 
 const adminLogin = () => {
-    const { data: session } = useSession();
+    const {data:session} = useSession();
+    const router = useRouter();
+    if(session)
+    {
+        router.push('/Admin');
+    }
+    const [authState, setAuthState] = useState({
+        username: '',
+        password: ''
+    })
+    const handleFieldChange = (e) => {
+        setAuthState(old => ({ ...old, [e.target.id]: e.target.value }))
+    }
 
-    console.log("session", session);
+    const [error,setError] = useState(null);
+
+    const handleAuth = async () => {
+        signIn('credentials', {
+            ...authState,
+            redirect: false
+        }).then(({ ok, error }) => {
+            if (ok) {
+                setError(null);
+                window.location.replace('/Admin');
+            } else {
+                console.log(error)
+                setError("nom d'utilisateur ou mot de passe incorrectes");
+            }
+        })
+    }
     return ( 
         <>
             <Head>
                 <title>LoremIpsum.com | Admin | Login</title>
             </Head>
-            {session ? 
-                <button onClick={() => signOut()}>Log out</button>
-            :
+
                 <div className={[styles.flex_column,styles.container].join(' ')}>
+                    {
+                        error?<p className={styles.LoginError}>{error}</p>:<span></span>
+                    }
                     <label htmlFor="Login" className={styles.labels}>Login</label>
-                    <input type="text" id="Login" name="Login" className={styles.Login} required />
+
+                    <input type="text" onChange={handleFieldChange} value={authState.username}  id='username' className={styles.Login} required />
+
+
                     <label htmlFor="pass" className={styles.labels}>Password</label>
-                    <input type="Password" required id="pass" name="pass" className={styles.pass} />
-                    <button className={styles.connect} onClick={() => {
-                        let username = document.getElementById('Login').value;
-                        let password = document.getElementById('pass').value;
-                        signIn("credentials", { username: username, password: password })
-                    }}>Connect</button>
+
+                    <input type="Password" required onChange={handleFieldChange} value={authState.password} id='password' className={styles.pass} />
+
+                    <button onClick={handleAuth} className={styles.connect}>Connect</button>
                 </div>
-            }
+            
         </>
     );
 }

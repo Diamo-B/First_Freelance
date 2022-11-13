@@ -58,3 +58,9 @@ model Item{
   Cart Cart? @relation(fields: [CartId],references: [Id])
   CartId Int?
 }
+
+model Administrator{
+  Id Int @id @default(autoincrement())
+  Username String
+  Password String
+}

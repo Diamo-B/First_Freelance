@@ -15,6 +15,18 @@
   padding-top: .7em;
   max-width: 350px;
   margin-inline: auto;
+  margin-bottom: 1em;
+}
+
+.LoginError
+{
+  padding: 0 .7em;
+  border: 1px solid gray;
+  border-radius: 15px;
+  color: red;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: var(--fw-bold);
 }
 
 .Login,.pass
@@ -58,3 +70,4 @@
   border-color: #999999;
   cursor: pointer;
 }
+

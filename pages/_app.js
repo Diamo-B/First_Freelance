@@ -8,7 +8,7 @@ import AdminLayout from '../components/Layouts/AdminLayout';
 import { useRouter } from 'next/router';
 import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps:{ session, ...pageProps } }) {
   const router = useRouter();
   if(router.asPath.includes('/Categories')){
    return(
@@ -33,9 +33,9 @@ function MyApp({ Component, pageProps }) {
       </FavoritesLayout>
     );
   }
-  else if(router.asPath.includes('Admin') && !router.asPath.includes('api')){
+  else if(router.asPath.includes('/Admin') && !router.asPath.includes('api')){
     return(
-        <SessionProvider>
+        <SessionProvider session={session}>
           <AdminLayout>
             <Component {...pageProps} />
           </AdminLayout>

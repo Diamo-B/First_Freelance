@@ -1,16 +1,23 @@
 import Link from "next/link"; 
-/* import { useRouter } from "next/router"; */
-const Menu = ({isActive, setIsActive}) => {
-   /*  const router = useRouter(); */
+import { useRouter } from "next/router";
+import {signOut} from 'next-auth/react'
+
+const Menu = ({isActive, setIsActive, isAdmin}) => {
+   const router = useRouter();
     return ( 
         <div className={isActive? "Menu-active" : "Menu-hidden"}> {/* The menu panel */}
             <img className="closeButton" onClick={()=>setIsActive(false)} src="/close.svg" alt="close button" />
             <div className="categories menuCats">
-                <Link className="cat" href='/Categories/Electroniques'>Electroniques</Link>
-                <Link className="cat" href='/Categories/Cosmétiques'>Cosmétiques</Link>
-                <Link className="cat" href='/Categories/Cuisine'>Cuisine</Link>
-                <Link className="cat" href='/Categories/Divers'>Divers</Link>
-                {/* <button onClick={()=>router.push('/api/auth/signin')}>Administration panel</button> */}
+                <Link href='/Categories/Electroniques'>Electroniques</Link>
+                <Link href='/Categories/Cosmétiques'>Cosmétiques</Link>
+                <Link href='/Categories/Cuisine'>Cuisine</Link>
+                <Link href='/Categories/Divers'>Divers</Link>
+                {
+                    isAdmin?
+                    <button className="AdminAccessButton" onClick={()=>signOut({ callbackUrl: 'http://localhost:3000' })}>SignOut</button>
+                    :
+                    <button className="AdminAccessButton" onClick={()=>router.push('/api/auth/signin')}>Administration panel</button>
+                }
             </div>
         </div>
     );

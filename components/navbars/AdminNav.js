@@ -5,6 +5,7 @@ const AdminNav = ({setIsActive, isActive}) => {
     const changeMenuState = () => {
         setIsActive(!isActive);
     }
+    
     return ( 
         <nav>
             <div className="top">
