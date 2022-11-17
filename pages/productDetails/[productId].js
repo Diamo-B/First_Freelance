@@ -102,7 +102,7 @@ const ProductDetails = ({data}) => {
                 {data.BrandName && <p className={styles.marque}>Marque: {data.BrandName}</p>}
             </div>
             <div className={styles.price}>
-                { data.DiscountRate?
+                { data.DiscountRate?                       
                     <>
                         <p className={styles.actual}>{Discounted} DH</p>
                         <p className={styles.oldPrice}>{data.Price} DH</p>

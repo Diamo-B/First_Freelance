@@ -10,11 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Status {
-  InStock
-  OutOfStock
-}
-
 model Product{
   Id Int @id @default(autoincrement())
   Uuid String @unique @default(uuid())
@@ -25,7 +20,6 @@ model Product{
   DiscountRate Float?
   Category Category @relation(fields: [CategoryId], references: [Id]) //? one to many between Category and Product
   CategoryId Int //! The field containing the ID of the Category of this product
-  Status Status
   Favorite Boolean @default(false)
   Stock Int @default(0)
   Item Item[]
@@ -61,6 +55,6 @@ model Item{
 
 model Administrator{
   Id Int @id @default(autoincrement())
-  Username String
+  Username String @unique
   Password String
 }

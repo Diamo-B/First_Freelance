@@ -4,14 +4,18 @@ let prisma = new PrismaClient();
 export default async function handler(req, res) {
     let Title = req.body.Title;
     let BrandName = req.body.BrandName;
-    let Price  = req.body.Price;
-    let DiscountRate  = req.body.DiscountRate;
-    let CategoryId  = req.body.CategoryId;
-    let Stock  = req.body.Stock;
-    let Status = Stock>0?'InStock':'OutOfStock';
+    let Price  = parseFloat(req.body.Price);
+    let DiscountRate  = parseInt(req.body.DiscountRate);
+    let Category  = req.body.Category;
+    let Stock  = parseInt(req.body.Stock);
     let Favorite  = req.body.Favorite;
-    let thumbnailsPaths = req.body.thumbnailsPaths;
+    let ThumbnailNames = req.body.Images;
 
+    let category = await prisma.category.findFirst({
+        where:{
+            Title:Category
+        }
+    });
 
     let Product = await prisma.product.create({
         data:{
@@ -20,18 +24,23 @@ export default async function handler(req, res) {
             Price,
             DiscountRate,
             Stock,
-            Status,
             Favorite,
             Category:{
                 connect:{
-                    Id: CategoryId
+                    Id: category.Id
                 }
             }
         },
     })
 
-    thumbnailsPaths.forEach(path => {
-        prisma.thumbnail.create({
+    let thumbnailsPaths=[];
+
+    ThumbnailNames.map(name=>{
+        thumbnailsPaths.push('/productsImages/product_'+Product.Id+'/'+name)
+    })
+
+    thumbnailsPaths.map(async (path) => {
+        await prisma.thumbnail.create({
             data:{
                 Path: path,
                 Product:{

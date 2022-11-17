@@ -1,0 +1,92 @@
+.form
+{
+    display: grid;
+    grid-template-columns: .8fr;
+    gap: 1em;
+    justify-content: center;
+}
+
+.form label
+{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.row_flex
+{
+    flex-direction: row !important;
+    gap: 1em;
+}
+
+.pics_gap
+{
+    gap: .3em;
+    cursor: pointer;
+}
+
+.asterisk
+{
+    color: red;
+}
+
+.Textinput
+{
+    background-color: white;
+    border: 1px solid #999999;
+    padding: .5em;
+    border-radius: 10px;
+}
+
+.Textinput:focus
+{
+    outline-color: #42afc2;
+}
+
+.percent_holder
+{
+    position: relative;
+}
+
+.percent_text
+{
+    position: absolute;
+    top: 50%;
+    left:90%;
+    font-weight: var(--fw-bold);
+    font-size: 1rem;
+}
+
+.form select option:focus-visible
+{
+    background-color: #999999;    
+} 
+
+.images
+{
+    display: none;
+}
+
+
+.submit
+{
+    background-color: white;
+    margin-block: 1em;
+    background-color: white;
+    color: #6D6D6D;
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    text-align: center;
+    padding-block: 0.5em;
+    min-width: 7em;
+    border-radius: 20px;
+    border: 2px solid ;
+    width: 100%;
+}
+
+.submit:hover
+{
+    background-color: #b1b1b1;
+    color: white;
+}
