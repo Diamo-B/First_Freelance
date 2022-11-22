@@ -1,7 +1,11 @@
 import { PrismaClient } from "@prisma/client"
+import fs from "fs";
+
 let prisma = new PrismaClient();
 
+
 export default async function handler(req, res) {
+
     let Title = req.body.Title;
     let BrandName = req.body.BrandName;
     let Price  = parseFloat(req.body.Price);
@@ -52,6 +56,13 @@ export default async function handler(req, res) {
         })
     });
 
+    let folder = './public/productsImages/product_'+Product.Id+'/';
+
+    fs.mkdir(folder,{recursive: true}, function (err) {
+        return console.log(err);
+    });
+
+    return res.json(folder);
 
 }
   

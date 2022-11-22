@@ -8,13 +8,14 @@ import AdminLayout from '../components/Layouts/AdminLayout';
 import { useRouter } from 'next/router';
 import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps:{ session, ...pageProps } }) {
+function MyApp({ Component, pageProps:{ session, ...pageProps }}) {
   const router = useRouter();
+
   if(router.asPath.includes('/Categories')){
    return(
       <CategoryLayout>
           <Component {...pageProps} />
-        </CategoryLayout>
+      </CategoryLayout>
       )
   }
   else if(router.asPath.includes('productDetails')||router.asPath.includes('Cart'))

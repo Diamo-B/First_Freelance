@@ -34,6 +34,11 @@
     color: #25D366;
 }
 
+.category:hover
+{
+    cursor: pointer;
+}
+
 .price
 {
     display: flex;
@@ -137,6 +142,11 @@
     text-align: center;
 }
 
+.Panier:hover 
+{
+    cursor: pointer;
+}
+
 .Panier a
 {
     text-decoration: none;
@@ -172,9 +182,11 @@
     height: 100%;
     background-color: hsla(0, 0%, 50%,0.9);
     z-index: 999;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 
@@ -215,4 +227,24 @@
     line-height: 1.3em;
     text-align: center;
     margin-bottom: 1em;
+}
+
+.minus:hover
+{
+    cursor: pointer;
+}
+
+.plus:hover
+{
+    cursor: pointer;
+}
+
+.closeNullQuantity
+{
+    margin-bottom: 1em;
+}
+
+.closeNullQuantity:hover
+{
+    cursor: pointer;
 }

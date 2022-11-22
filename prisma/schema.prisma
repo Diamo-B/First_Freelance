@@ -35,7 +35,7 @@ model Thumbnail{
 
 model Category{
   Id Int @id @default(autoincrement())
-  Title String
+  Title String @unique
   Products Product[] //? one to many between Category and Product
 }
 

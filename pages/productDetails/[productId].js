@@ -133,7 +133,6 @@ const ProductDetails = ({data}) => {
                             if(Quantity>0){
                                 let found = 0;
                                 let check = await checkProductPresenceInCart(); 
-                                console.log(check)
                                 check[0].Items.map(prod => {
                                     if(prod.ProductId == data.Id)
                                     {
@@ -158,7 +157,7 @@ const ProductDetails = ({data}) => {
             {!CanAddCart && <QuantityNullPanel  Quantity={Quantity} totalStock={totalStock} RemoveQte={RemoveQte} AddQte={AddQte} CartisNull={true} setCanAddCart={setCanAddCart} saveToDatabase={saveToDatabase} ProductPresentInCart={ProductPresentInCart} setProductPresentInCart={setProductPresentInCart}
             checkProductPresenceInCart={checkProductPresenceInCart} Id={data.Id}/>}
 
-            {ProductPresentInCart && <CartXProductPresence setProductPresentInCart={setProductPresentInCart} setCanAddCart={setCanAddCart}/>}
+            {ProductPresentInCart && <CartXProductPresence/>}
         </div>
     );
 }

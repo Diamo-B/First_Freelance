@@ -6,11 +6,11 @@ import {PrismaClient} from '@prisma/client';
 let prisma = new PrismaClient();
 
 export async function getStaticPaths(){
-  const categories = ["Electroniques","Cosmétiques","Cuisine","Divers","Favoris"];
-  let paths  = categories.map((categoryName)=>{
+  const categories = await prisma.category.findMany();
+  let paths  = categories.map((cat)=>{
     return{
       params:{
-        category: categoryName
+        category: cat.Title
       }
     }
   });
@@ -45,9 +45,10 @@ export async function getStaticProps({params}){
 }
 
 const Category = ({products}) => {
+  console.log(products);
   let calculateDiscount = (data) =>{
     return data.DiscountRate?data.Price-(data.Price*data.DiscountRate/100):null;
-}
+  }
   return(
     <div className='body'>
       <div className={styles.products}>

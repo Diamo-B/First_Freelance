@@ -1,6 +1,6 @@
 import {useSession} from 'next-auth/react';
 
-const updateProduct = () => {
+const UpdateProduct = () => {
     const {data:session} = useSession({required: true});
 
     if(!session)
@@ -14,4 +14,4 @@ const updateProduct = () => {
     );
 }
  
-export default updateProduct;
+export default UpdateProduct;

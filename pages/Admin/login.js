@@ -5,7 +5,7 @@ import {signIn,useSession} from "next-auth/react";
 import { useRouter } from "next/router";
 
 
-const adminLogin = () => {
+const AdminLogin = () => {
     const {data:session} = useSession();
     const router = useRouter();
     if(session)
@@ -31,7 +31,6 @@ const adminLogin = () => {
                 setError(null);
                 window.location.replace('/Admin');
             } else {
-                console.log(error)
                 setError("nom d'utilisateur ou mot de passe incorrectes");
             }
         })
@@ -62,4 +61,4 @@ const adminLogin = () => {
     );
 }
  
-export default adminLogin;
+export default AdminLogin;

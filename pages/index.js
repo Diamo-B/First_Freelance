@@ -2,12 +2,12 @@ import styles from '../styles/Home.module.css'
 import MySwiper from '../components/Swiper'
 import Link from 'next/link';
 import Cookies from 'js-cookie';
+import { useEffect } from 'react';
 
 import { PrismaClient } from '@prisma/client';
-import { useEffect } from 'react';
 let prisma = new PrismaClient();
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   let products = await prisma.product.findMany({
     take: 5,
     where:{
@@ -58,16 +58,18 @@ async function addCart(){
 }
 
 export default function Home({products}) {
+ 
   useEffect(()=>{
     addCart();
   },[]);
+
 return (  
       <div className="content">
         <div className={styles.header}>
           <h1>Favoris</h1>
           <Link href="/Favorites"><h3>Voir Plus &gt;</h3></Link>
         </div>
-        { products.length!==0 && <MySwiper products={products}/> }
+        {products.length!==0 && <MySwiper products={products}/> }
       </div>
   )
 }

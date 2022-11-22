@@ -24,7 +24,7 @@ const AdminHome = () => {
                         <Link href="/Admin/forms/products/Remove"><button>Supprimer un produit</button></Link>
                     </div>
                 </div>
-                <div className={styles.container}>
+                {/* <div className={styles.container}>
                     <h2>Category</h2>
                     <p>Choisissez ce que vous voulez faire:</p>
                     <div className={styles.buttons}>
@@ -32,7 +32,7 @@ const AdminHome = () => {
                         <Link href="/Admin/forms/categories/Update"><button>Modifier une category</button></Link>
                         <Link href="/Admin/forms/categories/Remove"><button>Supprimer une category</button></Link>
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
     );
