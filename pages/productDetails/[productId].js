@@ -87,7 +87,7 @@ const ProductDetails = ({data}) => {
     }
     
     let calculateDiscount = () =>{
-        return data.DiscountRate?data.Price-(data.Price*data.DiscountRate/100):null;
+        return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
     }
     let totalStock = data.Stock;
     let Discounted = calculateDiscount();
@@ -105,7 +105,7 @@ const ProductDetails = ({data}) => {
                 { data.DiscountRate?                       
                     <>
                         <p className={styles.actual}>{Discounted} DH</p>
-                        <p className={styles.oldPrice}>{data.Price} DH</p>
+                        <p className={styles.oldPrice}>{data.Price.toFixed(2)} DH</p>
                         <div className={styles.reduction}>{data.DiscountRate}%</div>
                     </>
                     :

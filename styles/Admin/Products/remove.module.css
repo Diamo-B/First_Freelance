@@ -1,5 +1,135 @@
-.container
+.container {
+  width: 80%;
+  margin-inline: auto;
+}
+
+.catBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.submit {
+  background-color: white;
+  margin-block: 0.2em;
+  background-color: white;
+  color: #6d6d6d;
+  font-size: 1rem;
+  font-weight: var(--fw-bold);
+  text-align: center;
+  padding-block: 0.5em;
+  min-width: 7em;
+  border-radius: 20px;
+  border: 2px solid;
+  width: 90%;
+}
+
+.submit:hover {
+  background-color: #b1b1b1;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: var(--fw-semi-bold);
+  color: #565656;
+}
+
+.semi_title {
+  font-size: 1.5rem;
+}
+
+/*-----------------------------------Search Bar Related Stuff-----------------------------------------*/
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.3em;
+}
+
+.search input {
+  width: 350px;
+  border: 1px solid black;
+  border-radius: 14px;
+  padding: 0.5em 1em;
+  text-align: center;
+  font-weight: var(--fw-semi-bold);
+}
+
+.search input::placeholder {
+  font-weight: var(--fw-regular);
+  color: black;
+  text-align: center;
+}
+
+.search input:focus {
+  outline-color: #00c896;
+}
+
+.extended {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.dataResult {
+  margin-top: 5px;
+  width: 350px;
+  height: auto;
+  max-height: 200px;
+  background-color: white;
+  border: 1px solid #00c896;
+  border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-semi-bold);
+  color: black;
+}
+
+.dataItem {
+  text-decoration: none;
+}
+
+.dataItem:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.relative
 {
-    width: 80%;
-    margin-inline: auto;
+  position:relative;
+}
+
+
+.Zindex
+{
+  position: absolute;
+  z-index: 999;
+  left:0;
+  right:0;
+  margin-inline: auto;
 }

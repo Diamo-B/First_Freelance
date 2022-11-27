@@ -1,12 +1,25 @@
 import Navbar from "../navbars/Navbar";
 import Footer from '../Footer';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Menu from "../Menu";
 import Head from "next/head";
 
-
 const Layout = ({children}) => {
   const [isActive, setIsActive] = useState(false);
+  let [searchData,setSearchData] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/products/getAllProducts",{
+        method:"GET",
+        headers:{
+            "Content-Type":"application/json"
+        }
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      setSearchData(data)
+    })
+  }, []);
 
   return ( 
     <>
@@ -15,7 +28,7 @@ const Layout = ({children}) => {
       </Head> 
       <div className="body">
         <Menu isActive={isActive} setIsActive={setIsActive}/>
-        <Navbar isActive={isActive} setIsActive={setIsActive}/>
+        <Navbar isActive={isActive} setIsActive={setIsActive} searchData={searchData}/>
         <main>
           {children}
         </main>

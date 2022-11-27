@@ -70,8 +70,6 @@
 .submit
 {
     background-color: white;
-    margin-block: 1em;
-    background-color: white;
     color: #6D6D6D;
     font-size: 1rem;
     font-weight: var(--fw-bold);
@@ -81,12 +79,17 @@
     border-radius: 20px;
     border: 2px solid ;
     width: 100%;
-}
+}  
 
 .submit:hover
 {
     background-color: #b1b1b1;
     color: white;
+}
+
+.margin_bottom
+{
+    margin-bottom: 1em;
 }
 
 .error

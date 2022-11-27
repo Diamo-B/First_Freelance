@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     let Title = req.body.Title;
     let BrandName = req.body.BrandName;
     let Price  = parseFloat(req.body.Price);
-    let DiscountRate  = parseInt(req.body.DiscountRate);
+    let DiscountRate  = req.body.DiscountRate!== null? parseInt(req.body.DiscountRate):req.body.DiscountRate;
     let Category  = req.body.Category;
     let Stock  = parseInt(req.body.Stock);
     let Favorite  = req.body.Favorite;

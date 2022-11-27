@@ -58,7 +58,9 @@ const AddProduct = ({categories}) => {
     const {register, handleSubmit, formState:{errors} , trigger, reset, setValue} = useForm();
 
     let onSubmitForm = async (values) => { 
-        
+        let Brand = values.Brand===""?null:values.Brand
+        let Discount = values.Discount===""?null:values.Discount
+        console.log(Brand,Discount);
         await fetch("http://localhost:3000/api/products/addProduct",{
             method: 'POST',
             headers:{
@@ -66,9 +68,9 @@ const AddProduct = ({categories}) => {
             },
             body:JSON.stringify({
                 Title: values.Title,
-                BrandName: values.Brand,
+                BrandName: Brand,
                 Price: values.Price,
-                DiscountRate: values.Discount,
+                DiscountRate: Discount,
                 Category: values.Category,
                 Stock: values.Stock,
                 Favorite: values.Favorite,
@@ -214,7 +216,7 @@ const AddProduct = ({categories}) => {
                 </label>
 
                 <label htmlFor="images" className={styles.pics_gap}>
-                    <span>Ajouter des Photos <span className={styles.asterisk}>*</span></span>
+                    <span className={styles.submit}>Ajouter des Photos <span className={styles.asterisk}>*</span></span>
                     <input className={styles.images} id="images" name="images_toUpload"  type="file" accept="image/*" multiple
                     {...register("Img",
                         {
@@ -230,9 +232,9 @@ const AddProduct = ({categories}) => {
                     <span {...register("Images")}></span>
                     <span id='imagesnames'></span>
                 </label>
-                <button onClick={()=>removeAllImages()}>Clear Images</button>
+                <span className={styles.submit} onClick={()=>removeAllImages()}>Clear Images</span>
 
-                <button className={styles.submit} type='submit' onClick={()=>{
+                <button className={[styles.submit,styles.margin_bottom].join(' ')} type='submit' onClick={()=>{
                     let imageText = document.getElementById('imagesnames').innerText;
                     let imagesArray = imageText.replace(/[\r\n]/gm, ',').split(',');
                     setValue("Images",imagesArray);

@@ -5,29 +5,15 @@ import Link from 'next/link';
 import {PrismaClient} from '@prisma/client';
 let prisma = new PrismaClient();
 
-export async function getStaticPaths(){
-  const categories = await prisma.category.findMany();
-  let paths  = categories.map((cat)=>{
-    return{
-      params:{
-        category: cat.Title
-      }
-    }
-  });
-  return{
-    paths,
-    fallback: false
-  }
-}
+export async function getServerSideProps(context) {
+  const catname = context.params.category;
 
-export async function getStaticProps({params}){
-  let categoryName = params.category;
 
   const products = await prisma.product.findMany({
     where:{
       Category:{
         Title:{
-          contains: categoryName
+          contains: catname
         }
       }
     },
@@ -39,15 +25,15 @@ export async function getStaticProps({params}){
     return {
       props: {
         products,
+        catname
       },
     }
 
 }
 
-const Category = ({products}) => {
-  console.log(products);
+const Category = ({products,catname}) => {
   let calculateDiscount = (data) =>{
-    return data.DiscountRate?data.Price-(data.Price*data.DiscountRate/100):null;
+    return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
   }
   return(
     <div className='body'>
@@ -58,7 +44,7 @@ const Category = ({products}) => {
                 <div className={styles.product}>
                   <img className={styles.productImg} src={product.Thumbnails[0].Path} alt='product image' width={143} height={144}/>
                   <p className={styles.title}>{(product.Title.length > 10)?`${product.Title.substring(0,15)}...`:product.Title}</p>
-                  <p className={styles.price}>{product.DiscountRate? calculateDiscount(product):product.Price} DH</p>
+                  <p className={styles.price}>{product.DiscountRate? calculateDiscount(product):product.Price.toFixed(2)} DH</p>
                 </div>
               </Link>
             </div>

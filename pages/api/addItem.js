@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-export default async (req, res) => {
+let AddItem =  async (req, res) => {
   let Qte = req.body.Qte;
   let newItem = await prisma.item.create({
     data:{
@@ -21,3 +21,5 @@ export default async (req, res) => {
 
   return res.status(200).json(newItem);
 };
+
+export default AddItem;

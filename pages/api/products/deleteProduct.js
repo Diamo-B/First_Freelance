@@ -1,29 +1,28 @@
 import { PrismaClient } from "@prisma/client"
 let prisma = new PrismaClient();
+import fs from 'fs';
 
 export default async function handler(req, res) {
-    let Id = req.body.Id;
-    let Title = req.body.Title;
-    
-    let response = await prisma.product.delete({
-        where:{
-            OR: [
-                {
-                    Title: 
-                    {
-                        equals: Title,
-                    }
-                },
-                {
-                    Id: 
-                    {
-                        equals: Id,
-                    },
-                },
-              ],
-        }
-    })
+    let productid = req.body.Id;
 
-    let data = await response.json();
-    return data;
+    await prisma.product.update({
+        where: {
+          Id: productid,
+        },
+        data: {
+          Thumbnails: {
+            deleteMany: {},
+          },
+        },
+      })
+      
+    const deleteProduct = await prisma.product.delete({
+        where: {
+            Id: productid
+        }
+    });
+
+    fs.rmSync('./public/productsImages/product_'+productid+'/', { recursive: true, force: true });
+
+    return res.status(200).json(deleteProduct);
 }

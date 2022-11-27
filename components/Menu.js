@@ -14,9 +14,12 @@ const Menu = ({isActive, setIsActive, isAdmin}) => {
                 <Link href='/Categories/Divers'>Divers</Link>
                 {
                     isAdmin?
-                    <button className="AdminAccessButton" onClick={()=>signOut({ callbackUrl: 'http://localhost:3000' })}>SignOut</button>
+                    <div className="AdminAccessPart">
+                        <button className="AdminAccessButton" onClick={()=>router.push('/api/auth/signin')}>Admin</button>
+                        <button className="AdminAccessButton" onClick={()=>signOut({ callbackUrl: 'http://localhost:3000' })}>SignOut</button>
+                    </div>
                     :
-                    <button className="AdminAccessButton" onClick={()=>router.push('/api/auth/signin')}>Administration panel</button>
+                    <button className="AdminAccessButton" onClick={()=>router.push('/api/auth/signin')}>Admin</button>
                 }
             </div>
         </div>

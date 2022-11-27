@@ -34,8 +34,9 @@ const Cart = () => {
             body: JSON.stringify({
                 Id: itemId
             }),
-        });
-        router.reload();
+        }).then(()=>{
+            router.reload();
+        })
     }
 
     let CalculateTotalPrice = () => {
@@ -46,7 +47,7 @@ const Cart = () => {
             else
                 total += item.Quantity*item.Product.Price;
         });
-        return total;
+        return total.toFixed(2);
     }
     let total;
     let text = "Cart Id: "+data[0].Id;
@@ -61,16 +62,16 @@ const Cart = () => {
                         <div className={styles.details}>
                             <div className={styles.top}>
                                 <h2>{trimTitle(item.Product.Title)}</h2>
-                                <Image onClick={()=>deleteItem(item.Id)} src="/removeFromCart.svg" alt="Remove product from cart" width={16} height={18}/>
+                                <Image onClick={()=>{deleteItem(item.Id)}} src="/removeFromCart.svg" alt="Remove product from cart" width={16} height={18}/>
                             </div>
                             <div className={styles.bottom}>
                                 <p className={styles.Unit}>{
-                                    item.Product.DiscountRate?item.Product.Price-(item.Product.Price*item.Product.DiscountRate/100):item.Product.Price
+                                    item.Product.DiscountRate?(item.Product.Price-(item.Product.Price*item.Product.DiscountRate/100)).toFixed(2):item.Product.Price.toFixed(2)
                                 } DH par unité X <span className={styles.Qte}>{item.Quantity} Piéces</span></p>
                                 <p className={styles.SubTotal}>
                                 Sous-Total = 
                                 <span> {
-                                    item.Product.DiscountRate?item.Quantity*(item.Product.Price-(item.Product.Price*item.Product.DiscountRate/100)):item.Quantity*item.Product.Price
+                                    item.Product.DiscountRate?(item.Quantity*(item.Product.Price-(item.Product.Price*item.Product.DiscountRate/100))).toFixed(2):(item.Quantity*item.Product.Price).toFixed(2)
                                 } DH</span></p>
                             </div>
                         </div>
@@ -85,22 +86,20 @@ const Cart = () => {
                 <div className={styles.instructions}>
                     N.B: Veuillez appuyez sur le boutton ci-dessous et envoyer le message que vous allez trouver inséré dans votre chat box Whatsapp. <br/> <span>Cart Id: X</span> Merci pour votre confiance &#128522;
                 </div>
-                <a
-                    href={" https://wa.me/212618272611?text="+encodeURIComponent(text)}
-                >
+                
                     { total==0?
                         <button disabled>
                             <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
                             Commander par whatsapp
                         </button>    
                     :
-                        <button>
-                            <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
-                            Commander par whatsapp
-                        </button> 
-                            
-                        }
-                </a>
+                        <a href={" https://wa.me/212618272611?text="+encodeURIComponent(text)}>
+                            <button>
+                                <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
+                                Commander par whatsapp
+                            </button>         
+                        </a>
+                    }
             </div>   
         </div>
 

@@ -15,7 +15,7 @@ const MySwiperSlide = ({product}) => {
     }
     
     let calculateDiscount = (data) =>{
-        return data.DiscountRate?data.Price-(data.Price*data.DiscountRate/100):null;
+        return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
     }
     
 
@@ -31,7 +31,7 @@ const MySwiperSlide = ({product}) => {
                         <h1 className={styles.productName}>{trimTitle(product.Title)}</h1>
                         <div className={styles.prices}>
                             <p className={styles.actual}>{calculateDiscount(product)} DH</p>
-                            <p className={styles.old}>{product.Price} DH</p>
+                            <p className={styles.old}>{product.Price.toFixed(2)} DH</p>
                         </div>
                     </>
                     :
@@ -40,7 +40,7 @@ const MySwiperSlide = ({product}) => {
                             <p className={styles.center}>{product.Category.Title}</p>
                         </div>
                         <h1 className={styles.productName}>{trimTitle(product.Title)}</h1> 
-                        <p className={styles.Onlyprice}>{product.Price} DH</p>
+                        <p className={styles.Onlyprice}>{product.Price.toFixed(2)} DH</p>
                     </>
                 }
             </div>

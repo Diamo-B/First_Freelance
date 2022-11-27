@@ -1,24 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
+import Styles from '/styles/Admin/Products/remove.module.css'
+import ProductSearchBar from "/components/productsSearchBar";
 
-
-const Navbar = ({setIsActive, isActive}) => {
-    
+const Navbar = ({setIsActive, isActive,searchData}) => {
     const changeMenuState = () => {
         setIsActive(!isActive);
     }
-    
     return ( 
-        <nav>
+        <nav className={Styles.relative}>
             <div className="top">
-                <Image onClick={changeMenuState} src="/menuicon.svg" alt="menu" width={25} height={18.94}/>
+                <Image className="menuIcon" onClick={changeMenuState} src="/menuicon.svg" alt="menu" width={25} height={18.94}/>
                 <Link href="/"><Image className="navLogo" src="/logo.svg" alt="logo" width={60} height={60}/></Link>
                 <Link href="/Cart"><Image src="/cart.svg" alt="cart" width={27.06} height={20.5}/></Link>
             </div>
-            <div className="search">
-                <input type="text" placeholder="Rechercher un produit"/>
-            </div>
+            <ProductSearchBar searchData={searchData}/>
             <div className="categories-box">
                 <div className="categories">
                     <Link href='/Categories/Electroniques'>Electroniques</Link>

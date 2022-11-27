@@ -29,6 +29,11 @@ a{
     position: relative;
 }
 
+.menuIcon
+{
+    cursor: pointer;
+}
+
 .Menu-active
 {
     background-color: aqua;
@@ -59,6 +64,11 @@ a{
 .closeButton
 {
     margin-bottom: 2em;
+}
+
+.closeButton:hover
+{
+    cursor: pointer;
 }
 
 .menuCats
@@ -257,4 +267,13 @@ footer
     min-width: 7em;
     border: none;
     border-radius: 20px;
+}
+
+.AdminAccessPart
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    gap: 1em;
 }
