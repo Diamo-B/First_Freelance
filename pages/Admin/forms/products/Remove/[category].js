@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import {PrismaClient} from '@prisma/client';
+import RemoveSucess from '/components/Admin/Products/RemovingSuccessPanle';
+import {useSession} from 'next-auth/react';
+
 let prisma = new PrismaClient();
-import RemoveSucess from '/components/Admin/Products/RemovingSuccessPanle'
 
 export async function getServerSideProps(context)
 {
@@ -28,6 +30,15 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
     let deletedproduct;
     let [deleted,isDeleted] = useState(false);
  
+    const {data:session} = useSession({required: true});
+
+    if(!session)
+    {
+        return( // this is rendered to fix the split second before redirection where the admin page is shown while the session is missing
+            <></>
+        )
+    }
+
     let deleteProduct = async (id) => {
         let data = await fetch('http://localhost:3000/api/products/deleteProduct',{
             method: "DELETE",

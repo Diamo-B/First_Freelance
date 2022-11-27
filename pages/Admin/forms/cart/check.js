@@ -1,5 +1,6 @@
 import styles from '/styles/Admin/Carts/get.module.css'
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 export async function getServerSideProps()
 {
@@ -16,6 +17,13 @@ export async function getServerSideProps()
 }
 
 const CheckCart = ({data}) => {
+    const {data:session} = useSession({required: true});  
+    if(!session)
+    {
+        return( // this is rendered to fix the split second before redirection where the admin page is shown while the session is missing
+            <></>
+        )
+    }
     let [cartId,setCartId]=useState(null);
     let [canShowData, setCanShowData] = useState(null);
     let [notFound, setNotFound] = useState(null);
