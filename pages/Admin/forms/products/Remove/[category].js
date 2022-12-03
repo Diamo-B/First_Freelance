@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {PrismaClient} from '@prisma/client';
 import RemoveSucess from '/components/Admin/Products/RemovingSuccessPanle';
 import {useSession} from 'next-auth/react';
+import Styles from '/styles/Admin/Products/remove.module.css'
 
 let prisma = new PrismaClient();
 
@@ -27,9 +28,7 @@ export async function getServerSideProps(context)
 
 
 let RemoveCatItems = ({catTitle, catProducts}) => {
-    let deletedproduct;
     let [deleted,isDeleted] = useState(false);
- 
     const {data:session} = useSession({required: true});
 
     if(!session)
@@ -49,7 +48,7 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
                 Id: id
             })
         })
-        deletedproduct = await data.json();
+        let deletedproduct = await data.json();
         isDeleted(deletedproduct);
     }
     
@@ -61,39 +60,37 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
                 :
                 ""
             }
-            <h1>{catTitle}</h1>
-            <div className="table-responsive">
-            <table className="table">
-                <thead>
-                    <tr>
-                    <th scope="col">
-                        <div className="form-check">
-                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+            {
+                catProducts.length > 0?
+                    <>
+                        <h1>{catTitle}</h1>
+                        <div className="table-responsive">
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Titre</th>
+                                        <th scope="col">Stock Actuel</th>
+                                        <th scope="col">Del</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        catProducts.map((product) => (
+                                            <tr key={product.Id}>
+                                                <td>{product.Title}</td>
+                                                <td>{product.Stock}</td>
+                                                <td className='text-center'><img src="/removeFromCart.svg" onClick={()=>deleteProduct(product.Id)}/></td>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </table> 
                         </div>
-                    </th>
-                    <th scope="col">Titre</th>
-                    <th scope="col">Stock Actuel</th>
-                    <th scope="col">Del</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        catProducts.map((product) => (
-                            <tr key={product.Id}>
-                                <th scope="row">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    </div>
-                                </th>
-                                <td>{product.Title}</td>
-                                <td>{product.Stock}</td>
-                                <td className='text-center'><img src="/removeFromCart.svg" onClick={()=>deleteProduct(product.Id)}/></td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-                </table> 
-            </div>
+                    </>
+                :
+                    <p className={Styles.error}>Pas de produits disponibles dans la category {catTitle}</p>
+            } 
+            
         </>
     );
 }

@@ -5,6 +5,10 @@ import {useRouter} from "next/router";
 const ProductSearchBar = ({searchData}) => {
     let [filteredData,setFilteredData] = useState([]);
     
+    let handleFocus = () => {
+        setFilteredData(searchData);
+    }
+
     let handleFilter = (event) => {
         const searchWord = event.target.value;
         const newFilter = searchData.filter((value) => {
@@ -19,7 +23,7 @@ const ProductSearchBar = ({searchData}) => {
     return (
         <>
             <div className="search">
-                <input type="text" id="searchinput" onChange={(event)=>{handleFilter(event)}} placeholder="Rechercher un Produit"/>
+                <input type="text" id="searchinput" onBlur={()=>{setFilteredData([])}} onFocus={handleFocus} onChange={(event)=>{handleFilter(event)}} placeholder="Rechercher un Produit"/>
             </div>
             {
                 filteredData.length != 0 && (

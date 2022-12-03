@@ -6,6 +6,7 @@
 .catBox {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
 
 .center {
@@ -42,6 +43,15 @@
 
 .semi_title {
   font-size: 1.5rem;
+}
+
+.error
+{
+  font-size: 1.5rem;
+  color: red;
+  text-align: center;
+  font-weight: var(--fw-semi-bold);
+  margin-block: 3em;
 }
 
 /*-----------------------------------Search Bar Related Stuff-----------------------------------------*/
@@ -113,11 +123,6 @@
   background-color: lightgrey;
   cursor: pointer;
 }
-
-
-
-
-
 
 .relative
 {

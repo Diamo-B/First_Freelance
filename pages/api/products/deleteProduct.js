@@ -13,8 +13,13 @@ export default async function handler(req, res) {
           Thumbnails: {
             deleteMany: {},
           },
+          Item: {
+            deleteMany: {},
+          },
         },
-      })
+    })
+
+    fs.rmSync('./public/productsImages/product_'+productid+'/', { recursive: true, force: true });
       
     const deleteProduct = await prisma.product.delete({
         where: {
@@ -22,7 +27,6 @@ export default async function handler(req, res) {
         }
     });
 
-    fs.rmSync('./public/productsImages/product_'+productid+'/', { recursive: true, force: true });
 
     return res.status(200).json(deleteProduct);
 }

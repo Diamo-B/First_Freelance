@@ -6,7 +6,7 @@ const RemoveSucess = ({isDeleted,deleted}) => {
     return ( 
         <div className={styles.Nullpanel}>
             <div className={styles.popUp}>
-                <p className={styles.successText}>Le produit {deleted.Uuid} est supprimé avec succés</p>
+                <p className={styles.successText}>Le produit "{deleted.Title}" supprimé avec succés</p>
                 <button className={styles.submit} 
                     onClick={()=>{
                         isDeleted(false);

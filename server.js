@@ -14,12 +14,7 @@ app.prepare().then(()=>{
     server.use(express.static(path.join(__dirname, '/public')))
     server.use('/_next', express.static(path.join(__dirname, '/.next')))
 
-    server.get('/testImages/:id', (req, res) => {
-        const actualPage = '/testImages'
-        const queryParams = { id: req.params.id } 
-        app.render(req, res, actualPage, queryParams)
-    })
-        
+
     server.all('*',(req,res) => {
         return handle(req,res);
     })

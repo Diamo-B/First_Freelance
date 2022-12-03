@@ -60,7 +60,6 @@ const AddProduct = ({categories}) => {
     let onSubmitForm = async (values) => { 
         let Brand = values.Brand===""?null:values.Brand
         let Discount = values.Discount===""?null:values.Discount
-        console.log(Brand,Discount);
         await fetch("http://localhost:3000/api/products/addProduct",{
             method: 'POST',
             headers:{

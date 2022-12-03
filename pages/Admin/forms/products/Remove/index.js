@@ -2,7 +2,6 @@ import {useSession} from 'next-auth/react';
 import {PrismaClient} from "@prisma/client";
 import styles from "/styles/Admin/Products/remove.module.css";
 import { useRouter } from 'next/router';
-import Link from "next/link";
 import SearchBar from '/components/searchBar';
 
 export async function getServerSideProps()
@@ -33,12 +32,10 @@ const RemoveProduct = ({products,categories}) => {
             <p className={styles.title}>Séléctionner une catégorie</p>
             {   categories?
                 <div className={styles.catBox}>
-                    {categories.map(cat => (
-                        
-                        <Link className={styles.center} key={cat.Id} href={router.pathname+"/"+encodeURIComponent(cat.Title)}>
-                            <button className={styles.submit}>{cat.Title}</button>
-                        </Link>
-                    
+                    {categories.map(cat => (    
+                        <button key={cat.Id} className={[styles.center,styles.submit].join(' ')}
+                            onClick={()=>router.push(router.pathname+"/"+encodeURIComponent(cat.Title))}
+                        >{cat.Title}</button>                    
                     )) }
                 </div>
                 :
