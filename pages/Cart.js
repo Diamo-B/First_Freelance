@@ -3,14 +3,20 @@ import Image from 'next/image';
 import Cookies from 'js-cookie';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
-
-
+import { useState } from 'react';
+import OrderForm from '/components/order/OrderForm';
+import SuccessPanel from '/components/order/SuccessPanel';
+import OrderFailPanel from '/components/order/FailPanel';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const Cart = () => {
+    let [orderForm,setOrderForm] = useState(null);
+    let [orderSuccess,setOrderSuccess] = useState(null);
+    let [orderFailed,setOrderFailed] = useState(null);
+
     const router = useRouter();
-    const { data, error } = useSWR('/api/getCart/'+Cookies.get('cart'), fetcher);
+    const { data, error } = useSWR('/api/carts/getCart/'+Cookies.get('cart'), fetcher);
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
     let items = data[0].Items;
@@ -26,7 +32,7 @@ const Cart = () => {
     }
 
     let deleteItem = async (itemId) => {
-        fetch('/api/removeCartItem',{
+        fetch('/api/items/removeCartItem',{
             method: 'DELETE',
             headers:{
             'Content-type': 'application/json',
@@ -49,6 +55,58 @@ const Cart = () => {
         });
         return total.toFixed(2);
     }
+
+    let commanderDirectement = (values) => {
+        let cartId = data[0].Id;
+        let productIds = [];
+        data[0].Items.map((item) => {
+            productIds.push(item.Product.Id)
+        });
+        let ClientFname = values.FirstName;
+        let ClientLname = values.LastName;
+        let phoneNumber = values.PhoneNum === "" ? null : values.PhoneNum;
+        let wtspNumber = values.WtspNum === "" ? null : values.WtspNum;
+        
+        fetch("/api/orders/create",{
+            method:"POST",
+            headers:{
+                "Content-Type" : "application/json"
+            },
+            body:JSON.stringify({
+                fname       : ClientFname,
+                lname       : ClientLname,
+                phone       : phoneNumber,
+                wtspPhone   : wtspNumber,
+                productIds    : productIds
+            })
+        })
+        .then(async (data) => {
+            fetch("/api/items/RemoveAllCartItems",{
+                method:"DELETE",
+                headers:{
+                    "Content-Type" : "application/json"
+                },
+                body:JSON.stringify({
+                    CartId: cartId
+                })
+            })
+            .then(()=>{
+                setOrderForm(false);
+                setOrderSuccess(true);
+            })
+            .catch((err) => {
+                console.log(err);
+                setOrderForm(false);
+                setOrderFailed(true);
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+            setOrderForm(false);
+            setOrderFailed(true);
+        })
+    }
+
     let total;
     let text = "Cart Id: "+data[0].Id;
     
@@ -87,20 +145,49 @@ const Cart = () => {
                     N.B: Veuillez appuyez sur le boutton ci-dessous et envoyer le message que vous allez trouver inséré dans votre chat box Whatsapp. <br/> <span>Cart Id: X</span> Merci pour votre confiance &#128522;
                 </div>
                 
-                    { total==0?
-                        <button disabled>
+                { total==0?
+                    <>
+                        <button disabled className={styles.buttonwtsp}>
                             <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
                             Commander par whatsapp
-                        </button>    
-                    :
-                        <a href={" https://wa.me/212618272611?text="+encodeURIComponent(text)}>
-                            <button>
-                                <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
-                                Commander par whatsapp
-                            </button>         
-                        </a>
-                    }
-            </div>   
+                        </button>
+                        <span className={styles.or}>Ou</span>
+                        <button disabled className={styles.commanderDirect}>Commander directement Ici</button>
+                    </>   
+                :
+                    <>
+                    <a href={" https://wa.me/212618272611?text="+encodeURIComponent(text)}>
+                        <button className={styles.buttonwtsp}>
+                            <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
+                            Commander par whatsapp
+                        </button>         
+                    </a>
+                    <span className={styles.or}>Ou</span>
+                    <button className={styles.commanderDirect} onClick={()=>setOrderForm(true)}>Commander directement Ici</button>
+                    </>
+                }
+            </div>
+            {
+                orderForm &&
+                (
+                    <OrderForm submitAction={commanderDirectement} setOrderForm={setOrderForm}/>
+                )
+                
+            }
+            {
+                orderSuccess &&
+                (
+                    // TODO: create a success order panel
+                    <SuccessPanel setOrderSuccess={setOrderSuccess}/>
+                )
+            }
+            {
+                orderFailed &&
+                (
+                    // TODO: create a success order panel
+                    <OrderFailPanel setOrderFailed={setOrderFailed}/>
+                )
+            }   
         </div>
 
     );

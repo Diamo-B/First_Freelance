@@ -1,12 +1,8 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from '/prisma/dbInstance.ts';
 
 export default async function handler(req,res){
-    const { CartId } = req.query
-    const resp = await prisma.cart.findMany({
-        where:{
-            Id: Number(CartId)
-        },
+
+    const response = await prisma.cart.findMany({
         include:{
             Items:{
                 include:{
@@ -20,5 +16,5 @@ export default async function handler(req,res){
             
         }
     });
-    return res.status(200).json(resp)
+    return res.status(200).json(response)
 }

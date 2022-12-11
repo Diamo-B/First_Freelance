@@ -6,7 +6,7 @@ import ProductSearchBar from "/components/productsSearchBar";
 const CatPageNav = ({category,searchData}) => {
   return (
     <nav className={Styles.relative}>
-    <Link href="/"><Image className="goBack" src="/goBack.svg" alt="back" width={37} height={38}/></Link>
+      <Link href="/"><Image className="goBack" src="/goBack.svg" alt="back" width={37} height={38}/></Link>
       <div className="top">
         <Link href="/"><Image className="navLogo" src="/logo.svg" alt="logo" width={60} height={60} /></Link>
       </div>

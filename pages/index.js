@@ -3,21 +3,20 @@ import MySwiper from '../components/Swiper'
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
-
-import { PrismaClient } from '@prisma/client';
-let prisma = new PrismaClient();
+import { prisma } from '/prisma/dbInstance.ts';
 
 export const getServerSideProps = async () => {
-  let products = await prisma.product.findMany({
-    take: 5,
-    where:{
-      Favorite: true
-    },
-    include:{
-      Thumbnails: true,
-      Category: true
-    }
-  });
+  
+    let products = await prisma.product.findMany({
+      take: 5,
+      where:{
+        Favorite: true
+      },
+      include:{
+        Thumbnails: true,
+        Category: true
+      }
+    });
   
   return {
     props :{products}
@@ -28,7 +27,7 @@ async function addCart(){
   let cookieCart = Cookies.get('cart');
   if(cookieCart==undefined)
   {
-    const res = await fetch('/api/addCart',
+    const res = await fetch('/api/carts/addCart',
     {
       method: 'POST',
       headers: {
@@ -41,7 +40,7 @@ async function addCart(){
   } 
   else
   {
-    const res = await fetch('/api/getCart/'+parseInt(cookieCart),
+    const res = await fetch('/api/carts/getCart/'+parseInt(cookieCart),
     {
       method: 'GET',
       headers:{

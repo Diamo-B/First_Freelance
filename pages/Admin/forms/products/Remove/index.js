@@ -1,12 +1,11 @@
 import {useSession} from 'next-auth/react';
-import {PrismaClient} from "@prisma/client";
+import { prisma } from '/prisma/dbInstance.ts';
 import styles from "/styles/Admin/Products/remove.module.css";
 import { useRouter } from 'next/router';
 import SearchBar from '/components/searchBar';
 
 export async function getServerSideProps()
 {
-    let prisma = new PrismaClient();
     let products = await prisma.product.findMany();
     let categories = await prisma.category.findMany();
     return{
@@ -29,6 +28,9 @@ const RemoveProduct = ({products,categories}) => {
 
     return ( 
         <>
+            <div className={styles.pageTitle_holder}>
+                <h3 className={styles.pageTitle}>Supprimer produits</h3>
+            </div>
             <p className={styles.title}>Séléctionner une catégorie</p>
             {   categories?
                 <div className={styles.catBox}>

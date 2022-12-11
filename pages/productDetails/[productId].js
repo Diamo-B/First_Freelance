@@ -1,19 +1,18 @@
-import styles from '../../styles/productDetails.module.css';
-import DetailsSwiper from '../../components/detailsSwiper/Swiper';
-import QuantityChoice from '../../components/QuantityChooser';
+import styles from '/styles/productDetails.module.css';
+import DetailsSwiper from '/components/detailsSwiper/Swiper';
+import QuantityChoice from '/components/QuantityChooser';
 import Cookies from 'js-cookie';
-import QuantityNullPanel from '../../components/QuantityNullPanel';
-import CartXProductPresence from '../../components/ProductPresentInCartPanel'
+import QuantityNullPanel from '/components/QuantityNullPanel';
+import CartXProductPresence from '/components/ProductPresentInCartPanel'
+import Image from 'next/image';
 
 //Router
 import { useRouter } from 'next/router';
 
 //prisma
-import {PrismaClient} from '@prisma/client';
+import { prisma } from '/prisma/dbInstance.ts';
 import { useState } from 'react';
 
-
-let prisma = new PrismaClient();
 
 export async function getServerSideProps(context) {
     const prodid = Number(context.query.productId);
@@ -42,7 +41,7 @@ const ProductDetails = ({data}) => {
     let [ProductPresentInCart, setProductPresentInCart] = useState(false);
 
     const checkProductPresenceInCart = async() => {
-        const response = await fetch('/api/getCart/'+Number(Cookies.get('cart')),{
+        const response = await fetch('/api/carts/getCart/'+Number(Cookies.get('cart')),{
             method: 'GET',
             headers:{
                 'Content-type': 'application/json',
@@ -54,7 +53,7 @@ const ProductDetails = ({data}) => {
 
     const saveToDatabase = async (prodId,Qte) => {
     
-        const res = await fetch('/api/addItem', {
+        const res = await fetch('/api/items/addCartItem', {
             method: 'POST',
             headers:{
             'Content-type': 'application/json',
@@ -121,7 +120,7 @@ const ProductDetails = ({data}) => {
             <div className= {styles.Commander} style={(!CanAddCart || ProductPresentInCart)?{marginBottom: 0+'em'}:null}>
                 <div className={styles.Tel}>
                     <a href="tel:+212607232880">
-                        <img src="/tel.svg" alt="tel"/>
+                        <Image src="/tel.svg" alt="tel" width={20} height={20}/>
                     </a>
                 </div>
                 <p>Ou</p>

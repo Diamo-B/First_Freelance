@@ -1,7 +1,3 @@
-.container {
-  width: 80%;
-  margin-inline: auto;
-}
 
 .catBox {
   display: grid;
@@ -34,15 +30,39 @@
   color: white;
 }
 
-.title {
+.title,.pageTitle {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: var(--fw-semi-bold);
   color: #565656;
 }
 
+.pageTitle
+{
+  font-size: 1.6rem;
+  border: 3px solid #565656;
+  border-radius: 15px;
+  padding: .5em;
+  display: inline-block;
+}
+
+.pageTitle_holder
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
 .semi_title {
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+
+
+.flex_container
+{
+    display: flex;
+    justify-content: center;
+    padding: 0.4em !important
 }
 
 .error
@@ -64,7 +84,7 @@
 
 .search input {
   width: 350px;
-  border: 1px solid black;
+  border: 2px solid #565656;
   border-radius: 14px;
   padding: 0.5em 1em;
   text-align: center;
@@ -73,8 +93,9 @@
 
 .search input::placeholder {
   font-weight: var(--fw-regular);
-  color: black;
+  color: #565656;
   text-align: center;
+  font-size: 1.1rem;
 }
 
 .search input:focus {

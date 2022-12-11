@@ -1,34 +1,34 @@
 import styles from '../../styles/Category.module.css'
 import Link from 'next/link';
+import Image from 'next/image';
+
 
 //prisma
-import {PrismaClient} from '@prisma/client';
-let prisma = new PrismaClient();
+import { prisma } from '/prisma/dbInstance.ts';
 
 export async function getServerSideProps(context) {
+
   const catname = context.params.category;
 
-
-  const products = await prisma.product.findMany({
-    where:{
-      Category:{
-        Title:{
-          contains: catname
+  let products = await prisma.product.findMany({
+      where:{
+        Category:{
+          Title:{
+            contains: catname
+          }
         }
-      }
-    },
-    include:{
-      Thumbnails: true
-    }
-  }); 
-    
-    return {
-      props: {
-        products,
-        catname
       },
-    }
+      include:{
+        Thumbnails: true
+      }
+  })
 
+  return {
+    props: {
+      products,
+      catname
+    },
+  }
 }
 
 const Category = ({products,catname}) => {
@@ -42,7 +42,7 @@ const Category = ({products,catname}) => {
             <div  key={product.Id}>
               <Link href={`/productDetails/${encodeURIComponent(product.Id)}`}>
                 <div className={styles.product}>
-                  <img className={styles.productImg} src={product.Thumbnails[0].Path} alt='product image' width={143} height={144}/>
+                  <Image className={styles.productImg} src={product.Thumbnails[0].Path} alt='product image' width={143} height={144}/>
                   <p className={styles.title}>{(product.Title.length > 10)?`${product.Title.substring(0,15)}...`:product.Title}</p>
                   <p className={styles.price}>{product.DiscountRate? calculateDiscount(product):product.Price.toFixed(2)} DH</p>
                 </div>

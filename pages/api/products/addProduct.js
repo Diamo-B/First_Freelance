@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client"
+import { prisma } from '/prisma/dbInstance.ts';
 import fs from "fs";
 
-let prisma = new PrismaClient();
 
 
 export default async function handler(req, res) {

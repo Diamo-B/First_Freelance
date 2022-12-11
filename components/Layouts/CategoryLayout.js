@@ -9,7 +9,7 @@ const CategoryLayout = ({children}) => {
   let [searchData,setSearchData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products/getAllProducts",{
+    fetch("/api/products/getProducts/getAllProducts",{
         method:"GET",
         headers:{
             "Content-Type":"application/json"
@@ -31,8 +31,8 @@ const CategoryLayout = ({children}) => {
         <main>
           {children}
         </main>
-        <Footer/>
     </div>
+    <Footer/>
     </>
   );
 };

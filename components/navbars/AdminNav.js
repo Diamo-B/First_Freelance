@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "/styles/Admin/index.module.css"
 
 const AdminNav = ({setIsActive, isActive}) => {
     const changeMenuState = () => {
@@ -7,7 +8,7 @@ const AdminNav = ({setIsActive, isActive}) => {
     }
     
     return ( 
-        <nav>
+        <nav className={styles.noMb}>
             <div className="top">
                 <Image className="menuIcon" onClick={changeMenuState} src="/menuicon.svg" alt="menu" width={25} height={18.94}/>
                 <Link href="/"><Image className="navLogo" src="/logo.svg" alt="logo" width={60} height={60}/></Link>

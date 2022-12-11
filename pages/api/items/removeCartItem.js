@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from '/prisma/dbInstance.ts';
 
  let removeCartItem = async (req, res) => {
     let itemId = req.body.Id;

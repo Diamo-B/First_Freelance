@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from '/prisma/dbInstance.ts';
 
 let AddItem =  async (req, res) => {
   let Qte = req.body.Qte;

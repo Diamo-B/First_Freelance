@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import {PrismaClient} from '@prisma/client';
-import RemoveSucess from '/components/Admin/Products/RemovingSuccessPanle';
+import { prisma } from '/prisma/dbInstance.ts';
+import RemoveSucess from '/components/Admin/Products/RemovingSuccessPanel';
 import {useSession} from 'next-auth/react';
-import Styles from '/styles/Admin/Products/remove.module.css'
-
-let prisma = new PrismaClient();
+import styles from '/styles/Admin/Products/remove.module.css'
+import Image from 'next/image';
 
 export async function getServerSideProps(context)
 {
@@ -39,7 +38,7 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
     }
 
     let deleteProduct = async (id) => {
-        let data = await fetch('http://localhost:3000/api/products/deleteProduct',{
+        let data = await fetch('/api/products/deleteProduct',{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json"
@@ -63,23 +62,25 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
             {
                 catProducts.length > 0?
                     <>
-                        <h1>{catTitle}</h1>
+                        <div className={styles.pageTitle_holder}>
+                            <h3 className={styles.pageTitle}>{catTitle}</h3>
+                        </div>
                         <div className="table-responsive">
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Titre</th>
-                                        <th scope="col">Stock Actuel</th>
-                                        <th scope="col">Del</th>
+                                        <th scope="col" className='text-center'>Titre</th>
+                                        <th scope="col" className='text-center'>Stock</th>
+                                        <th scope="col" className='text-center'>Del</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
                                         catProducts.map((product) => (
                                             <tr key={product.Id}>
-                                                <td>{product.Title}</td>
-                                                <td>{product.Stock}</td>
-                                                <td className='text-center'><img src="/removeFromCart.svg" onClick={()=>deleteProduct(product.Id)}/></td>
+                                                <td className='text-center'>{product.Title}</td>
+                                                <td className='text-center'>{product.Stock}</td>
+                                                <td className={styles.flex_container}><Image src="/removeFromCart.svg" alt='remove item' width={15} height={30} onClick={()=>deleteProduct(product.Id)} /></td>
                                             </tr>
                                         ))
                                     }
@@ -88,7 +89,7 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
                         </div>
                     </>
                 :
-                    <p className={Styles.error}>Pas de produits disponibles dans la category {catTitle}</p>
+                    <p className={styles.error}>Pas de produits disponibles dans la category {catTitle}</p>
             } 
             
         </>

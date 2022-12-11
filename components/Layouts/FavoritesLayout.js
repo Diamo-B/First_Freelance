@@ -18,8 +18,8 @@ const FavoritesLayout = ({children}) => {
             <main>
             {children}
             </main>
-            <Footer/>
         </div>
+        <Footer/>
         </>
     );
 }

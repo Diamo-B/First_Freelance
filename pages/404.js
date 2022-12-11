@@ -7,7 +7,7 @@ const NotFound = () => {
         setTimeout(()=>{
             router.push('/');
         },3000)
-    },[])
+    })
     return ( 
         <div className="content error">
             <h1>Erreur 404</h1>

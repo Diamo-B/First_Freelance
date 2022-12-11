@@ -1,10 +1,13 @@
 import Styles from '/styles/Admin/Products/remove.module.css'
 import { useState } from 'react';
 import DeletionPrompt from '/components/Admin/Products/DeletionPrompt'
+import {useRouter} from 'next/router';
 
-const SearchBar = ({products}) => {
+const SearchBar = ({products,modification}) => {
     let [filteredData,setFilteredData] = useState([]);
     let [promptData,setPromptData] = useState(false);
+
+    console.log(modification);
 
     let handleFilter = (event) => {
         const searchWord = event.target.value;
@@ -18,7 +21,7 @@ const SearchBar = ({products}) => {
     }
 
     let deleteProduct = async (value) => {
-        let data = await fetch("http://localhost:3000/api/products/deleteProduct",{
+        let data = await fetch("/api/products/deleteProduct",{
             method:"DELETE",
             headers:{
                 "Content-Type" : "application/json"
@@ -30,6 +33,14 @@ const SearchBar = ({products}) => {
         let deletedProduct = await data.json();
         setPromptData(deletedProduct.Uuid);
     }
+
+    let router = useRouter();
+    let modifyProduct = (product) => {
+       router.push({
+        pathname: router.pathname.replace('[category]','')+'/product/'+product.Id,
+        })
+    }
+
 
     return ( 
         <>
@@ -43,7 +54,11 @@ const SearchBar = ({products}) => {
                             <div className={Styles.dataResult}>
                                 {filteredData.slice(0, 15).map((value) => {
                                     return (
-                                    <a className={Styles.dataItem}  key={value.Id} onClick={()=>{deleteProduct(value)}}>
+                                    <a className={Styles.dataItem}  key={value.Id} 
+                                        onClick={()=>{
+                                            modification? modifyProduct(value) :deleteProduct(value)
+                                        }}
+                                    >
                                         {value.Title}
                                     </a>
                                     );

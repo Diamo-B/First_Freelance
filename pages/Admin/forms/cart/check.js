@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 
 export async function getServerSideProps() {
-  let res = await fetch("http://localhost:3000/api/getCart/allCarts", {
+  let res = await fetch(process.env.DOMAIN+"/api/carts/getCart/allCarts", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const CheckCart = ({ data }) => {
     <>
       <div className={styles.container}>
         <div className={styles.input}>
-          <label htmlFor="cartId">Entrer l'ID du panier</label>
+          <label htmlFor="cartId">Entrer l&apos;ID du panier</label>
           <input type="number" id="cartId" onChange={(event)=>{changeValue(event)}} />
           <button className={styles.button} onClick={findCartData}>Rechercher</button>
         </div>

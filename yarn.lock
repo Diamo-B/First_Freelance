@@ -463,6 +463,18 @@
   "resolved" "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.26.0.tgz"
   "version" "3.26.0"
 
+"cron-parser@~0.3.3":
+  "integrity" "sha512-fy/j2FFqg9zfFijjVjGA9gLAqRxCSKNoSObhaN0r72YtvDM3VXzYmAE3GNNRA3h0HUOjDU6LAKaetgb/wJ+gQg=="
+  "resolved" "https://registry.npmjs.org/cron-parser/-/cron-parser-0.3.6.tgz"
+  "version" "0.3.6"
+
+"cron@^2.1.0":
+  "integrity" "sha512-Hq7u3P8y7UWYvsZbSKHHJDVG0VO9O7tp2qljxzTScelcTODBfCme8AIhnZsFwmQ9NchZ3hr2uNr+s3DSms7q6w=="
+  "resolved" "https://registry.npmjs.org/cron/-/cron-2.1.0.tgz"
+  "version" "2.1.0"
+  dependencies:
+    "luxon" "^1.23.x"
+
 "cross-spawn@^7.0.2":
   "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w=="
   "resolved" "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz"
@@ -1437,6 +1449,11 @@
   dependencies:
     "yallist" "^4.0.0"
 
+"luxon@^1.23.x":
+  "integrity" "sha512-TfTiyvZhwBYM/7QdAVDh+7dBTBA29v4ik0Ce9zda3Mnf8on1S5KJI8P2jKFZ8+5C0jhmr0KwJEO/Wdpm0VeWJQ=="
+  "resolved" "https://registry.npmjs.org/luxon/-/luxon-1.28.0.tgz"
+  "version" "1.28.0"
+
 "media-typer@0.3.0":
   "integrity" "sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ=="
   "resolved" "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz"
@@ -1569,6 +1586,13 @@
     "@next/swc-win32-arm64-msvc" "13.0.0"
     "@next/swc-win32-ia32-msvc" "13.0.0"
     "@next/swc-win32-x64-msvc" "13.0.0"
+
+"node-crontab@^0.0.8":
+  "integrity" "sha512-IJ1LSlYV7zeqrY3/IStEjk6A43dyB/ps26HNPxAJD3V9I+6vfETC7l+L4MKvh4YaoEFjKIltXJOmyv/hPzsdZg=="
+  "resolved" "https://registry.npmjs.org/node-crontab/-/node-crontab-0.0.8.tgz"
+  "version" "0.0.8"
+  dependencies:
+    "cron-parser" "~0.3.3"
 
 "nodemon@^2.0.20":
   "integrity" "sha512-Km2mWHKKY5GzRg6i1j5OxOHQtuvVsgskLfigG25yTtbyfRGn/GNvIbRyOf1PSCKJ2aT/58TiuUsuOU5UToVViw=="

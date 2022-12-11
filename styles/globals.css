@@ -19,6 +19,13 @@ a{
 
 /*---------------------------------------------------------------------------------------*/
 
+#__next
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .body
 {
     min-width: 22.5em;
@@ -39,7 +46,7 @@ a{
     background-color: aqua;
     min-width: 22.5em;
     width: 100vw;
-    height: 55%;
+    height: 40%;
     z-index: 999;
     position: absolute;
     top: 0;
@@ -206,6 +213,7 @@ footer
     border-top: 2px solid #8A8989;
     text-align: center;
     min-width: 22.5em;
+    margin-top: auto ;
 }
 
 .Footerlogo

@@ -1,12 +1,13 @@
 import Link from "next/link"; 
 import { useRouter } from "next/router";
-import {signOut} from 'next-auth/react'
+import {signOut} from 'next-auth/react';
+import Image from 'next/image';
 
 const Menu = ({isActive, setIsActive, isAdmin}) => {
    const router = useRouter();
     return ( 
         <div className={isActive? "Menu-active" : "Menu-hidden"}> {/* The menu panel */}
-            <img className="closeButton" onClick={()=>setIsActive(false)} src="/close.svg" alt="close button" />
+            <Image className="closeButton" onClick={()=>setIsActive(false)} src="/close.svg" alt="close button" width={15} height={30}/>
             <div className="categories menuCats">
                 <Link href='/Categories/Electroniques'>Electroniques</Link>
                 <Link href='/Categories/Cosmétiques'>Cosmétiques</Link>

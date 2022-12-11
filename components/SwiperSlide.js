@@ -1,7 +1,5 @@
 import styles from '../styles/SwiperSlide.module.css';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-
+import Image from 'next/image';
 
 const MySwiperSlide = ({product}) => {
     let trimTitle = (str) => {
@@ -21,7 +19,7 @@ const MySwiperSlide = ({product}) => {
 
     return ( 
             <div className={styles.product}>
-                <img className={styles.img} src={product.Thumbnails[0].Path} alt="product" />
+                <Image className={styles.img} src={product.Thumbnails[0].Path} alt="product" width={300} height={180}/>
                 {product.DiscountRate?
                     <>
                         <div className={styles.product_details}>

@@ -1,3 +1,8 @@
+.noMb
+{
+    margin-bottom: 0 !important;
+}
+
 .title
 {
     text-align: center;

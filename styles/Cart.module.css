@@ -86,13 +86,13 @@
     margin-block: 1em;
 }
 
-.Total
+.Total, .or
 {
     color: #565656;
     font-weight: var(--fw-bold);
 } 
 
-.totalXsubmit button
+.buttonwtsp
 {
     display: flex;
     align-items: center;
@@ -126,4 +126,18 @@
 {
     font-size: 1.5rem;
     color: #00C896;
+}
+
+.commanderDirect
+{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: .5em 2.3em;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: var(--fw-bold);
+    background-color: #ACACAC;
+    outline: white solid 2px inset;
+    border-radius: 10px;
 }

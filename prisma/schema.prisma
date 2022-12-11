@@ -23,8 +23,8 @@ model Product{
   Favorite Boolean @default(false)
   Stock Int @default(0)
   Item Item[]
+  Orders Order[]
 }
-
 
 model Thumbnail{
   Id Int @id @default(autoincrement())
@@ -42,6 +42,8 @@ model Category{
 model Cart{
   Id Int @id @default(autoincrement())
   Items Item[]
+
+  CreatedAt DateTime @default(now())
 }
 
 model Item{
@@ -57,4 +59,15 @@ model Administrator{
   Id Int @id @default(autoincrement())
   Username String @unique
   Password String
+}
+
+model Order{
+  Id Int @id @default(autoincrement())
+  ClientFirstName String?
+  ClientLastName String?
+  ClientPhoneNumber String?
+  ClientWhatsappNumber String?
+  OrderProducts Product[]
+
+  CreatedAt DateTime @default(now())
 }

@@ -24,21 +24,20 @@ const AdminHome = () => {
                         <Link href="/Admin/forms/products/Remove"><button>Supprimer un produit</button></Link>
                     </div>
                 </div>
+
                 <div className={styles.container}>
                     <h2>Paniers</h2>
                     <div className={styles.buttons}>
                         <Link href="/Admin/forms/cart/check"><button>Consulter le contenu d&apos;un panier</button></Link>
                     </div>
                 </div>
-                {/* <div className={styles.container}>
-                    <h2>Category</h2>
-                    <p>Choisissez ce que vous voulez faire:</p>
+
+                <div className={styles.container}>
+                    <h2>Commandes</h2>
                     <div className={styles.buttons}>
-                        <Link href="/Admin/forms/categories/Add"><button>Ajouter une category</button></Link>
-                        <Link href="/Admin/forms/categories/Update"><button>Modifier une category</button></Link>
-                        <Link href="/Admin/forms/categories/Remove"><button>Supprimer une category</button></Link>
+                        <Link href="/Admin/forms/orders/check"><button>Consulter une commande</button></Link>
                     </div>
-                </div> */}
+                </div>
             </div>
         </>
     );
