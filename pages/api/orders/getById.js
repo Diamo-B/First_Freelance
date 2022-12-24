@@ -1,17 +1,28 @@
 import { prisma } from '/prisma/dbInstance.ts';
 
 export default async function handler(req, res) {
-    let id = req.body.id;
+    let str = req.originalUrl;
+    let id = str.substring(str.lastIndexOf("=")+1);
 
     await prisma.order.findFirst({
         orderBy: {
             CreatedAt: 'desc',
         },
         where:{
-            Id: id
+            Id: Number(id)
         },
         include:{
-            OrderProducts: true
+            OrderProducts: {
+                include:{
+                    Product:{
+                        select:{
+                            Title: true,
+                            Price: true,
+                            DiscountRate: true
+                        }
+                    }
+                },
+            },
         }
     })
     .then((data) => {

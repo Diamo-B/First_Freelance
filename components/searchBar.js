@@ -7,8 +7,6 @@ const SearchBar = ({products,modification}) => {
     let [filteredData,setFilteredData] = useState([]);
     let [promptData,setPromptData] = useState(false);
 
-    console.log(modification);
-
     let handleFilter = (event) => {
         const searchWord = event.target.value;
         const newFilter = products.filter((value) => {

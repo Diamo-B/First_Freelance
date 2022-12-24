@@ -6,7 +6,7 @@ const OrderFailPanel = ({ setOrderFailed }) => {
         <div className={styles.Form}>
             <p className={styles.failure}>
                 Erreur dans le passage de la commande. Veuillez réssayer🙏🏻. <br /> Si le
-                problème persiste, veuillez contacter l'administrateur via whatsapp ou
+                problème persiste, veuillez contacter l&apos;administrateur via whatsapp ou
                 téléphone sur:
             </p>
             <span className={styles.phoneNumber}>0618272611</span>

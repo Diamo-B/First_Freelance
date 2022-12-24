@@ -23,7 +23,7 @@ model Product{
   Favorite Boolean @default(false)
   Stock Int @default(0)
   Item Item[]
-  Orders Order[]
+  ProdXQuantity ProdXQuantity[]
 }
 
 model Thumbnail{
@@ -67,7 +67,16 @@ model Order{
   ClientLastName String?
   ClientPhoneNumber String?
   ClientWhatsappNumber String?
-  OrderProducts Product[]
+  OrderProducts ProdXQuantity[]
 
   CreatedAt DateTime @default(now())
+}
+
+model ProdXQuantity{
+  Id Int @id @default(autoincrement())
+  Product Product @relation(fields: [ProductId], references: [Id])
+  ProductId Int 
+  Quantity Int
+  Order Order? @relation(fields: [OrderId], references: [Id])
+  OrderId Int?  
 }

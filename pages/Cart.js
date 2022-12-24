@@ -58,10 +58,10 @@ const Cart = () => {
 
     let commanderDirectement = (values) => {
         let cartId = data[0].Id;
-        let productIds = [];
+        let products_Ids_Quantity = [];
         data[0].Items.map((item) => {
-            productIds.push(item.Product.Id)
-        });
+            products_Ids_Quantity.push({prodId : item.Product.Id, prodQuantity: item.Quantity})
+        });        
         let ClientFname = values.FirstName;
         let ClientLname = values.LastName;
         let phoneNumber = values.PhoneNum === "" ? null : values.PhoneNum;
@@ -77,7 +77,7 @@ const Cart = () => {
                 lname       : ClientLname,
                 phone       : phoneNumber,
                 wtspPhone   : wtspNumber,
-                productIds    : productIds
+                productIds    : products_Ids_Quantity
             })
         })
         .then(async (data) => {
@@ -95,16 +95,14 @@ const Cart = () => {
                 setOrderSuccess(true);
             })
             .catch((err) => {
-                console.log(err);
                 setOrderForm(false);
                 setOrderFailed(true);
             })
         })
         .catch((err) => {
-            console.log(err);
             setOrderForm(false);
             setOrderFailed(true);
-        })
+        }) 
     }
 
     let total;

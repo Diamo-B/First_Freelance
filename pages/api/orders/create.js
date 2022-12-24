@@ -5,10 +5,7 @@ export default async function handler(req, res) {
     let lastName = req.body.lname;
     let phoneNum = req.body.phone===""?null:req.body.phone;
     let whatsappPhoneNum = req.body.wtspPhone===""?null:req.body.wtspPhone;
-    let productIds = req.body.productIds; //needs to be an array of objects that has Id's
-
-    let productIdsObjects = productIds.map((a) => ({'Id':a}))  // [ {Id:1},{Id:2},{Id:3} ... ]
-    
+    let products_Ids_Quantity = req.body.productIds; 
 
     await prisma.order.create({
         data:{
@@ -16,18 +13,29 @@ export default async function handler(req, res) {
             ClientLastName          : lastName,
             ClientPhoneNumber       : phoneNum,
             ClientWhatsappNumber    : whatsappPhoneNum,
-            OrderProducts : {
-                connect: productIdsObjects,
-            }
         },
-        include:{
-            OrderProducts: true
-        }
     })
-    .then((data)=>{
+    .then(async(data)=>{
+        products_Ids_Quantity.map(async (obj) => {
+            await prisma.ProdXQuantity.create({
+                data:{
+                    Product:{
+                        connect:{
+                            Id: obj.prodId 
+                        }
+                    },
+                    Quantity: obj.prodQuantity,
+                    Order:{
+                        connect:{
+                            Id: data.Id
+                        }
+                    }
+                }
+            }); 
+        })
         return res.status(200).json(data);
     })
     .catch((err)=>{
-        return res.status(500).json(err);
+        return res.status(500).json(err+"error");
     })
 }

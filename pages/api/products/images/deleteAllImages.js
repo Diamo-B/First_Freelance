@@ -12,7 +12,7 @@ export default async function handler(req, res) {
           fs.unlink(path.join(folder, file), (err) => {
             if (err) throw err;
             else
-                console.log("file deleted successfully");
+              console.log("file deleted successfully");
           });
         }
     });

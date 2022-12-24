@@ -24,7 +24,7 @@ export async function getServerSideProps()
 }
 
 const CheckOrder = ({orders}) => {
-    console.log(orders);
+
     const {data:session} = useSession({required: true});
     if(!session)
     {
@@ -56,10 +56,7 @@ const CheckOrder = ({orders}) => {
                                             <td className='text-center'>{order.ClientFirstName+" "+order.ClientLastName}</td>
                                             <td className={styles.consultText}>
                                                 <Link
-                                                    href={{
-                                                        pathname: '/Admin/forms/orders/view',
-                                                        query: {Id: order.Id}
-                                                    }}
+                                                    href={'/Admin/forms/orders/view/'+order.Id}
                                                 >
                                                     Consulter
                                                 </Link>

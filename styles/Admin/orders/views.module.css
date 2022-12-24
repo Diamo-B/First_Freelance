@@ -1,0 +1,95 @@
+.card
+{
+    border: 2px solid #6D6D6D;
+    border-radius: 10px;
+    margin-inline: 1em;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    margin-bottom: 1em;
+}
+
+.font1
+{
+    font-size: 1.3rem;
+}
+
+.Title
+{
+    color: #6D6D6D;
+    margin-block: 1em;
+}
+
+.Data
+{
+    font-weight: bold;
+}
+
+.text_center
+{
+    text-align: center;
+}
+
+.flexProds
+{
+    display: flex;
+    gap: 3em;
+    justify-content: center;
+}
+
+.left
+{
+    text-align: left;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.subTotal,.Total
+{
+    color: #18d0d0;
+}
+
+.TotalText
+{
+    font-size: 1.3rem;
+    font-weight:var(--fw-bold);
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+.Total
+{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+}
+
+.resolved
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resolved > button
+{
+    padding: .5em 2em;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-block: 1em;
+    border: 4px solid red;
+    border-radius: 50px;
+    color: red;
+    background-color: white;
+}
+
+.resolved > button:hover
+{
+    background-color: red;
+    color: white;
+    border-color: white;
+}
