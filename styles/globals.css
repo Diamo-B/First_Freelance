@@ -321,4 +321,25 @@ footer
         font-size: .7rem;
         font-weight: bold;
     }
+
+    /*-------------------Category navbar desktop----------------*/
+
+    .flexCat
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .catNameDesktop
+    {
+        font-size: 1rem;
+        font-weight: bold;
+        display: inline;
+        padding: 1em 3em;
+        text-align: center;
+        border: 1px solid #6D6D6D;
+        background-color: #6D6D6D;
+        color: white;
+        border-radius: 35px;
+    }
 }
