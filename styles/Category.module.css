@@ -41,3 +41,11 @@
     font-size: 0.9375rem;
     color: #00C896;
 }
+
+@media (min-width:500px) {
+    .products
+    {
+        grid-template-columns: repeat(5,1fr);
+        gap: .5em;
+    }
+}

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 import { prisma } from '/prisma/dbInstance.ts';
+import useBetterMediaQuery from '/components/useBetterMediaQuery';
+import DesktopNoSwiper from '/components/DesktopAntiSwiper';
 
 export const getServerSideProps = async () => {
   
@@ -61,14 +63,22 @@ export default function Home({products}) {
   useEffect(()=>{
     addCart();
   },[]);
-
+  const isMobile = useBetterMediaQuery('(max-width: 500px)');
 return (  
       <div className="content">
         <div className={styles.header}>
           <h1>Favoris</h1>
           <Link href="/Favorites"><h3>Voir Plus &gt;</h3></Link>
         </div>
-        {products.length!==0 && <MySwiper products={products}/> }
+        {
+          isMobile?
+            products.length!==0 && <MySwiper products={products}/> 
+          :
+            products.length!==0 && 
+            <div style={{ marginBottom: '2em' }}>
+              <DesktopNoSwiper products={products.slice(0, 3)}/> 
+            </div>
+        }
       </div>
   )
 }

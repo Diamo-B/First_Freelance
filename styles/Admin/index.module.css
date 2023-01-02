@@ -59,3 +59,36 @@
     background-color: #b1b1b1;
     color: white;
 }
+
+/*---------------------------------------------------------------*/
+.TopDesktopContainer
+{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-block: 1em;
+    text-align: center; 
+    width: 60%;
+}
+
+.flex1
+{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 1em;
+}
+
+.flex2
+{
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    margin-bottom: 1em;
+}
+
+@media (min-width: 500px) {
+    .container
+    {
+        width: 45%;
+    }
+}

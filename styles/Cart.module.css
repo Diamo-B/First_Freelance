@@ -141,3 +141,19 @@
     outline: white solid 2px inset;
     border-radius: 10px;
 }
+
+
+@media (min-width: 500px) {
+    .item
+    {
+        display: grid;
+        gap: 1em;
+        width: 50%;
+        grid-template-columns: 1fr 3fr;
+        padding-inline: 1em;
+        padding-block: 1em;
+        border-bottom: 1px solid #6D6D6D;
+        align-self: center;
+    }
+
+}

@@ -1,4 +1,4 @@
-import styles from '../styles/Category.module.css'
+import styles from '/styles/Category.module.css'
 import Link from 'next/link';
 import { prisma } from '/prisma/dbInstance.ts';
 import Image from 'next/image';

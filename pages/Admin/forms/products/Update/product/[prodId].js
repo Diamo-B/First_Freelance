@@ -5,6 +5,7 @@ import { useState } from 'react';
 import {convertBase64} from '/components/Admin/form/convertToBase64';
 import ModificationSuccessPanel from '/components/Admin/Products/ModificationSuccessPanel';
 
+
 export async function getServerSideProps ({resolvedUrl })
 {
     let data = await fetch(process.env.DOMAIN+'/api/categories/getAllCategories',{
@@ -46,7 +47,6 @@ const ModifyProduct = ({categories,product}) => {
             <></>
         )
     }
-    
 
     let onSubmitForm = async (values) => {
 

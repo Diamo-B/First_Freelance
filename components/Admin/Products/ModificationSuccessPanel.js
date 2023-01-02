@@ -1,5 +1,6 @@
+import { useRouter } from 'next/router';
 import styles from '/styles/Admin/Products/add.module.css'
-import {useRouter} from 'next/router';
+
 
 const ModificationSuccessPanel = ({isModified,setIsModified}) => {
     let router = useRouter();
@@ -10,7 +11,7 @@ const ModificationSuccessPanel = ({isModified,setIsModified}) => {
                 <button className={styles.submit} 
                     onClick={()=>{
                         setIsModified(null);
-                        router.back();
+                        router.reload();
                     }}
                 >OK</button>           
             </div>

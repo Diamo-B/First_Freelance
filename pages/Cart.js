@@ -1,4 +1,4 @@
-import styles from '../styles/Cart.module.css'
+import styles from '/styles/Cart.module.css'
 import Image from 'next/image';
 import Cookies from 'js-cookie';
 import useSWR from 'swr';

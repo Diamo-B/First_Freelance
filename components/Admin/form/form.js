@@ -40,7 +40,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                     onKeyUp = {()=>{
                         trigger("Title")
                     }}
-                    placeholder={formType == "modifying"?product.Title:""}
+                    defaultValue={formType == "modifying"?product.Title:""}
                     />
                     {errors.Title&&<small className={styles.error}>{errors.Title.message}</small>}
                 </label>
@@ -50,7 +50,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                     className={styles.Textinput} 
                     type="text" 
                     {...register("Brand")}
-                    placeholder={formType == "modifying"?product.BrandName:""}/>
+                    defaultValue={formType == "modifying"?product.BrandName:""}/>
                 </label>
 
                 <label>
@@ -69,7 +69,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                             formType == "modifying" &&
                             {
                                 min:{value: 0,message: "Le prix ne peut pas être négatif"},
-                                pattern:{value: /^[0-9]*$/, message:"Le prix doit absolument être un nombre"}
+                                pattern:{value: /^[0-9]*$/, message:"Le prix doit absolument être un nombre"},
                             }
                         )
                     }
@@ -77,7 +77,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                         formType == "adding" &&
                         trigger("Price")
                     }}
-                    placeholder={formType == "modifying"?product.Price:""}
+                    defaultValue={formType == "modifying"?product.Price:""}
                     />
                     {errors.Price&&<small className={styles.error}>{errors.Price.message}</small>}
                 </label>
@@ -98,7 +98,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                     onKeyUp = {()=>{
                         trigger("Discount")
                     }}
-                    placeholder={formType == "modifying"?product.DiscountRate:""}
+                    defaultValue={formType == "modifying"?product.DiscountRate:""}
                     />
                     <p className={styles.percent_text}>%</p>
                     {errors.Discount&&<small className={styles.error}>{errors.Discount.message}</small>}
@@ -154,7 +154,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                         formType == "adding" &&
                         trigger("Stock")
                     }}
-                    placeholder = {formType == "modifying"?product.Stock:""}
+                    defaultValue = {formType == "modifying"?product.Stock:""}
                     />
                     {errors.Stock&&<small className={styles.error}>{errors.Stock.message}</small>}
                 </label>
@@ -167,7 +167,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                     defaultChecked={formType == "modifying"? product.Favorite : false}
                     {...register("Favorite")} 
                     onKeyUp = {()=>{formType == "adding" &&trigger("Favorite")}}
-                    placeholder={formType == "modifying"?product.favorite:""}
+                    defaultValue={formType == "modifying"?product.favorite:""}
                     />
                 </label>
 

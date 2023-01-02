@@ -46,7 +46,7 @@ a{
     background-color: aqua;
     min-width: 22.5em;
     width: 100vw;
-    height: 40%;
+    height: 60%;
     z-index: 999;
     position: absolute;
     top: 0;
@@ -341,5 +341,15 @@ footer
         background-color: #6D6D6D;
         color: white;
         border-radius: 35px;
+        margin-bottom: 1em;
+    }
+
+
+    /*----------------------index panel desktop-----------------------*/
+
+    .content
+    {
+        width: 70%;
+        margin-inline: auto;
     }
 }
