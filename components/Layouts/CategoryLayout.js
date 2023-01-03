@@ -1,4 +1,4 @@
-import CatPageNav from '../navbars/Navbar2'
+import CatPageNav from '/components/navbars/mobile/Navbar2'
 import Footer from "../Footer";
 import {useRouter} from 'next/router';
 import { useState,useEffect } from 'react';

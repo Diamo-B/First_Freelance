@@ -1,8 +1,8 @@
-import Navbar from "../navbars/Navbar";
+import Navbar from "/components/navbars/mobile/Navbar";
 import BrowserNavGen from "/components/navbars/browser/Navbar";
-import Footer from '../Footer';
+import Footer from '/components/Footer';
 import { useState, useEffect } from "react";
-import Menu from "../Menu";
+import Menu from "/components/Menu";
 import Head from "next/head";
 import useBetterMediaQuery from "/components/useBetterMediaQuery";
 

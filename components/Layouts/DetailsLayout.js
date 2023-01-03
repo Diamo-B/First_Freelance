@@ -1,7 +1,7 @@
-import Footer from "../Footer";
-import DetailPageNav from '../navbars/Navbar3';
+import Footer from "/components/Footer";
+import DetailPageNav from '/components/navbars/mobile/Navbar3';
 import { useState,useEffect } from "react";
-import Menu from "../Menu";
+import Menu from "/components/Menu";
 import Head from "next/head";
 import useBetterMediaQuery from "/components/useBetterMediaQuery";
 import BrowserNavGen from '/components/navbars/browser/Navbar'

@@ -1,8 +1,8 @@
 import Head from "next/head";
-import AdminNav from '../navbars/AdminNav'
+import AdminNav from '/components/navbars/mobile/AdminNav';
 import { useState } from "react";
-import Menu from '../Menu'
-import Footer from '../Footer'
+import Menu from '/components/Menu'
+import Footer from '/components/Footer'
 import useBetterMediaQuery from "/components/useBetterMediaQuery";
 import BrowserNavGen from '/components/navbars/browser/Navbar';
 
