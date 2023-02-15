@@ -8,7 +8,7 @@ const ModificationSuccessPanel = ({isModified,setIsModified}) => {
         <div className={styles.Nullpanel}>
             <div className={styles.popUp}>
                 <p className={styles.successText}>Le produit avec l&apos;Id &quot;{isModified}&quot; est modifié avec succés</p>
-                <button className={styles.submit} 
+                <button className={styles.btn} 
                     onClick={()=>{
                         setIsModified(null);
                         router.reload();

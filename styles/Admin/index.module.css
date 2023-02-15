@@ -86,6 +86,32 @@
     margin-bottom: 1em;
 }
 
+.signoutPanel
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-block: 1em;
+}
+
+.logoutBtn
+{
+    padding: .5em 3em;
+    border: 2px black solid;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: white;
+}
+
+.logoutBtn:hover
+{
+    border-color: white;
+    background-color: red;
+    color: white;
+}
+
 @media (min-width: 500px) {
     .container
     {

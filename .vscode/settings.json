@@ -1,3 +1,74 @@
 {
-    "svg.preview.background": "editor"
+    "svg.preview.background": "editor",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        ".vscode/": true,
+        "node_modules/": true,
+        ".next/": true,
+        "yarn.lock": true,
+        "README.md": true,
+        "package-lock.json": true,
+        "next.config.js": true,
+        ".gitignore": true,
+        ".eslintrc.json": true
+    },
+    "hidefiles.configurationType": "local",
+    "hidefiles.globalConfig": {
+        "profiles": [
+            {
+                "name": "Default",
+                "detail": "",
+                "description": "Test",
+                "hidden": [
+                    ".vscode/",
+                    "node_modules/",
+                    ".next/",
+                    "yarn.lock",
+                    "README.md",
+                    "package-lock.json",
+                    "next.config.js",
+                    ".gitignore",
+                    ".eslintrc.json",
+                    "yarn.lock"
+                ]
+            },
+            {
+                "name": "Strict",
+                "detail": "Hide everything not immediately required",
+                "hidden": [
+                    "yarn.lock",
+                    "README.md",
+                    "package.json",
+                    "package-lock.json",
+                    "next.config.js",
+                    ".gitignore",
+                    ".eslintrc.json",
+                    ".vscode/",
+                    ".next/",
+                    "node_modules/",
+                    "components/detailsSwiper/",
+                    "components/Layouts/",
+                    "components/menus/",
+                    "components/navbars/",
+                    "components/order/",
+                    "components/DesktopAntiSwiper.js",
+                    "components/Footer.js",
+                    "components/Menu.js",
+                    "components/ProductPresentInCartPanel.js",
+                    "components/productsSearchBar.js",
+                    "components/QuantityChooser.js",
+                    "components/QuantityNullPanel.js",
+                    "components/searchBar.js",
+                    "components/Swiper.js",
+                    "components/SwiperSlide.js",
+                    "components/useBetterMediaQuery.js"
+                ]
+            }
+        ]
+    },
+    "hidefiles.selectedProfile": "Default"
 }

@@ -36,7 +36,7 @@ app.prepare().then(()=>{
                                Id: cart.Id 
                             })
                         }).then(()=>{
-                            console.log("erased the cart "+cart.Id+" for being empty for too long to enlighten the db");
+                            console.log("erased the cart "+cart.Id+" for being empty for too long to lighten the db");
                         })
                     }
                })

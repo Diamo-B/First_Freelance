@@ -7,7 +7,7 @@ const AddSuccess = ({setIsAdded}) => {
         <div className={styles.Nullpanel}>
             <div className={styles.popUp}>
                 <p className={styles.successText}>Produit ajouté avec succés</p>
-                <button className={styles.submit} 
+                <button className={styles.btn} 
                     onClick={()=>{
                         setIsAdded(false);
                         router.push('/Admin');

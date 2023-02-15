@@ -21,6 +21,7 @@ const AddProduct = ({categories}) => {
     let [filesSaved, setFilesSaved] = useState(null);
 
     let onSubmitForm = async (values) => { 
+        console.log(values);
         let Brand = values.Brand===""?null:values.Brand
         let Discount = values.Discount===""?null:values.Discount
         await fetch("/api/products/addProduct",{
