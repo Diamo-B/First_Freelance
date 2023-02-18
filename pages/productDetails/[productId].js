@@ -1,5 +1,5 @@
-import styles from "/styles/productDetails.module.css";
-import DetailsSwiper from "/components/detailsSwiper/Swiper";
+import styles from "../../styles/productDetails.module.css";
+import DetailsSwiper from "../../components/detailsSwiper/Swiper";
 import QuantityChoice from "/components/QuantityChooser";
 import Cookies from "js-cookie";
 import QuantityNullPanel from "/components/QuantityNullPanel";

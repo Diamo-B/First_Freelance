@@ -16,9 +16,9 @@ const AdminNav = ({setIsActive, isActive}) => {
             </div>
             <div className="categories-box">
                 <div className="categories">
-                    <Link href='/Categories/Electroniques'>Electroniques</Link>
-                    <Link href='/Categories/Cosmétiques'>Cosmétiques</Link>
-                    <Link href='/Categories/Cuisine'>Cuisine</Link>
+                    <Link href='/Categories/Cheveux'>Cheveux</Link>
+                    <Link href='/Categories/Visage'>Visage</Link>
+                    <Link href='/Categories/Parfums'>Parfums</Link>
                     <Link href='/Categories/Divers'>Divers</Link>
                 </div>
             </div>

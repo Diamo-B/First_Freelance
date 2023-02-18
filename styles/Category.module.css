@@ -1,51 +1,144 @@
-.products
+/* -- Desktop -- */
+
+.gridShowcase
 {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(4,1fr);
     justify-items: center;
     text-align: center;
-    margin-bottom: 1em;
     gap: 1em;
+    margin-bottom: 2em;
 }
 
-.products a 
+.card
 {
-    text-decoration: none;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    max-width: 310px;
 }
 
-.product
+.card:hover
 {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3em;
+    cursor: pointer;
+    border-color: #00838d;
+    border-radius: 25px;
+/*     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+ */    box-shadow: 0px 0px 999px 999px rgba(255, 255, 255, 0.2);
+ 
+    z-index: 1000;
 }
 
-.productImg
+.gap
 {
-    border: 1px solid hsla(0, 0%, 0%, 0.5);
-    border-radius: 10px;
+    height: .6em;
+}
+
+.showcase
+{
+    width: 300px;
+    height: 300px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    margin-inline: auto;
+}
+
+.card:hover .showcase
+{
+    box-shadow: none;
+}
+
+.details
+{
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+.card:hover .details
+{
+    border-radius: 25px;
+    border-color: #00838d;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
 }
 
 .title
 {
     color: black ;
+    text-transform: capitalize;
+    font-size: 1.3rem;
 }
 
 .title:hover{
-    text-decoration: underline;
+    font-weight: 500;
+}
+
+.discountHolder
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.Discount
+{
+    color: rgb(179, 3, 3);
+    font-weight: 800;
+}
+
+.originalPrice
+{
+    color: #2F4858;
+    text-decoration:line-through;
+    font-size: 0.9rem;
 }
 
 .price
 {
     font-weight: 700;
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: #00C896;
 }
 
-@media (min-width:500px) {
-    .products
-    {
-        grid-template-columns: repeat(5,1fr);
-        gap: .5em;
-    }
+
+
+
+/* -- Mobile -- */
+
+.mobileGrid
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.mobileImages
+{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.mobileCard
+{
+    border: 1px solid black;
+    border-radius: 20px;
+    max-width: fit-content;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.mobileDetails
+{
+    border-top: 1px solid black;
+}
+
+.mobileDetails > .title
+{
+    font-size: 1.1rem;
+    text-transform: capitalize;
+}
+
+.mobileDetails > .price
+{
+    font-weight: 800;
 }

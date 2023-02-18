@@ -27,7 +27,7 @@ const CategoryLayout = ({children}) => {
   return (
     <>
     <Head>
-      <title>LoremIpsum.com | {router.query.category}</title>      
+      <title>LoremIpsum.com</title>      
     </Head> 
     <div className='body'> 
         {

@@ -1,4 +1,4 @@
-import styles from '/styles/SwiperSlide.module.css';
+import styles from '../styles/SwiperSlide.module.css';
 import Image from 'next/image';
 
 const MySwiperSlide = ({product}) => {
@@ -19,7 +19,7 @@ const MySwiperSlide = ({product}) => {
 
     return ( 
             <div className={styles.product}>
-                <Image className={styles.img} src={product.Thumbnails[0].Path} alt="product" width={300} height={180}/>
+                <Image className={styles.img} src={product.Thumbnails[0].Path} alt="product" width={300} height={300}/>
                 {product.DiscountRate?
                     <>
                         <div className={styles.product_details}>

@@ -12,9 +12,9 @@ const BrowserNavGen = ({searchData}) => {
                 <div className={styles.right}>
                     <Link href="/"><Image className="navLogo" src="/VIP7-logo.svg" alt="logo" width={60} height={60}/></Link>
                     <div className={styles.categories}>
-                        <Link href='/Categories/Electroniques'>Electroniques</Link>
-                        <Link href='/Categories/Cosmétiques'>Cosmétiques</Link>
-                        <Link href='/Categories/Cuisine'>Cuisine</Link>
+                        <Link href='/Categories/Cheveux'>Cheveux</Link>
+                        <Link href='/Categories/Visage'>Visage</Link>
+                        <Link href='/Categories/Parfums'>Parfums</Link>
                         <Link href='/Categories/Divers'>Divers</Link>
                     </div>
                 </div>

@@ -1,7 +1,6 @@
-import style from '/styles/Browser/indexPage.module.css';
-import styles from '/styles/SwiperSlide.module.css';
+import style from '../styles/Browser/indexPage.module.css';
+import styles from '../styles/SwiperSlide.module.css';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 
 const DesktopNoSwiper = ({products}) => {
@@ -20,15 +19,16 @@ const DesktopNoSwiper = ({products}) => {
         return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
     }
     return ( 
-        <div className={style.flex}>
+        <div className={style.grid}>
             {        
             products.map(product => {
                 return(
                     <div className={style.container} onClick={()=>{
                         router.push("/productDetails/"+encodeURIComponent(product.Id))
-                    }}>
+                    }} key={product.Id}
+                    >
                         <div className={styles.product}>
-                            <Image className={styles.img} src={product.Thumbnails[0].Path} alt="product" width={300} height={180}/>
+                            <img className={styles.img} src={product.Thumbnails[0].Path} alt="product"/>
                             {product.DiscountRate?
                                 <>
                                     <div className={styles.product_details}>

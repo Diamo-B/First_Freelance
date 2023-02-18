@@ -1,8 +1,7 @@
 import SwiperCore,{Pagination,EffectFade} from 'swiper';
 import { Swiper } from 'swiper/react';
 import { SwiperSlide } from 'swiper/react';
-import styles from '/styles/productDetails.module.css';
-import Image from "next/image";
+import styles from '../../styles/productDetails.module.css';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -25,7 +24,7 @@ const DetailsSwiper = ({images}) => {
         {
             images.map((image)=>(
                 <SwiperSlide key={image.Id}>
-                    <Image className={styles.img} src={image.Path} alt="product thumbnail"  width={300} height={180}/>
+                    <img className={styles.img} src={image.Path} alt="product thumbnail"/>
                 </SwiperSlide>
             ))
         }

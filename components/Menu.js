@@ -9,9 +9,9 @@ const Menu = ({isActive, setIsActive, isAdmin}) => {
         <div className={isActive? "Menu-active" : "Menu-hidden"}> {/* The menu panel */}
             <Image className="closeButton" onClick={()=>setIsActive(false)} src="/close.svg" alt="close button" width={15} height={30}/>
             <div className="categories menuCats">
-                <Link href='/Categories/Electroniques'>Electroniques</Link>
-                <Link href='/Categories/Cosmétiques'>Cosmétiques</Link>
-                <Link href='/Categories/Cuisine'>Cuisine</Link>
+                <Link href='/Categories/Cheveux'>Cheveux</Link>
+                <Link href='/Categories/Visage'>Visage</Link>
+                <Link href='/Categories/Parfums'>Parfums</Link>
                 <Link href='/Categories/Divers'>Divers</Link>
                 {
                     isAdmin?

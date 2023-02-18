@@ -221,29 +221,8 @@ footer
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.4375em;
-    margin-bottom: 0.3125em;
-}
-
-.Footerlogo img{
-    width: auto;
-}
-
-.Footerlogo p
-{
-    font-weight: var(--fw-semi-bold);
-    font-size: 0.9375rem;
-    color: #565656;
-}
-
-.text
-{
-    font-weight: var(--fw-thin);
-    max-width: 23em;
-    font-size: 0.625rem;
-    margin-inline: auto;
-    color: #565656;
-    margin-bottom: 1.25em;
+    position: relative;
+    margin-bottom: -1em;
 }
 
 .social-media
@@ -251,17 +230,21 @@ footer
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2.6875em;
-    margin-bottom: 1.3em;
+    gap: 1em;
+    justify-self: flex-end;
 }
 
-.Copyright
+.telFooter 
 {
-    font-weight: var(--fw-bold);
-    color:#4F4F4F;
-    font-size: 0.625rem;
-    margin-bottom: 1em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #00838d;
+    margin-block: 1em;
 }
+
 
 .AdminAccessButton
 {
@@ -286,6 +269,7 @@ footer
     gap: 1em;
 }
 
+
 @media (min-width: 700px) 
 {
     .DesktopFooter
@@ -299,8 +283,8 @@ footer
     {
         display: flex;
         gap: 1em;
-        margin-left: 5em;
         align-items: center;
+        margin-left: 5em;
     }
 
     .categories a 
@@ -351,5 +335,10 @@ footer
     {
         width: 70%;
         margin-inline: auto;
+    }
+
+    .Footerlogo
+    {
+        margin-bottom: 0;
     }
 }
