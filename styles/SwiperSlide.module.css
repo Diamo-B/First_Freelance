@@ -1,9 +1,27 @@
+.grid
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.container
+{
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 1em;
+}
+
+.container:hover
+{
+    cursor: pointer;
+}
 
 .product{
     max-width: 19.125em;
     margin-inline: auto;
     margin-bottom: 1em;
-    
 }
 
 .img
@@ -24,7 +42,7 @@
     margin-inline: auto;
     margin-top: 0.8125em;
     margin-bottom: 0.27625em;
-    
+
 }
 
 .product_details p
@@ -32,7 +50,6 @@
     font-weight: var(--fw-semi-bold);
     color: #ACACAC;
     font-size: 0.75rem;
-    text-transform: capitalize;
 }
 
 .product_details div
@@ -52,6 +69,7 @@
     font-weight: var(--fw-semi-bold);
     font-size: 1.25rem;
     color: black;
+    text-transform: capitalize;
 }
 
 .prices

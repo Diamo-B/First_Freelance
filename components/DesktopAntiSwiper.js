@@ -1,4 +1,3 @@
-import style from '../styles/Browser/indexPage.module.css';
 import styles from '../styles/SwiperSlide.module.css';
 import { useRouter } from 'next/router';
 
@@ -19,11 +18,11 @@ const DesktopNoSwiper = ({products}) => {
         return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
     }
     return ( 
-        <div className={style.grid}>
+        <div className={styles.grid}>
             {        
             products.map(product => {
                 return(
-                    <div className={style.container} onClick={()=>{
+                    <div className={styles.container} onClick={()=>{
                         router.push("/productDetails/"+encodeURIComponent(product.Id))
                     }} key={product.Id}
                     >

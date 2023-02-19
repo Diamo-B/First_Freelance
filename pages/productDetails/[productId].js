@@ -1,9 +1,10 @@
 import styles from "../../styles/productDetails.module.css";
 import DetailsSwiper from "../../components/detailsSwiper/Swiper";
-import QuantityChoice from "/components/QuantityChooser";
+import QuantityChoice from "../../components/QuantityChooser";
 import Cookies from "js-cookie";
-import QuantityNullPanel from "/components/QuantityNullPanel";
-import CartXProductPresence from "/components/ProductPresentInCartPanel";
+import QuantityNullPanel from "../../components/QuantityNullPanel.js";
+import CartXProductPresence from "../../components/ProductPresentInCartPanel.js";
+import useBetterMediaQuery from '../../components/useBetterMediaQuery.js';
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -88,85 +89,95 @@ const ProductDetails = ({ data }) => {
 
   let [CanAddCart, setCanAddCart] = useState(true);
 
+  const isMobile = useBetterMediaQuery('(max-width: 500px)');
+
   return (
-    <div className="body body-relative">
-      <DetailsSwiper images={data.Thumbnails} key={data.Id} />
-      <div className={styles.Details}>
-        <h1>{data.Title}</h1>
-        <p className={styles.category}>
-          Category: {data.Category.Title} |{" "}
-          <span
-            onClick={() => router.push("/Categories/" + data.Category.Title)}
-          >
-            Produits Similaires &gt;
-          </span>
-        </p>
-        {data.BrandName && (
-          <p className={styles.marque}>Marque: {data.BrandName}</p>
-        )}
-      </div>
-      <div className={styles.price}>
-        {data.DiscountRate ? (
-          <>
-            <p className={styles.actual}>{Discounted} DH</p>
-            <p className={styles.oldPrice}>{data.Price.toFixed(2)} DH</p>
-            <div className={styles.reduction}>{data.DiscountRate}%</div>
-          </>
-        ) : (
-          <p className={styles.actual}>{data.Price} DH</p>
-        )}
-      </div>
-      <QuantityChoice
-        Quantity={Quantity}
-        totalStock={totalStock}
-        RemoveQte={RemoveQte}
-        AddQte={AddQte}
-      />
-      <div className={styles.Disponibility}>
-        {data.Stock > 0 ? (
-          <p className={styles.in}>En Stock</p>
-        ) : (
-          <p className={styles.out}>Rupture de Stock</p>
-        )}
-      </div>
-      <div
-        className={styles.Commander}
-        style={
-          !CanAddCart || ProductPresentInCart
-            ? { marginBottom: 0 + "em" }
-            : null
-        }
-      >
-        <div className={styles.Tel}>
-          <a href="tel:+212607232880">
-            <Image src="/tel.svg" alt="tel" width={20} height={20} />
-          </a>
-        </div>
-        <p>Ou</p>
-        <div className={styles.Panier}>
-          <p
-            onClick={async () => {
-              if (Quantity > 0) {
-                let found = 0;
-                let check = await checkProductPresenceInCart();
-                check[0].Items.map((prod) => {
-                  if (prod.ProductId == data.Id) {
-                    setProductPresentInCart(true);
-                    found = 1;
-                  }
-                });
-                if (found == 0) {
-                  await saveToDatabase(data.Id, Quantity);
-                }
-              } else {
-                setCanAddCart(false);
+    <div className={styles.desktopGrid}>
+      {
+        isMobile?
+          <DetailsSwiper images={data.Thumbnails} key={data.Id} />
+        :  
+          <div className={styles.desktopImages}>
+            <img src={data.Thumbnails[0].Path} alt="product's first image" />
+            <div className={styles.littleImages}>
+              {
+                data.Thumbnails.slice(1,5).map(thumbnail=>(
+                  <img key={thumbnail.Id} src={thumbnail.Path} alt="product's first image" />
+                ))
               }
-            }}
-          >
-            Ajouter au panier
+            </div>
+
+          </div>
+      }
+
+      <div>
+        
+        <div className={styles.Details}>
+          <h1>{data.Title}</h1>
+          <p className={styles.category}>
+            Category: {data.Category.Title} |{" "}
+            <span
+              onClick={() => router.push("/Categories/" + data.Category.Title)}
+            >
+              Produits Similaires &gt;
+            </span>
           </p>
+          {data.BrandName && (
+            <p className={styles.marque}>Marque: {data.BrandName}</p>
+          )}
+        </div>
+        <div className={styles.price}>
+          {data.DiscountRate ? (
+            <>
+              <p className={styles.actual}>{Discounted} DH</p>
+              <p className={styles.oldPrice}>{data.Price.toFixed(2)} DH</p>
+              <div className={styles.reduction}>{data.DiscountRate}%</div>
+            </>
+          ) : (
+            <p className={styles.actual}>{data.Price} DH</p>
+          )}
+        </div>
+        <QuantityChoice Quantity={Quantity} totalStock={totalStock} RemoveQte={RemoveQte} AddQte={AddQte}/>
+        <div className={styles.Disponibility}>
+          {data.Stock > 0 ? (
+            <p className={styles.in}>En Stock</p>
+          ) : (
+            <p className={styles.out}>Rupture de Stock</p>
+          )}
+        </div>
+        <div className={styles.Commander} style={!CanAddCart || ProductPresentInCart? { marginBottom: 0 + "em" }: null}>
+          <div className={styles.Tel}>
+            <a href="tel:+212607232880">
+              <Image src="/tel.svg" alt="tel" width={20} height={20} />
+            </a>
+          </div>
+          <p>Ou</p>
+          <div className={styles.Panier}>
+            <p
+              onClick={async () => {
+                if (Quantity > 0) {
+                  let found = 0;
+                  let check = await checkProductPresenceInCart();
+                  check[0].Items.map((prod) => {
+                    if (prod.ProductId == data.Id) {
+                      setProductPresentInCart(true);
+                      found = 1;
+                    }
+                  });
+                  if (found == 0) {
+                    await saveToDatabase(data.Id, Quantity);
+                  }
+                } else {
+                  setCanAddCart(false);
+                }
+              }}>
+              Ajouter au panier
+            </p>
+          </div>
+        
         </div>
       </div>
+
       {!CanAddCart && (
         <QuantityNullPanel
           Quantity={Quantity}
@@ -183,7 +194,8 @@ const ProductDetails = ({ data }) => {
         />
       )}
 
-      {ProductPresentInCart && <CartXProductPresence />}
+      {ProductPresentInCart && <CartXProductPresence setProductPresentInCart={setProductPresentInCart}/>}
+
     </div>
   );
 };

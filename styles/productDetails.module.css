@@ -247,3 +247,55 @@
 {
     cursor: pointer;
 }
+
+
+
+/* ----------- Desktop ------------ */
+
+@media (min-width: 700px) {
+    
+    .desktopGrid
+    {
+        width: 55%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .desktopImages
+    {
+        margin-inline: auto;
+    }
+
+    .desktopImages > img:first-of-type
+    {
+        border: 2px solid black;
+        border-radius: 25px;
+    }
+
+    .littleImages
+    {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        gap: 1em;
+    }
+
+    .littleImages > img
+    {
+        width: 100px;
+        height: 100px;
+    }
+
+    .littleImages > img:hover
+    {
+        cursor: pointer
+    }
+
+    /* **************** Null Panel **************** */
+    .popUp
+    {
+        width: 20%;
+    }
+}
