@@ -10,7 +10,7 @@ import DesktopNoSwiper from '/components/DesktopAntiSwiper';
 export const getServerSideProps = async () => {
   
     let products = await prisma.product.findMany({
-      take: 8,
+      take: 5,
       where:{
         Favorite: true
       },

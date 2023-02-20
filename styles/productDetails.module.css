@@ -268,10 +268,12 @@
         margin-inline: auto;
     }
 
-    .desktopImages > img:first-of-type
+    .mainImage
     {
         border: 2px solid black;
         border-radius: 25px;
+        width: 500px;
+        height: 500px;
     }
 
     .littleImages

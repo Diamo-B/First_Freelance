@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import QuantityNullPanel from "../../components/QuantityNullPanel.js";
 import CartXProductPresence from "../../components/ProductPresentInCartPanel.js";
 import useBetterMediaQuery from '../../components/useBetterMediaQuery.js';
+import ProductThumbnails from '../../components/ProductDetailsDesktopThumbnails.js';
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -97,17 +98,7 @@ const ProductDetails = ({ data }) => {
         isMobile?
           <DetailsSwiper images={data.Thumbnails} key={data.Id} />
         :  
-          <div className={styles.desktopImages}>
-            <img src={data.Thumbnails[0].Path} alt="product's first image" />
-            <div className={styles.littleImages}>
-              {
-                data.Thumbnails.slice(1,5).map(thumbnail=>(
-                  <img key={thumbnail.Id} src={thumbnail.Path} alt="product's first image" />
-                ))
-              }
-            </div>
-
-          </div>
+          <ProductThumbnails  Thumbnails={data.Thumbnails}/>
       }
 
       <div>

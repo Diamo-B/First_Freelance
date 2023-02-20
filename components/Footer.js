@@ -28,7 +28,7 @@ const Footer = () => {
 
             </div>
             <div className="telFooter">
-                <img src="/telFooter.svg" alt="Phone Icon"/>
+                <Image src="/telFooter.svg" alt="Phone Icon" width={20} height={20}/>
                 <span>0606060660</span>
             </div>
         </footer>

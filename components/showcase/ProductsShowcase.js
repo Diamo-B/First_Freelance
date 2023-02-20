@@ -20,7 +20,7 @@ const ShowCase = ({products}) => {
               products.map((product)=>(
                 <Link key={product.Id} href={`/productDetails/${encodeURIComponent(product.Id)}`}>
                   <div className={styles.card}>
-                    <img className={styles.showcase} src={product.Thumbnails[0].Path} alt="" />
+                    <Image className={styles.showcase} src={product.Thumbnails[0].Path} alt="Thumbnail" width={1000} height={1000}/>
                     <div className={styles.details}>
                       <p className={styles.title}>{(product.Title.length > 10)?`${product.Title.substring(0,15)}...`:product.Title}</p>
                       {

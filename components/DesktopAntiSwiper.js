@@ -1,6 +1,6 @@
 import styles from '../styles/SwiperSlide.module.css';
 import { useRouter } from 'next/router';
-
+import Image from 'next/image';
 
 const DesktopNoSwiper = ({products}) => {
     const router = useRouter();
@@ -27,7 +27,7 @@ const DesktopNoSwiper = ({products}) => {
                     }} key={product.Id}
                     >
                         <div className={styles.product}>
-                            <img className={styles.img} src={product.Thumbnails[0].Path} alt="product"/>
+                            <Image className={styles.img} src={product.Thumbnails[0].Path} alt="product" width={1000} height={1000}/>
                             {product.DiscountRate?
                                 <>
                                     <div className={styles.product_details}>

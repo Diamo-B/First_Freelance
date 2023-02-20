@@ -20,7 +20,8 @@ const AddProduct = ({categories}) => {
     let [isAdded,setIsAdded]=useState(null);
     let [filesSaved, setFilesSaved] = useState(null);
 
-    let onSubmitForm = async (values) => { 
+
+   let onSubmitForm = async (values) => { 
         console.log(values);
         let Brand = values.Brand===""?null:values.Brand
         let Discount = values.Discount===""?null:values.Discount
@@ -66,8 +67,7 @@ const AddProduct = ({categories}) => {
             });
         }).catch((err)=>{
             setIsAdded(false); //! error 
-        })
-
+        }) 
         
     }
 

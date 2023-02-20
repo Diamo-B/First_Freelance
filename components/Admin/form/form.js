@@ -1,7 +1,7 @@
 import styles from '/styles/Admin/Products/add.module.css'
 import {useForm} from 'react-hook-form';
 import { removeAllImages } from '/components/Admin/form/removeAllImages.js';
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useRef } from 'react';
 import useBetterMediaQuery from '/components/useBetterMediaQuery';
 import {getPicNames} from '/components/Admin/form/getPicNames.js';
 
@@ -20,17 +20,12 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
     }
     
     useEffect(()=>{
-        if (formType == "adding") {
-            console.log("adding product");
-        }
-        else if (formType == "modifying")
-        {
-            console.log("modify product");
+        if (formType == "modifying")
             filterCats();
-        }
-    },[])
+    })
 
     const isMobile = useBetterMediaQuery('(max-width: 500px)');
+    
     return ( 
             <form className={`${isMobile?'':styles.form1}`} onSubmit={handleSubmit(onSubmitForm)}  encType="multipart/form-data">
                 <fieldset className={`${isMobile?styles.fieldset1M:styles.fieldset1D}`}>
@@ -181,7 +176,7 @@ const Form = ({categories,onSubmitForm,formType,product}) => {
                     <div className={styles.buttons}>
                         <label className={styles.imagesContainer} htmlFor="images"> {/* Add files? */}
                             <span className={styles.btn}>Ajouter des Photos <span className={styles.asterisk}>*</span></span>
-                            <input className={styles.imagesInput} id="images" name="images_toUpload"  type="file" accept="image/*" multiple
+                            <input className={styles.imagesInput} id="images" name="images_toUpload"  type="file" accept="image/*" multiple 
                             {
                                 ...register("Img",
                                 {
