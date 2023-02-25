@@ -14,9 +14,7 @@
         "package-lock.json": true,
         "next.config.js": true,
         ".gitignore": true,
-        ".eslintrc.json": true,
-        "public/": true,
-        "prisma/": true
+        ".eslintrc.json": true
     },
     "hidefiles.configurationType": "local",
     "hidefiles.globalConfig": {
@@ -36,6 +34,10 @@
                     ".gitignore",
                     ".eslintrc.json",
                     "yarn.lock",
+                    "public/",
+                    "prisma/"
+                ],
+                "peek": [
                     "public/",
                     "prisma/"
                 ]

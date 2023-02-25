@@ -77,3 +77,10 @@
     font-size: 1.2em;
     font-weight: var(--fw-semi-bold);
 }
+
+@media (min-width:700px) {
+    .container
+    {
+        width: 30%;
+    }
+}

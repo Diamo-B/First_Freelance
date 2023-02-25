@@ -47,21 +47,21 @@ const UpdateCategoryProducts = ({catTitle, catProducts}) => {
                         <div className={styles.pageTitle_holder}>
                             <h3 className={styles.pageTitle}>{catTitle}</h3>
                         </div>
-                        <div className="table-responsive">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th className='text-center' scope="col">Titre</th>
-                                        <th className='text-center' scope="col">Stock</th>
-                                        <th className='text-center' scope="col">Modifier</th>
+                        <div className={styles.table_responsive}>
+                            <table className={styles.table}>
+                                <thead className={styles.thead}>
+                                    <tr className={styles.tr}>
+                                        <th className={styles.th} scope="col">Titre</th>
+                                        <th className={styles.th} scope="col">Stock</th>
+                                        <th className={styles.th} scope="col">Modifier</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className={styles.tbody}>
                                     {
                                         catProducts.map((product) => (
-                                            <tr key={product.Id}>
-                                                <td className='text-center'>{product.Title}</td>
-                                                <td className='text-center'>{product.Stock}</td>
+                                            <tr key={product.Id} className={styles.tr}>
+                                                <td className={styles.td}>{product.Title}</td>
+                                                <td className={styles.td}>{product.Stock}</td>
                                                 <td className={styles.flex_container}><Image src="/edit.svg" alt="modifier" width={20} height={40} onClick={()=>RouteToEditPage(product)} /></td>
                                             </tr>
                                         ))

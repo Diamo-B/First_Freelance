@@ -7,7 +7,7 @@ const RemoveSucess = ({isDeleted,deleted}) => {
         <div className={styles.Nullpanel}>
             <div className={styles.popUp}>
                 <p className={styles.successText}>Le produit &quot;{deleted.Title}&quot; supprimé avec succés</p>
-                <button className={styles.submit} 
+                <button className={styles.btn} 
                     onClick={()=>{
                         isDeleted(false);
                         router.reload();

@@ -2,6 +2,7 @@ import styles from "/styles/Admin/Carts/get.module.css";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 
+
 export async function getServerSideProps() {
   let res = await fetch(process.env.DOMAIN+"/api/carts/getCart/allCarts", {
     method: "GET",

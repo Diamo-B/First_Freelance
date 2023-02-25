@@ -67,22 +67,14 @@
     border-radius: 10px;
     padding-block: 1em;
     text-align: center; 
-    width: 60%;
+    width: 40%;
 }
 
 .flex1
 {
     display: flex;
     justify-content: center;
-    justify-items: center;
-    margin-bottom: 1em;
-}
-
-.flex2
-{
-    display: flex;
-    justify-content: space-around;
-    justify-items: center;
+    align-items: center;
     margin-bottom: 1em;
 }
 
@@ -115,6 +107,7 @@
 @media (min-width: 500px) {
     .container
     {
-        width: 45%;
+        padding-inline: 5em;
+        height: fit-content;
     }
 }

@@ -2,20 +2,33 @@ import styles from '/styles/Admin/orders/views.module.css';
 import {useSession} from 'next-auth/react';
 import DeleteOrderConfirmation from '/components/order/DeleteOrderConfirmation';
 import { useState } from 'react';
+import { prisma } from '/prisma/dbInstance.ts';
 
 export async function getServerSideProps(context)
 {
     let Id = context.params.id;
-
-    let data = await fetch(process.env.DOMAIN+'/api/orders/getById/?id='+encodeURIComponent(Id),{
-        method:"GET",
-        headers:{
-            "Content-Type" : "application/json"
+    let orderData = await prisma.order.findFirst({
+        orderBy: {
+            CreatedAt: 'desc',
+        },
+        where:{
+            Id: Number(Id)
+        },
+        include:{
+            OrderProducts: {
+                include:{
+                    Product:{
+                        select:{
+                            Title: true,
+                            Price: true,
+                            DiscountRate: true
+                        }
+                    }
+                },
+            },
         }
-    });
-
-    let orderData = await data.json();
-
+    })
+    orderData.CreatedAt = orderData.CreatedAt.toISOString();
     return{
         props:{
             orderData

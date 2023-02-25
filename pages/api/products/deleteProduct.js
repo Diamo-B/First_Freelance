@@ -15,6 +15,9 @@ export default async function handler(req, res) {
           Item: {
             deleteMany: {},
           },
+          ProdXQuantity: {
+            deleteMany: {}
+          }
         },
     })
 

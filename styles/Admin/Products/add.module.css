@@ -105,11 +105,21 @@
 {
     display: none;
 }
-
+/* 
 .imagesContainer
 {
     display: flex;
     flex-direction: column;
+} */
+
+.centerImage
+{
+    margin-inline: auto;
+}
+
+.mt_1
+{
+    margin-top: 1em;
 }
 
 .btn 
@@ -127,8 +137,14 @@
 {
     background-color:#00ff6273;
     font-weight: var(--fw-bold);
+    cursor: pointer;
 }
 
+.btn:disabled {
+    opacity: 0.5; /* set opacity to make the button appear grayed out */
+    cursor: not-allowed; /* set cursor to not-allowed to show it can't be clicked */
+}
+  
 /*----------------------------------------------------------------------*/
 
 /* -Panels */
@@ -148,8 +164,8 @@
 .popUp
 {
     width: 80%;
-    height: 10em;
-    background-color: white;
+/*     height: 10em;
+ */    background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -181,4 +197,21 @@
 {
     margin-left: 3em;
     margin-top: 10em;
+}
+
+.closeButton
+{
+    margin-bottom: 1em;
+}
+
+.closeButton:hover
+{
+    cursor: pointer;
+}
+
+@media (min-width: 700px) {
+    .popUp
+    {
+        width: 30%;
+    }
 }

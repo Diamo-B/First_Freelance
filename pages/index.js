@@ -65,20 +65,22 @@ export default function Home({products}) {
   },[]);
   const isMobile = useBetterMediaQuery('(max-width: 500px)');
 return (  
-      <div className={isMobile?"content":styles.pageCenter}>
-        <div className={styles.header}>
-          <h1>Favoris</h1>
-          <Link href="/Favorites"><h3>Voir Plus &gt;</h3></Link>
+      <div className={styles.pageCenter}>
+        <div className={isMobile?"content":styles.pageWidth}>
+          <div className={styles.header}>
+            <h1>Favoris</h1>
+            <Link href="/Favorites"><h3>Voir Plus &gt;</h3></Link>
+          </div>
+          {
+            isMobile?
+              products.length!==0 && <MySwiper products={products.slice(0, 5)}/> 
+            :
+              products.length!==0 && 
+              <div style={{ marginBottom: '2em' }}>
+                <DesktopNoSwiper products={products.slice(0, 4)}/> 
+              </div>
+          }
         </div>
-        {
-          isMobile?
-            products.length!==0 && <MySwiper products={products.slice(0, 5)}/> 
-          :
-            products.length!==0 && 
-            <div style={{ marginBottom: '2em' }}>
-              <DesktopNoSwiper products={products.slice(0, 4)}/> 
-            </div>
-        }
       </div>
   )
 }

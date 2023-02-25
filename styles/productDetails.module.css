@@ -272,8 +272,8 @@
     {
         border: 2px solid black;
         border-radius: 25px;
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
     }
 
     .littleImages
@@ -299,5 +299,10 @@
     .popUp
     {
         width: 20%;
+    }
+
+    .price
+    {
+        max-width: 20em;
     }
 }

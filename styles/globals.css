@@ -342,3 +342,55 @@ footer
         margin-bottom: 0;
     }
 }
+
+
+
+
+
+/*----------------------------Tables-------------------------*/
+
+/* ! Table */
+/* center the table */
+table {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    border: 2px solid black;
+  }
+  
+  /* add background color to the table header */
+thead {
+    background-color: #ccc;
+  }
+  
+  /* style the table header cells */
+th {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* style the table body cells */
+td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* add hover effect to the table rows */
+tbody tr:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  /* style the "Modifier" cell with the edit icon */
+  td:last-child {
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  /* style the edit icon */
+  td:last-child img {
+    width: 20px;
+    height: 20px;
+  }
+  

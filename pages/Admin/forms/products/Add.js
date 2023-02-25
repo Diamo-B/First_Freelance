@@ -2,9 +2,8 @@ import Form from '/components/Admin/form/form';
 import {useSession} from 'next-auth/react';
 import { prisma } from '/prisma/dbInstance.ts';
 import { useState } from 'react';
-import AddSuccess from '/components/Admin/Products/AddingSuccessPanel';
+import AddSuccess from '../../../../components/Admin/Products/AddingSuccessPanel.js';
 import { convertBase64 } from '/components/Admin/form/convertToBase64.js';
-
 
 export async function getStaticProps()
 {
@@ -19,10 +18,14 @@ const AddProduct = ({categories}) => {
     const {data:session} = useSession({required: true});  
     let [isAdded,setIsAdded]=useState(null);
     let [filesSaved, setFilesSaved] = useState(null);
+    let [images, setImages] = useState([]);
 
 
    let onSubmitForm = async (values) => { 
         console.log(values);
+        console.log(images);
+        let imagenames = images.map(image=>{return image.name});
+        console.log(imagenames);
         let Brand = values.Brand===""?null:values.Brand
         let Discount = values.Discount===""?null:values.Discount
         await fetch("/api/products/addProduct",{
@@ -38,12 +41,13 @@ const AddProduct = ({categories}) => {
                 Category: values.Category,
                 Stock: values.Stock,
                 Favorite: values.Favorite,
-                Images: values.Images,
+                Images: imagenames,
             }),
-        }).then(async (data)=>{
+        })
+        .then(async (data)=>{
             setIsAdded(true); //¤ product added successfully
             let folder = await data.json();
-            Array.from(values.Img).map(async (file)=>{
+            images.map(async (file)=>{
                 await convertBase64(file)
                 .then(async(data) =>{
                     await fetch ("/api/products/images/saveImage",{
@@ -63,11 +67,13 @@ const AddProduct = ({categories}) => {
                     })
                 }).catch(err=>{
                     setFilesSaved(false); //! error
-                });
+                }); 
+
             });
-        }).catch((err)=>{
+        })
+        .catch((err)=>{
             setIsAdded(false); //! error 
-        }) 
+        })
         
     }
 
@@ -84,7 +90,7 @@ const AddProduct = ({categories}) => {
             :
                 ""
             }
-            <Form categories={categories} onSubmitForm={onSubmitForm} formType={"adding"}/>
+            <Form categories={categories} onSubmitForm={onSubmitForm} formType={"adding"} images={images} setImages={setImages}/>
         </>
     );
 }

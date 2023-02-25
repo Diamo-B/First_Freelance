@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { prisma } from '/prisma/dbInstance.ts';
-import RemoveSucess from '/components/Admin/Products/RemovingSuccessPanel';
+import RemoveSucess from '../../../../../components/Admin/Products/RemovingSuccessPanel';
 import {useSession} from 'next-auth/react';
 import styles from '/styles/Admin/Products/remove.module.css'
 import Image from 'next/image';
@@ -39,7 +39,7 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
 
     let deleteProduct = async (id) => {
         let data = await fetch('/api/products/deleteProduct',{
-            method: "DELETE",
+            method: "POST",
             headers:{
                 "Content-Type": "application/json"
             },
@@ -65,28 +65,30 @@ let RemoveCatItems = ({catTitle, catProducts}) => {
                         <div className={styles.pageTitle_holder}>
                             <h3 className={styles.pageTitle}>{catTitle}</h3>
                         </div>
-                        <div className="table-responsive">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" className='text-center'>Titre</th>
-                                        <th scope="col" className='text-center'>Stock</th>
-                                        <th scope="col" className='text-center'>Del</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        catProducts.map((product) => (
-                                            <tr key={product.Id}>
-                                                <td className='text-center'>{product.Title}</td>
-                                                <td className='text-center'>{product.Stock}</td>
-                                                <td className={styles.flex_container}><Image src="/removeFromCart.svg" alt='remove item' width={15} height={30} onClick={()=>deleteProduct(product.Id)} /></td>
-                                            </tr>
-                                        ))
-                                    }
-                                </tbody>
-                            </table> 
-                        </div>
+                        <table className={styles.table}>
+                            <thead className={styles.thead}>
+                                <tr className={styles.tr}>
+                                    <th scope="col" className={styles.th}>Titre</th>
+                                    <th scope="col" className={styles.th}>Stock</th>
+                                    <th scope="col" className={styles.th}>Del</th>
+                                </tr>
+                            </thead>
+                            <tbody className={styles.tbody}>
+                                {
+                                    catProducts.map((product) => (
+                                        <tr key={product.Id} className={styles.tr}>
+                                            <td className={styles.td}>{product.Title}</td>
+                                            <td className={styles.td}>{product.Stock}</td>
+                                            <td className={[styles.td,styles.flex_container].join(' ')}>
+                                                <Image src="/removeFromCart.svg" alt='remove item' width={15} height={30} 
+                                                    onClick={()=>deleteProduct(product.Id)} 
+                                                />
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table> 
                     </>
                 :
                     <p className={styles.error}>Pas de produits disponibles dans la category {catTitle}</p>

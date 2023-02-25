@@ -50,6 +50,14 @@ const AdminHome = () => {
             <>
                 <h3 className={styles.title}>Administration</h3>
                 <div className={styles.flex1}>
+
+                    <div className={styles.container}>
+                        <h2>Paniers</h2>
+                        <div className={styles.buttons}>
+                            <Link href="/Admin/forms/cart/check"><button>Consulter le contenu d&apos;un panier</button></Link>
+                        </div>
+                    </div>
+
                     <div className={styles.TopDesktopContainer}>
                         <h2>Produits</h2>
                         <p>Choisissez ce que vous voulez faire:</p>
@@ -59,25 +67,20 @@ const AdminHome = () => {
                             <Link href="/Admin/forms/products/Remove"><button>Supprimer un produit</button></Link>
                         </div>
                     </div>
-                </div>
 
-                <div className={styles.flex2}>
-                    <div className={styles.container}>
-                        <h2>Paniers</h2>
-                        <div className={styles.buttons}>
-                            <Link href="/Admin/forms/cart/check"><button>Consulter le contenu d&apos;un panier</button></Link>
-                        </div>
-                    </div>
                     <div className={styles.container}>
                         <h2>Commandes</h2>
                         <div className={styles.buttons}>
                             <Link href="/Admin/forms/orders/check"><button>Consulter une commande</button></Link>
                         </div>
                     </div>
+
                 </div>
+
                 <div className={styles.signoutPanel}>
                     <button className={styles.logoutBtn} onClick={()=>signOut({ callbackUrl: 'http://localhost:3000' })}>SignOut</button>
                 </div>
+                
             </>
         }
         </>
