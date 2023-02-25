@@ -16,13 +16,15 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
     register("Stock",formType == "adding" && {required: "Le stock est obligatoire", min:{value:0,message:"Le stock ne peut pas être négatif"},pattern:{value: /^[0-9]*$/, message:"Le stock doit absolument être un nombre"}} || formType == "modifying" && {min:{value:0,message:"Le stock ne peut pas être négatif"}, pattern:{value: /^[0-9]*$/, message:"Le stock doit absolument être un nombre"}})
     const inputRef = createRef();
 
-    let filtredCats;
-    if (formType === "modifying") {
-        filtredCats = useMemo(() => {
+    let filtredCats = [];
+
+    filtredCats = useMemo(() => {
+        if (formType === "modifying") 
+        {
             let prodTitle = product[0].Category.Title;
             return categories.filter(cat => cat.Title !== prodTitle);
-        }, [categories, product]);
-    }
+        }
+    }, [categories, product, formType]);    
 
     function removeFile(fileToRemove) {
         const updatedFiles = images.filter(file => file.name !== fileToRemove.name);
