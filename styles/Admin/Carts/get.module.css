@@ -78,6 +78,14 @@
     font-weight: var(--fw-semi-bold);
 }
 
+.totalPanel
+{
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 800;
+    margin-top: 1em;
+}
+
 @media (min-width:700px) {
     .container
     {

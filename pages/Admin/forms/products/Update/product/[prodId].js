@@ -53,7 +53,7 @@ const ModifyProduct = ({categories,product}) => {
             setOldImgs(newImages);
         }
         fetchStateFiles();
-    },[]);
+    },[product]);
     
 
     if(!session)

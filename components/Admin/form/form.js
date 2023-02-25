@@ -1,15 +1,13 @@
 import styles from '../../../styles/Admin/Products/add.module.css'
-import { useState,useEffect, createRef } from 'react';
+import { useState,useMemo, createRef } from 'react';
 import {useForm} from 'react-hook-form';
 import Image from 'next/image';
 import useBetterMediaQuery from '/components/useBetterMediaQuery';
 
 const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
 
-    let [filtredCats, setFiltredcats] = useState([]);
     const {register, handleSubmit, formState:{errors} , trigger, setValue} = useForm();
     let [showImagesPanel, setShowImagesPanel] = useState(false);
-    let [imagesError, setImagesError] = useState(false);
 
     register("Title",formType == "adding" &&{required: "Le titre est obligatoire"})
     register("Price", formType == "adding" && {required: "Le prix est obligatoire",min:{value: 0,message: "Le prix ne peut pas être négatif"},pattern:{value: /^[0-9]*$/, message:"Le prix doit absolument être un nombre"}}||formType == "modifying" && {min:{value: 0,message: "Le prix ne peut pas être négatif"},pattern:{value: /^[0-9]*$/, message:"Le prix doit absolument être un nombre"},})
@@ -17,33 +15,25 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
     register("Category",{required: "La catégorie est obligatoire"})
     register("Stock",formType == "adding" && {required: "Le stock est obligatoire", min:{value:0,message:"Le stock ne peut pas être négatif"},pattern:{value: /^[0-9]*$/, message:"Le stock doit absolument être un nombre"}} || formType == "modifying" && {min:{value:0,message:"Le stock ne peut pas être négatif"}, pattern:{value: /^[0-9]*$/, message:"Le stock doit absolument être un nombre"}})
     const inputRef = createRef();
-    
-    let filterCats = () => {
-        let prodTitle = product[0].Category.Title;
-        categories.map(cat => {
-            if (cat.Title !== prodTitle) {
-                setFiltredcats(oldArr => [...oldArr,cat]);
-            }
-        })
+
+    let filtredCats;
+    if (formType === "modifying") {
+        filtredCats = useMemo(() => {
+            let prodTitle = product[0].Category.Title;
+            return categories.filter(cat => cat.Title !== prodTitle);
+        }, [categories, product]);
     }
 
     function removeFile(fileToRemove) {
         const updatedFiles = images.filter(file => file.name !== fileToRemove.name);
         setImages(updatedFiles);
     }
-    
-    useEffect(()=>{
-        if (formType == "modifying")
-        {
-            filterCats();
-        }
-    }, [formType])
 
     const isMobile = useBetterMediaQuery('(max-width: 500px)');
 
     return ( 
             <form className={`${isMobile?'':styles.form1}`} onSubmit={handleSubmit(onSubmitForm)}  encType="multipart/form-data">
-                <fieldset className={`${isMobile?styles.fieldset1M:styles.fieldset1D}`}>
+                <div className={`${isMobile?styles.fieldset1M:styles.fieldset1D}`}>
                     <label> {/* Product Title */}
                         <span>Titre du Produit <span className={styles.asterisk}>*</span></span>
                         <input 
@@ -121,9 +111,9 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
                         </select>
                         {errors.Category&&<small className={styles.error}>{errors.Category.message}</small>}
                     </label> 
-                </fieldset>
+                </div>
 
-                <fieldset  className={`${isMobile?styles.fieldset1M:styles.fieldset1D}`}>
+                <div  className={`${isMobile?styles.fieldset1M:styles.fieldset1D}`}>
                     <label> {/* Product stock quantity */}
                         <span>Stock <span className={styles.asterisk}>*</span></span>
                         <input 
@@ -210,7 +200,7 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
                             {formType == "adding"? "Ajouter un nouveau produit" : "Modifier ce produit" }
                         </button>    
                     </div>
-                </fieldset>
+                </div>
             </form>
     );
 }

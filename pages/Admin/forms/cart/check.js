@@ -2,7 +2,6 @@ import styles from "/styles/Admin/Carts/get.module.css";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 
-
 export async function getServerSideProps() {
   let res = await fetch(process.env.DOMAIN+"/api/carts/getCart/allCarts", {
     method: "GET",
@@ -13,7 +12,7 @@ export async function getServerSideProps() {
   let data = await res.json();
   return {
     props: { data },
-  };
+  }; 
 }
 
 const CheckCart = ({ data }) => {
@@ -85,13 +84,13 @@ const CheckCart = ({ data }) => {
             <table className="table">
                 <thead>
                 <tr>
-                    <th scope="col" className="text-center">
+                    <th scope="col">
                     Produit
                     </th>
-                    <th scope="col" className="text-center">
+                    <th scope="col">
                     Qte
                     </th>
-                    <th scope="col" className="text-center">
+                    <th scope="col">
                     Sous-Total
                     </th>
                 </tr>
@@ -101,9 +100,9 @@ const CheckCart = ({ data }) => {
                     results.map((item)=>{
                         return(
                             <tr key={item.Id}>
-                                <td className="text-center">{item.Product.Title.length>20?item.Product.Title.slice(0,20)+'...':item.Product.Title}</td>
-                                <td className="text-center">{item.Quantity}</td>
-                                <td className="text-center">{
+                                <td>{item.Product.Title.length>20?item.Product.Title.slice(0,20)+'...':item.Product.Title}</td>
+                                <td>{item.Quantity}</td>
+                                <td>{
                                     item.Product.DiscountRate?
                                       ((item.Product.Price-(item.Product.Price*item.Product.DiscountRate)/100)*item.Quantity).toFixed(2)
                                     :
@@ -117,7 +116,11 @@ const CheckCart = ({ data }) => {
             </table>
             </div>
 
-            <div className="table-responsive">
+            <div className={styles.totalPanel}>
+              <p>Total</p>
+              <p className={styles.total}>{calculateTotal(results)}DH</p>
+            </div>
+            {/* <div className="table-responsive">
             <table className="table">
                 <thead>
                 <tr>
@@ -132,7 +135,7 @@ const CheckCart = ({ data }) => {
                 </tr>
                 </tbody>
             </table>
-            </div>
+            </div> */}
         </>
         :
         <></>
