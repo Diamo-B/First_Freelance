@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../../../styles/browser/navbar.module.css";
+import styles from '../../../styles/Browser/navbar.module.css';
 import ProductSearchBar from '../../productsSearchBar';
 import { useState } from "react";
 
