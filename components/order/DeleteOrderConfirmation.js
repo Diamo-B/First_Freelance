@@ -1,4 +1,4 @@
-import styles from "/styles/OrderForm.module.css";
+import styles from "../../styles/OrderForm.module.css";
 import {useRouter} from 'next/router';
 
 const DeleteOrderConfirmation = ({orderId,setDeletionPanel}) => {

@@ -1,4 +1,4 @@
-import styles from "/styles/Admin/Carts/get.module.css";
+import styles from "../../../../styles/Admin/Carts/get.module.css";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 

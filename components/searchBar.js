@@ -1,6 +1,6 @@
-import Styles from '/styles/Admin/Products/remove.module.css'
+import Styles from '../styles/Admin/Products/remove.module.css'
 import { useState } from 'react';
-import DeletionPrompt from '/components/Admin/Products/DeletionPrompt'
+import DeletionPrompt from './Admin/Products/DeletionPrompt'
 import {useRouter} from 'next/router';
 
 const SearchBar = ({products,modification}) => {

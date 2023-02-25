@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Styles from '/styles/Admin/Products/remove.module.css'
+import Styles from '../styles/Admin/Products/remove.module.css'
 import {useRouter} from "next/router";
 
 const ProductSearchBar = ({searchData}) => {

@@ -1,9 +1,9 @@
-import Form from '/components/Admin/form/form';
+import Form from '../../../../components/Admin/form/form';
 import {useSession} from 'next-auth/react';
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../../prisma/dbInstance.ts';
 import { useState } from 'react';
 import AddSuccess from '../../../../components/Admin/Products/AddingSuccessPanel.js';
-import { convertBase64 } from '/components/Admin/form/convertToBase64.js';
+import { convertBase64 } from '../../../../components/Admin/form/convertToBase64.js';
 
 export async function getStaticProps()
 {

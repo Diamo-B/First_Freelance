@@ -1,10 +1,10 @@
-import styles from '/styles/Admin/Products/update.module.css';
+import styles from '../../../../../../styles/Admin/Products/update.module.css';
 import {useSession} from 'next-auth/react';
-import Form from '/components/Admin/form/form';
+import Form from '../../../../../../components/Admin/form/form';
 import { useState, useEffect } from 'react';
-import {convertBase64} from '/components/Admin/form/convertToBase64';
-import ModificationSuccessPanel from '/components/Admin/Products/ModificationSuccessPanel';
-import {prisma} from '/prisma/dbInstance.ts';
+import {convertBase64} from '../../../../../../components/Admin/form/convertToBase64';
+import ModificationSuccessPanel from '../../../../../../components/Admin/Products/ModificationSuccessPanel';
+import {prisma} from '../../../../../../prisma/dbInstance.ts';
 
 export async function getServerSideProps ({resolvedUrl })
 {

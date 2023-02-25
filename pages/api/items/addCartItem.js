@@ -1,4 +1,5 @@
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../prisma/dbInstance.ts';
+
 
 let AddItem =  async (req, res) => {
   let Qte = req.body.Qte;

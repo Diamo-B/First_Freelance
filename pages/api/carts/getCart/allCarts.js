@@ -1,4 +1,4 @@
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../../prisma/dbInstance.ts';
 
 export default async function handler(req,res){
 

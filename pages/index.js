@@ -3,9 +3,9 @@ import MySwiper from '../components/Swiper'
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
-import { prisma } from '/prisma/dbInstance.ts';
-import useBetterMediaQuery from '/components/useBetterMediaQuery';
-import DesktopNoSwiper from '/components/DesktopAntiSwiper';
+import { prisma } from '../prisma/dbInstance.ts';
+import useBetterMediaQuery from '../components/useBetterMediaQuery';
+import DesktopNoSwiper from '../components/DesktopAntiSwiper';
 
 export const getServerSideProps = async () => {
   

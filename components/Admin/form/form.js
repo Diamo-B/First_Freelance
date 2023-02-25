@@ -2,7 +2,7 @@ import styles from '../../../styles/Admin/Products/add.module.css'
 import { useState,useMemo, createRef } from 'react';
 import {useForm} from 'react-hook-form';
 import Image from 'next/image';
-import useBetterMediaQuery from '/components/useBetterMediaQuery';
+import useBetterMediaQuery from '../../useBetterMediaQuery';
 
 const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
 

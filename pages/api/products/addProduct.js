@@ -1,4 +1,5 @@
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../prisma/dbInstance.ts';
+
 import fs from "fs";
 
 

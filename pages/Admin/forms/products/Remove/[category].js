@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../../../prisma/dbInstance.ts';
 import RemoveSucess from '../../../../../components/Admin/Products/RemovingSuccessPanel';
 import {useSession} from 'next-auth/react';
-import styles from '/styles/Admin/Products/remove.module.css'
+import styles from '../../../../../styles/Admin/Products/remove.module.css'
 import Image from 'next/image';
 
 export async function getServerSideProps(context)

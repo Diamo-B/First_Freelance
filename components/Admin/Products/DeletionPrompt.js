@@ -1,4 +1,4 @@
-import styles from '/styles/Admin/Products/add.module.css'
+import styles from '../../../styles/Admin/Products/add.module.css'
 import {useRouter} from 'next/router';
 
 const DeletionPrompt = ({product,setPromptData}) => {

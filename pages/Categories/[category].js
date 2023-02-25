@@ -1,6 +1,6 @@
 import ShowCase from "../../components/showcase/ProductsShowcase.js";
 //prisma
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../prisma/dbInstance.ts';
 
 export async function getServerSideProps(context) {
 

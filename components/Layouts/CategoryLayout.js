@@ -1,10 +1,10 @@
-import CatPageNav from '/components/navbars/mobile/Navbar2'
+import CatPageNav from '../navbars/mobile/Navbar2'
 import Footer from "../Footer";
 import {useRouter} from 'next/router';
 import { useState,useEffect } from 'react';
 import Head from 'next/head';
-import useBetterMediaQuery from "/components/useBetterMediaQuery";
-import CategoryNav from '/components/navbars/browser/categoryNav'
+import useBetterMediaQuery from "../useBetterMediaQuery";
+import CategoryNav from '../navbars/browser/categoryNav'
 
 const CategoryLayout = ({children}) => {
   let router =new useRouter();

@@ -1,10 +1,10 @@
-import Footer from "/components/Footer";
-import BrowserNavGen from '/components/navbars/browser/Navbar';
-import DetailPageNav from '/components/navbars/mobile/Navbar3';
+import Footer from "../Footer";
+import BrowserNavGen from '../navbars/browser/Navbar';
+import DetailPageNav from '../navbars/mobile/Navbar3';
 import { useState } from "react";
-import Menu from "/components/Menu";
+import Menu from "../Menu";
 import Head from "next/head";
-import useBetterMediaQuery from "/components/useBetterMediaQuery";
+import useBetterMediaQuery from "../useBetterMediaQuery";
 
 const FavoritesLayout = ({children}) => {
     const [isActive, setIsActive] = useState(false);

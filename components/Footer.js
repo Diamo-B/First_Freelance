@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import useBetterMediaQuery from "/components/useBetterMediaQuery";
+import useBetterMediaQuery from "./useBetterMediaQuery";
 
 const Footer = () => {
     const isMobile = useBetterMediaQuery('(max-width: 500px)');

@@ -1,24 +1,57 @@
-import styles from '/styles/Cart.module.css'
+import styles from '../styles/Cart.module.css'
 import Image from 'next/image';
-import Cookies from 'js-cookie';
-import useSWR from 'swr';
+import cookie from 'cookie'; // for parsing cookies
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import OrderForm from '/components/order/OrderForm';
-import SuccessPanel from '/components/order/SuccessPanel';
-import OrderFailPanel from '/components/order/FailPanel';
+import OrderForm from '../components/order/OrderForm';
+import SuccessPanel from '../components/order/SuccessPanel';
+import OrderFailPanel from '../components/order/FailPanel';
+import {prisma} from '../prisma/dbInstance';
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+export async function getServerSideProps(context)
+{
+    const { req } = context;
+    const cookies = req.headers.cookie;
+    let parsedCookies = cookie.parse(cookies);
+    let CartNumber = parsedCookies.cart;
+    let data = await prisma.cart.findMany({
+        where:{
+            Id: Number(CartNumber)
+        },
+        include:{
+            Items:{
+                include:{
+                    Product:{
+                        include:{
+                            Thumbnails: true
+                        }
+                    }
+                }
+            }
+            
+        }
+    });
 
-const Cart = () => {
+    data = data.map((item) => {
+        return {
+          ...item,
+          CreatedAt: item.CreatedAt.toISOString(),
+        };
+    });
+
+    return {
+        props:{
+            data
+        }
+    }
+}
+
+const Cart = ({data}) => {
     let [orderForm,setOrderForm] = useState(null);
     let [orderSuccess,setOrderSuccess] = useState(null);
     let [orderFailed,setOrderFailed] = useState(null);
 
     const router = useRouter();
-    const { data, error } = useSWR('/api/carts/getCart/'+Cookies.get('cart'), fetcher);
-    if (error) return <div>Failed to load</div>
-    if (!data) return <div>Loading...</div>
     let items = data[0].Items;
     
     let trimTitle = (str) => {

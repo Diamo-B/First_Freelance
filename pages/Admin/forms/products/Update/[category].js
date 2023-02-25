@@ -1,8 +1,8 @@
 import {useSession} from 'next-auth/react';
-import styles from '/styles/Admin/Products/update.module.css';
+import styles from '../../../../../styles/Admin/Products/update.module.css';
 import {useRouter} from "next/router";
 import Image from 'next/image';
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../../../prisma/dbInstance.ts';
 
 export async function getServerSideProps(context)
 {

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import styles from '/styles/Admin/Products/add.module.css'
+import styles from '../../../styles/Admin/Products/add.module.css'
 
 
 const ModificationSuccessPanel = ({isModified,setIsModified}) => {

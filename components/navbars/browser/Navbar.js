@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "/styles/browser/navbar.module.css";
-import ProductSearchBar from '/components/productsSearchBar';
+import styles from "../../../styles/browser/navbar.module.css";
+import ProductSearchBar from '../../productsSearchBar';
 import { useState } from "react";
 
 const BrowserNavGen = ({searchData}) => {

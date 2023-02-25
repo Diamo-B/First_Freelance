@@ -1,8 +1,8 @@
 import {useSession} from 'next-auth/react';
-import styles from "/styles/Admin/index.module.css";
+import styles from "../../styles/Admin/index.module.css";
 import Link from 'next/link';
 import {signOut} from 'next-auth/react';
-import useBetterMediaQuery from '/components/useBetterMediaQuery';
+import useBetterMediaQuery from '../../components/useBetterMediaQuery';
 
 
 const AdminHome = () => {

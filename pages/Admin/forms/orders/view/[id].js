@@ -1,8 +1,8 @@
-import styles from '/styles/Admin/orders/views.module.css';
+import styles from '../../../../../styles/Admin/orders/views.module.css';
 import {useSession} from 'next-auth/react';
-import DeleteOrderConfirmation from '/components/order/DeleteOrderConfirmation';
+import DeleteOrderConfirmation from '../../../../../components/order/DeleteOrderConfirmation';
 import { useState } from 'react';
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../../../prisma/dbInstance.ts';
 
 export async function getServerSideProps(context)
 {

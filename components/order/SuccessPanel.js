@@ -1,4 +1,4 @@
-import styles from '/styles/OrderForm.module.css';
+import styles from '../../styles/OrderForm.module.css';
 
 const OrderSuccessPanel = ({setOrderSuccess}) => {
     return ( 

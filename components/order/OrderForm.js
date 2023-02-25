@@ -1,5 +1,5 @@
 import {useForm} from 'react-hook-form';
-import styles from '/styles/OrderForm.module.css';
+import styles from '../../styles/OrderForm.module.css';
 import Image from 'next/image';
 
 const OrderForm = ({submitAction,setOrderForm}) => {

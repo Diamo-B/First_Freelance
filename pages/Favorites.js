@@ -1,5 +1,5 @@
 import ShowCase from '../components/showcase/ProductsShowcase';
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../prisma/dbInstance.ts';
 
 export async function getServerSideProps(){
     let products = await prisma.product.findMany({

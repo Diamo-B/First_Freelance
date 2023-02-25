@@ -1,7 +1,7 @@
 import styles from '../../styles/Category.module.css'
 import Link from 'next/link';
 import Image from 'next/image';
-import useBetterMediaQuery from '/components/useBetterMediaQuery';
+import useBetterMediaQuery from '../useBetterMediaQuery';
 
 const ShowCase = ({products}) => {
     const isMobile = useBetterMediaQuery('(max-width: 500px)');

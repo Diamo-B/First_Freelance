@@ -1,8 +1,8 @@
 import {useSession} from 'next-auth/react';
-import { prisma } from '/prisma/dbInstance.ts';
-import styles from "/styles/Admin/Products/remove.module.css";
+import { prisma } from '../../../../../prisma/dbInstance.ts';
+import styles from "../../../../../styles/Admin/Products/remove.module.css";
 import { useRouter } from 'next/router';
-import SearchBar from '/components/searchBar';
+import SearchBar from '../../../../../components/searchBar';
 
 export async function getServerSideProps()
 {

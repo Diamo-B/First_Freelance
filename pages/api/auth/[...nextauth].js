@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../prisma/dbInstance.ts';
 
 export default NextAuth({
     pages:{

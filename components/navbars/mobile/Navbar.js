@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Styles from '/styles/Admin/Products/remove.module.css'
-import ProductSearchBar from "/components/productsSearchBar";
+import Styles from '../../../styles/Admin/Products/remove.module.css'
+import ProductSearchBar from "../../productsSearchBar";
 
 const Navbar = ({setIsActive, isActive,searchData}) => {
     const changeMenuState = () => {

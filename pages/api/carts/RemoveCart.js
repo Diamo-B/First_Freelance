@@ -1,4 +1,4 @@
-import { prisma } from '/prisma/dbInstance.ts';
+import { prisma } from '../../../prisma/dbInstance.ts';
 
 let RemoveCart =  async (req, res) => {
     let Id = req.body.Id;

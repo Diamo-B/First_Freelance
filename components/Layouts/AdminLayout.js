@@ -1,10 +1,10 @@
 import Head from "next/head";
-import AdminNav from '/components/navbars/mobile/AdminNav';
+import AdminNav from '../navbars/mobile/AdminNav';
 import { useState } from "react";
-import Menu from '/components/Menu'
-import Footer from '/components/Footer'
-import useBetterMediaQuery from "/components/useBetterMediaQuery";
-import BrowserNavGen from '/components/navbars/browser/Navbar';
+import Menu from '../Menu'
+import Footer from '../Footer'
+import useBetterMediaQuery from "../useBetterMediaQuery";
+import BrowserNavGen from '../navbars/browser/Navbar';
 
 const AdminLayout = ({children}) => {
     const [isActive, setIsActive] = useState(false);
