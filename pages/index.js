@@ -38,7 +38,7 @@ async function addCart(){
     }
     );
     let cart = await res.json();
-    Cookies.set('cart', cart.Id, {expires:365});
+    Cookies.set('cart', cart.Id, {expires:3});
   } 
   else
   {

@@ -29,7 +29,7 @@ const Footer = () => {
             </div>
             <div className="telFooter">
                 <Image src="/telFooter.svg" alt="Phone Icon" width={20} height={20}/>
-                <span>0606060660</span>
+                <span>0684265164</span>
             </div>
         </footer>
     );

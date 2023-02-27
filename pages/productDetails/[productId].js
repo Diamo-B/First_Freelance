@@ -138,7 +138,7 @@ const ProductDetails = ({ data }) => {
         </div>
         <div className={styles.Commander} style={!CanAddCart || ProductPresentInCart? { marginBottom: 0 + "em" }: null}>
           <div className={styles.Tel}>
-            <a href="tel:+212607232880">
+            <a href="tel:+212684265164">
               <Image src="/tel.svg" alt="tel" width={20} height={20} />
             </a>
           </div>

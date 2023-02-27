@@ -187,7 +187,7 @@ const Cart = ({data}) => {
                     </>   
                 :
                     <>
-                    <a href={" https://wa.me/212618272611?text="+encodeURIComponent(text)}>
+                    <a href={" https://wa.me/212684265164?text="+encodeURIComponent(text)}>
                         <button className={styles.buttonwtsp}>
                             <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
                             Commander par whatsapp

@@ -9,7 +9,7 @@ const OrderFailPanel = ({ setOrderFailed }) => {
                 problème persiste, veuillez contacter l&apos;administrateur via whatsapp ou
                 téléphone sur:
             </p>
-            <span className={styles.phoneNumber}>0618272611</span>
+            <span className={styles.phoneNumber}>0684265164</span>
             <button className={styles.submit} onClick={() => {setOrderFailed(false)}}>OK</button>
         </div>
     </div>
