@@ -4,7 +4,7 @@ import {useRouter} from 'next/router';
 const DeleteOrderConfirmation = ({orderId,setDeletionPanel}) => {
     let router = useRouter();
     let RemoveOrder = () => {
-        fetch("http://localhost:3000/api/orders/delete",{
+        fetch("/api/orders/delete",{
             method: "POST",
             headers:{
                 "Content-Type":"application/json"

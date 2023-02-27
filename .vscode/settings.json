@@ -5,16 +5,7 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
-        "**/.DS_Store": true,
-        ".vscode/": true,
-        "node_modules/": true,
-        ".next/": true,
-        "yarn.lock": true,
-        "README.md": true,
-        "package-lock.json": true,
-        "next.config.js": true,
-        ".gitignore": true,
-        ".eslintrc.json": true
+        "**/.DS_Store": true
     },
     "hidefiles.configurationType": "local",
     "hidefiles.globalConfig": {
@@ -76,5 +67,5 @@
             }
         ]
     },
-    "hidefiles.selectedProfile": "Default"
+    "hidefiles.selectedProfile": "Show All Files"
 }

@@ -78,7 +78,7 @@ const AdminHome = () => {
                 </div>
 
                 <div className={styles.signoutPanel}>
-                    <button className={styles.logoutBtn} onClick={()=>signOut({ callbackUrl: 'http://localhost:3000' })}>SignOut</button>
+                    <button className={styles.logoutBtn} onClick={()=>signOut({ callbackUrl: process.env.DOMAIN })}>SignOut</button>
                 </div>
                 
             </>

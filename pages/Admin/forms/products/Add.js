@@ -5,7 +5,7 @@ import { useState } from 'react';
 import AddSuccess from '../../../../components/Admin/Products/AddingSuccessPanel.js';
 import { convertBase64 } from '../../../../components/Admin/form/convertToBase64.js';
 
-export async function getStaticProps()
+export async function getServerSideProps()
 {
     let categories = await prisma.category.findMany({});
     return {
