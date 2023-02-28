@@ -1,5 +1,4 @@
 import styles from '../styles/SwiperSlide.module.css';
-import Image from 'next/image';
 
 const MySwiperSlide = ({product}) => {
     let trimTitle = (str) => {
@@ -11,15 +10,15 @@ const MySwiperSlide = ({product}) => {
         else
         return str;
     }
-    
+
     let calculateDiscount = (data) =>{
         return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
     }
-    
 
-    return ( 
+
+    return (
             <div className={styles.product}>
-                <Image className={styles.img} src={product.Thumbnails[0].Path} alt="product" width={300} height={300}/>
+                <img className={styles.img} src={product.Thumbnails[0].Path} alt="product" width="300px" height="300px"/>
                 {product.DiscountRate?
                     <>
                         <div className={styles.product_details}>
@@ -37,12 +36,12 @@ const MySwiperSlide = ({product}) => {
                         <div className={styles.product_details}>
                             <p className={styles.center}>{product.Category.Title}</p>
                         </div>
-                        <h1 className={styles.productName}>{trimTitle(product.Title)}</h1> 
+                        <h1 className={styles.productName}>{trimTitle(product.Title)}</h1>
                         <p className={styles.Onlyprice}>{product.Price.toFixed(2)} DH</p>
                     </>
                 }
             </div>
     );
 }
- 
+
 export default MySwiperSlide;

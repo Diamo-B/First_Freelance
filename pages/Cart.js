@@ -1,12 +1,6 @@
-import styles from '../styles/Cart.module.css'
-import Image from 'next/image';
-import cookie from 'cookie'; // for parsing cookies
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import OrderForm from '../components/order/OrderForm';
-import SuccessPanel from '../components/order/SuccessPanel';
-import OrderFailPanel from '../components/order/FailPanel';
-import {prisma} from '../prisma/dbInstance';
+import styles from '../styles/Cart.module.css' import cookie from 'cookie'; // for parsing cookies import { useRouter } from 'next/router'; import { useState } from 'react'; 
+import OrderForm from '../components/order/OrderForm'; import SuccessPanel from '../components/order/SuccessPanel'; import OrderFailPanel from '../components/order/FailPanel'; import {prisma} from 
+'../prisma/dbInstance';
 
 export async function getServerSideProps(context)
 {
@@ -147,11 +141,11 @@ const Cart = ({data}) => {
             { 
               items.map( item => ( 
                     <div className={styles.item} key={item.Id}> 
-                        <Image className={styles.img} src={item.Product.Thumbnails[0].Path} alt="product" width={100} height={100}/>
+                        <img className={styles.img} src={item.Product.Thumbnails[0].Path} alt="product" width='100px' height='100px'/>
                         <div className={styles.details}>
                             <div className={styles.top}>
                                 <h2>{trimTitle(item.Product.Title)}</h2>
-                                <Image onClick={()=>{deleteItem(item.Id)}} src="/removeFromCart.svg" alt="Remove product from cart" width={16} height={18}/>
+                                <img onClick={()=>{deleteItem(item.Id)}} src="/removeFromCart.svg" alt="Remove product from cart" width='16px' height='18px'/>
                             </div>
                             <div className={styles.bottom}>
                                 <p className={styles.Unit}>{
@@ -179,7 +173,7 @@ const Cart = ({data}) => {
                 { total==0?
                     <>
                         <button disabled className={styles.buttonwtsp}>
-                            <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
+                            <img src="/wtspWhite.svg" alt="whatsapp logo" width="35px" height="35px"/>
                             Commander par whatsapp
                         </button>
                         <span className={styles.or}>Ou</span>
@@ -189,7 +183,7 @@ const Cart = ({data}) => {
                     <>
                     <a href={" https://wa.me/212684265164?text="+encodeURIComponent(text)}>
                         <button className={styles.buttonwtsp}>
-                            <Image src="/wtspWhite.svg" alt="whatsapp logo" width={35} height={35}/>
+                            <img src="/wtspWhite.svg" alt="whatsapp logo" width="35px" height="35px"/>
                             Commander par whatsapp
                         </button>         
                     </a>

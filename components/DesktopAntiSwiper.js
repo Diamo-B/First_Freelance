@@ -1,6 +1,4 @@
-import styles from '../styles/SwiperSlide.module.css';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
+import styles from '../styles/SwiperSlide.module.css'; import { useRouter } from 'next/router';
 
 const DesktopNoSwiper = ({products}) => {
     const router = useRouter();
@@ -13,13 +11,13 @@ const DesktopNoSwiper = ({products}) => {
         else
         return str;
     }
-    
+
     let calculateDiscount = (data) =>{
         return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
     }
-    return ( 
+    return (
         <div className={styles.grid}>
-            {        
+            {
             products.map(product => {
                 return(
                     <div className={styles.container} onClick={()=>{
@@ -27,7 +25,7 @@ const DesktopNoSwiper = ({products}) => {
                     }} key={product.Id}
                     >
                         <div className={styles.product}>
-                            <Image className={styles.img} src={product.Thumbnails[0].Path} alt="product" width={1000} height={1000}/>
+                            <img className={styles.img} src={product.Thumbnails[0].Path} alt="product" width="1000px" height="1000px"/>
                             {product.DiscountRate?
                                 <>
                                     <div className={styles.product_details}>

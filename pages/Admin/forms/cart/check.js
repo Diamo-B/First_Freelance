@@ -1,18 +1,33 @@
 import styles from "../../../../styles/Admin/Carts/get.module.css";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import { prisma } from "/prisma/dbInstance.ts";
 
 export async function getServerSideProps() {
-  let res = await fetch(process.env.DOMAIN+"/api/carts/getCart/allCarts", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
+
+  let resp = await prisma.cart.findMany({
+        include:{
+            Items:{
+                include:{
+                    Product:{
+                        include:{
+                            Thumbnails: true
+                        }
+                    }
+                }
+            }
+
+        }
+    });
+   const data = resp.map(item => {
+    return {
+      ...item,
+      CreatedAt: item.CreatedAt.toISOString() // Convert Date object to string
+    };
   });
-  let data = await res.json();
   return {
     props: { data },
-  }; 
+  };
 }
 
 const CheckCart = ({ data }) => {

@@ -1,6 +1,5 @@
 import styles from '../../styles/Category.module.css'
 import Link from 'next/link';
-import Image from 'next/image';
 import useBetterMediaQuery from '../useBetterMediaQuery';
 
 const ShowCase = ({products}) => {
@@ -9,18 +8,18 @@ const ShowCase = ({products}) => {
     let calculateDiscount = (data) =>{
       return data.DiscountRate?(data.Price-(data.Price*data.DiscountRate/100)).toFixed(2):null;
     }
-  
-  
+
+
     return(
     <>
       {
         !isMobile?
           <div className={styles.gridShowcase}>
-            { 
+            {
               products.map((product)=>(
                 <Link key={product.Id} href={`/productDetails/${encodeURIComponent(product.Id)}`}>
                   <div className={styles.card}>
-                    <Image className={styles.showcase} src={product.Thumbnails[0].Path} alt="Thumbnail" width={1000} height={1000}/>
+                    <img className={styles.showcase} src={product.Thumbnails[0].Path} alt="Thumbnail" width="1000px" height="1000px"/>
                     <div className={styles.details}>
                       <p className={styles.title}>{(product.Title.length > 10)?`${product.Title.substring(0,15)}...`:product.Title}</p>
                       {
@@ -37,18 +36,18 @@ const ShowCase = ({products}) => {
                     </div>
                   </div>
                 </Link>
-              )) 
+              ))
             }
           </div>
         :
         <div>
-          { 
+          {
             <div className={styles.mobileGrid}>
               {
                 products.map((product)=>(
                     <Link className={styles.mobileCard} key={product.Id} href={`/productDetails/${encodeURIComponent(product.Id)}`}>
                       <div>
-                        <Image className={styles.mobileImages} src={product.Thumbnails[0].Path} alt='product image' width={143} height={144}/>
+                        <img className={styles.mobileImages} src={product.Thumbnails[0].Path} alt='product image' width="143px" height="144px"/>
                         <div className={styles.mobileDetails}>
                           <p className={styles.title}>{(product.Title.length > 10)?`${product.Title.substring(0,15)}...`:product.Title}</p>
                           <p className={styles.price}>{product.DiscountRate? calculateDiscount(product):product.Price.toFixed(2)} DH</p>
@@ -58,8 +57,8 @@ const ShowCase = ({products}) => {
                 ))
               }
             </div>
-          } 
-        </div> 
+          }
+        </div>
       }
     </>
     );
