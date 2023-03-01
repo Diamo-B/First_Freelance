@@ -38,7 +38,7 @@ const AdminLogin = () => {
     return ( 
         <>
             <Head>
-                <title>LoremIpsum.com | Admin | Login</title>
+                <title>Mido7.ma | Admin | Login</title>
             </Head>
 
                 <div className={[styles.flex_column,styles.container].join(' ')}>

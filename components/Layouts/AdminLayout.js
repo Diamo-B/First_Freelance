@@ -12,9 +12,9 @@ const AdminLayout = ({children}) => {
 
     let isAdmin = true;
     return (
-        <> 
+        <>
             <Head>
-                <title>LoremIpsum.com | Administration</title>
+                <title>Mido7.ma | Administration</title>
             </Head>
             {
                 isMobile?

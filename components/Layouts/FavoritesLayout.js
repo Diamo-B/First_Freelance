@@ -12,7 +12,7 @@ const FavoritesLayout = ({children}) => {
     return ( 
         <>
         <Head>
-            <title>LoremIpsum.com</title>
+            <title>Mido7.ma</title>
         </Head> 
         <div className='body'>
             {
