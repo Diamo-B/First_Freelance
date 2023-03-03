@@ -8,7 +8,7 @@ const Footer = () => {
         <footer>
             <div className="DesktopFooter">
                 <div className="Footerlogo">
-                    <Image src="/VIP7-logo.svg" alt="logo" width={100} height={100}/>
+                    <Image src="/mido7-logo.jpg" alt="logo" width={100} height={100}/>
                 </div>
                 {
                     ! isMobile &&
@@ -19,7 +19,7 @@ const Footer = () => {
                         <Link href='/Categories/Divers'>Divers</Link>
                     </div>
                 } 
-                <div className="social-media">
+                <div className="social-media" >
                     <a href=""><Image src="/facebook.svg" width={25} height={25} alt="facebook"/></a>
                     <a href=""><Image src="/instagram.svg" width={25} height={25} alt="instagram"/></a>
                     <a href=""><Image src="/whatsapp.svg" width={25} height={25} alt="whatsapp"/></a>

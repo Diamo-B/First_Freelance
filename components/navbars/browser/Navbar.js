@@ -10,7 +10,7 @@ const BrowserNavGen = ({searchData}) => {
         <>
             <nav className={styles.navbar}>
                 <div className={styles.right}>
-                    <Link href="/"><Image className="navLogo" src="/VIP7-logo.svg" alt="logo" width={60} height={60}/></Link>
+                    <Link href="/"><Image className="navLogo" src="/mido7-logo.jpg" alt="logo" width={60} height={60}/></Link>
                     <div className={styles.categories}>
                         <Link href='/Categories/Cheveux'>Cheveux</Link>
                         <Link href='/Categories/Visage'>Visage</Link>
