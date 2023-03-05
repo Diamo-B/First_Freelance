@@ -20,8 +20,8 @@
 .header h3
 {
     font-size: 0.75rem;
-    font-weight: var(--fw-regular);
-    color: #ea9a5d/*#25D366*/;
+    font-weight: var(--fw-bold);
+    color: #ee7c25/*#25D366*/;
 }
 
 

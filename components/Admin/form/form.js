@@ -164,7 +164,6 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
                                                   }
                                                 });
                                                 setImages((prev) => [...prev, ...distinctFiles]);
-                                                console.log(images);
                                             }}
                                         />
                                         {

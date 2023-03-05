@@ -26,7 +26,6 @@ const AddProduct = ({categories}) => {
    let onSubmitForm = async (values) => { 
         setLoading(true);
         let imagenames = images.map(image=>{return image.name});
-        console.log(imagenames);
         let Brand = values.Brand===""?null:values.Brand
         let Discount = values.Discount===""?null:values.Discount
         await fetch("/api/products/addProduct",{
@@ -78,7 +77,6 @@ const AddProduct = ({categories}) => {
         setLoading(false);
     }
 
-console.log(categories);
 
     if(!session)
     {

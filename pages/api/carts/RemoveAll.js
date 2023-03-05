@@ -8,7 +8,7 @@ let RemoveAll =  async (req, res) => {
             }
         }
     }).catch((err)=>{
-        console.log(err);
+        return res.status(500).json(err);
     })
 
     await prisma.cart.deleteMany({})

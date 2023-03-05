@@ -1,44 +1,50 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Styles from '../styles/Admin/Products/remove.module.css'
 import {useRouter} from "next/router";
 
 const ProductSearchBar = ({searchData}) => {
-    let [filteredData,setFilteredData] = useState([]);
     
-    let handleFocus = () => {
-        setFilteredData(searchData);
+    const [searchQuery, setSearchQuery] = useState("");
+    let router = useRouter();
+    let [found,setFound] = useState(true);
+
+    let goToProductPage = (id) => {
+        router.push(`/productDetails/${id}`)
     }
 
-    let handleFilter = (event) => {
-        const searchWord = event.target.value;
-        const newFilter = searchData.filter((value) => {
-            return value.Title.toLowerCase().includes(searchWord.toLowerCase());
-        });
-        searchWord === ""?
-            setFilteredData([])
-        :
-            setFilteredData(newFilter);
-    }
-    let router = useRouter();
+    // Update found state when searchData changes
+    useEffect(() => {
+        // Check if at least one item in searchData matches the search query
+        const isFound = searchData?.some(data => data.Title.toLowerCase().includes(searchQuery.toLowerCase()));
+        setFound(isFound);
+    }, [searchData, searchQuery]);
+
     return (
         <>
             <div className="search">
-                <input type="text" id="searchinput" onBlur={()=>{setFilteredData([])}} onFocus={handleFocus} onChange={(event)=>{handleFilter(event)}} placeholder="Rechercher un Produit"/>
+                <input type="text" id="searchinput" autoComplete="off" placeholder="Rechercher un Produit"
+                value={searchQuery}
+                onChange={(event)=>{setSearchQuery(event.target.value)}}
+                />
             </div>
             {
-                filteredData.length != 0 && (
-                    <div className={[Styles.extended,Styles.Zindex].join(' ')}>
-                        <div className={Styles.dataResult}>
-                            {filteredData.slice(0, 15).map((value) => {
-                                return (
-                                <a className={Styles.dataItem}  key={value.Id} onClick={()=>{router.push("/productDetails/"+encodeURIComponent(value.Id)); setFilteredData([]); document.getElementById("searchinput").value = "";}}>
-                                    {value.Title}
-                                </a>
-                                );
-                            })}
-                        </div>
+                (searchQuery.length > 0 && searchData !== null && found) &&
+                <div className={[Styles.extended,Styles.Zindex].join(' ')}>
+                    <div className={Styles.dataResult}>
+                        {
+                            searchData.map(data=>(
+                                data.Title.toLowerCase().includes(searchQuery.toLowerCase()) ? 
+                                (
+                                    <p key={data.Id} className={Styles.dataItem} onClick={()=>goToProductPage(encodeURI(data.Id))}>
+                                        {data.Title}
+                                    </p>
+                                )
+                                :
+                                null
+                            ))
+                        }
                     </div>
-                )
+                </div>
             }
         </>
     );
