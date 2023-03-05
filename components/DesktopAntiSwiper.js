@@ -1,4 +1,5 @@
-import styles from '../styles/SwiperSlide.module.css'; import { useRouter } from 'next/router';
+import styles from '../styles/SwiperSlide.module.css'; 
+import { useRouter } from 'next/router';
 
 const DesktopNoSwiper = ({products}) => {
     const router = useRouter();

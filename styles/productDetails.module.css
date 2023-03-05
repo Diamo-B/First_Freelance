@@ -30,7 +30,7 @@
 }
 
 .category span {
-    color: #25D366;
+    color: #ea9a5d/* #25D366 */;
 }
 
 .category:hover
@@ -52,7 +52,7 @@
 {
     font-weight: var(--fw-bold);
     font-size: 1.5rem;
-    color: #00C896;
+    color: #d70dcf/* #00C896 */;
 
 }
 
@@ -82,7 +82,7 @@
     border: none;
     border-radius: 10px;
     padding: 0.375em 0.9375em;
-    background-color: hsla(165, 100%, 33%, 0.85);
+    background-color: hsla(165, 100%, 33%, 0.851);
 }
 
 .Qte

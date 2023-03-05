@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import {convertBase64} from '../../../../../../components/Admin/form/convertToBase64';
 import ModificationSuccessPanel from '../../../../../../components/Admin/Products/ModificationSuccessPanel';
 import {prisma} from '../../../../../../prisma/dbInstance.ts';
+import LoadingState from '../../../../../../components/Admin/Products/LoadingState.js';
 
 export async function getServerSideProps ({resolvedUrl })
 {
@@ -36,6 +37,7 @@ const ModifyProduct = ({categories,product}) => {
     const {data:session} = useSession({required: true});
     let [isModified,setIsModified]=useState(null);
     let [filesSaved, setFilesSaved] = useState(null);
+    let [isLoading, setLoading] = useState(null);
     let [images, setImages] = useState([]);
     let [oldImgs, setOldImgs] = useState([]);
     
@@ -92,7 +94,7 @@ const ModifyProduct = ({categories,product}) => {
         let Images = imagenames;
         let files =  imagesToAdd;
 
-        
+        setLoading(true);
 
         //- UPDATE the physical data
        await fetch("/api/products/updateProductData",{
@@ -164,13 +166,18 @@ const ModifyProduct = ({categories,product}) => {
         .catch(()=>{
             setIsModified(null); //! error 
         })
+
+        setLoading(false);
     }
 
     return ( 
         <>
             {
                 isModified!==null?
-                <ModificationSuccessPanel isModified={isModified} setIsModified={setIsModified}/>
+                    <ModificationSuccessPanel isModified={isModified} setIsModified={setIsModified}/>
+                :
+                isLoading?
+                    <LoadingState />
                 :
                 ""
             }

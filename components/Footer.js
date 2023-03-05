@@ -7,17 +7,19 @@ const Footer = () => {
     return ( 
         <footer>
             <div className="DesktopFooter">
-                <div className="Footerlogo">
-                    <Image src="/mido7-logo.jpg" alt="logo" width={100} height={100}/>
-                </div>
                 {
                     ! isMobile &&
-                    <div className="categories">
-                        <Link href='/Categories/Cheveux'>Cheveux</Link>
-                        <Link href='/Categories/Visage'>Visage</Link>
-                        <Link href='/Categories/Parfums'>Parfums</Link>
-                        <Link href='/Categories/Divers'>Divers</Link>
-                    </div>
+                    <>
+                        <div className="Footerlogo">
+                            <Image src="/mido7-logo.jpg" alt="logo" width={100} height={100}/>
+                        </div>
+                        <div className="categories">
+                            <Link href='/Categories/Cheveux'>Cheveux</Link>
+                            <Link href='/Categories/Visage'>Visage</Link>
+                            <Link href='/Categories/Parfums'>Parfums</Link>
+                            <Link href='/Categories/Divers'>Divers</Link>
+                        </div>
+                    </>
                 } 
                 <div className="social-media" >
                     <a href=""><Image src="/facebook.svg" width={25} height={25} alt="facebook"/></a>

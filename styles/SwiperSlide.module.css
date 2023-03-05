@@ -82,7 +82,7 @@
 {
     font-weight: var(--fw-semi-bold);
     font-size: 1.5rem;
-    color: #00C896;
+    color: #d70dcf/*#00C896*/;
     text-align: center;
 }
 
@@ -90,7 +90,7 @@
 {
     font-weight: var(--fw-semi-bold);
     font-size: 1.5rem;
-    color: #00C896;
+    color: #d70dcf /*#00C896*/;
 
 }
 

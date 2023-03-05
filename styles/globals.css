@@ -143,7 +143,7 @@ nav
 
 .categories-box
 {
-    background-color: #999999;
+    background-color: #0165E1;/*#999999*/;
     margin-block: 1.5625em;
     margin-inline: auto;
     padding-block: 1.5625em;
@@ -159,7 +159,7 @@ nav
 .categories a
 {
     background-color: white;
-    color: #6D6D6D;
+    color: black;/*#6D6D6D;*/
     font-size: 0.75rem;
     font-weight: var(--fw-bold);
     text-align: center;
@@ -216,15 +216,6 @@ footer
     margin-top: auto ;
 }
 
-.Footerlogo
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom: -1em;
-}
-
 .social-media
 {
     display: flex;
@@ -232,6 +223,7 @@ footer
     justify-content: center;
     gap: 1em;
     justify-self: flex-end;
+    margin-top: 1em;
 }
 
 .telFooter 

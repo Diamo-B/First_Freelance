@@ -4,6 +4,7 @@ import { prisma } from '../../../../prisma/dbInstance.ts';
 import { useState } from 'react';
 import AddSuccess from '../../../../components/Admin/Products/AddingSuccessPanel.js';
 import { convertBase64 } from '../../../../components/Admin/form/convertToBase64.js';
+import LoadingState from '../../../../components/Admin/Products/LoadingState.js';
 
 export async function getServerSideProps()
 {
@@ -19,11 +20,11 @@ const AddProduct = ({categories}) => {
     let [isAdded,setIsAdded]=useState(null);
     let [filesSaved, setFilesSaved] = useState(null);
     let [images, setImages] = useState([]);
+    let [loading, setLoading] = useState(null);
 
 
    let onSubmitForm = async (values) => { 
-        console.log(values);
-        console.log(images);
+        setLoading(true);
         let imagenames = images.map(image=>{return image.name});
         console.log(imagenames);
         let Brand = values.Brand===""?null:values.Brand
@@ -74,7 +75,7 @@ const AddProduct = ({categories}) => {
         .catch((err)=>{
             setIsAdded(false); //! error 
         })
-        
+        setLoading(false);
     }
 
 console.log(categories);
@@ -87,8 +88,12 @@ console.log(categories);
     }
     return ( 
         <>
-            {isAdded&&filesSaved?
+            {
+                isAdded&&filesSaved?
                 <AddSuccess setIsAdded={setIsAdded}/>
+            :
+                loading?
+                <LoadingState />
             :
                 ""
             }
