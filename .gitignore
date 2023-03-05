@@ -33,3 +33,7 @@ next-env.d.ts
 
 #products_images
 /public/productsImages
+
+#logs
+/logs
+/logs/*
