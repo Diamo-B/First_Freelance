@@ -80,24 +80,24 @@
 
 .Onlyprice
 {
-    font-weight: var(--fw-semi-bold);
-    font-size: 1.5rem;
-    color: #d70dcf/*#00C896*/;
+    font-weight: var(--fw-regular);
+    font-size: 1.3rem;
+    color: black;
     text-align: center;
 }
 
 .actual
 {
-    font-weight: var(--fw-semi-bold);
-    font-size: 1.5rem;
-    color: #d70dcf /*#00C896*/;
+    font-weight: var(--fw-regular);
+    font-size: 1.3rem;
+    color: black;
 
 }
 
 .old
 {
-    font-weight: var(--fw-semi-bold);
-    color: #999999;
+    font-weight: var(--fw-bold);
+    color: black;
     font-size: 1rem;
     text-decoration:line-through;
     text-decoration-color: black;
