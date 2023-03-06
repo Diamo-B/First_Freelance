@@ -12,7 +12,7 @@ const Menu = ({isActive, setIsActive, isAdmin}) => {
                 <Link href='/Categories/Electroniques'>Electroniques</Link>
                 <Link href='/Categories/Cosmétiques'>Cosmétiques</Link>
                 <Link href='/Categories/Cuisine'>Cuisine</Link>
-                <Link href='/Categories/Divers'>Divers</Link>
+                <Link href='/Categories/Para'>Para</Link>
                 {
                     isAdmin?
                     <div className="AdminAccessPart">

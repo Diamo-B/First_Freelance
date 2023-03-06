@@ -15,7 +15,7 @@ const BrowserNavGen = ({searchData}) => {
                         <Link href='/Categories/Cheveux'>Cheveux</Link>
                         <Link href='/Categories/Visage'>Visage</Link>
                         <Link href='/Categories/Parfums'>Parfums</Link>
-                        <Link href='/Categories/Divers'>Divers</Link>
+                        <Link href='/Categories/Para'>Para</Link>
                     </div>
                 </div>
                 <div className={styles.left}>
