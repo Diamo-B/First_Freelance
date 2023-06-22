@@ -30,7 +30,6 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
         const updatedFiles = images.filter(file => file.name !== fileToRemove.name);
         setImages(updatedFiles);
     }
-
     const isMobile = useBetterMediaQuery('(max-width: 500px)');
 
     return ( 
@@ -180,7 +179,17 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
                                                         images.map((file,index)=>(
                                                             <tr key={index}>
                                                                 <td>
-                                                                    <p>{file.name}</p>
+                                                                    { 
+                                                                        formType == "modifying"?
+                                                                            //open the image in a new tab onClick
+                                                                            <a href={`/productsImages/product_${product[0].Id}/${file.name}`} target="_blank">
+                                                                                <Image className={styles.centerImage} src={`/productsImages/product_${product[0].Id}/${file.name}`} width={"100"} height={"100"}/>
+                                                                            </a>
+                                                                        :
+                                                                            <a href={`/productsImages/product_${product[0].Id}/${file.name}`} target="_blank">
+                                                                                <Image className={styles.centerImage} src={URL.createObjectURL(file)} width={"100"} height={"100"}/>
+                                                                            </a>
+                                                                    }
                                                                 </td>
                                                                 <td>
                                                                     <Image className={styles.centerImage} src="/remove.svg" alt="remove" width={20} height={20} onClick={()=>{removeFile(file)}}/>
