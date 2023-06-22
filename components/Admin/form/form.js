@@ -186,7 +186,7 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
                                                                                 <Image className={styles.centerImage} src={`/productsImages/product_${product[0].Id}/${file.name}`} width={"100"} height={"100"} alt={file.name}/>
                                                                             </a>
                                                                         :
-                                                                            <a href={`/productsImages/product_${product[0].Id}/${file.name}`} target="_blank" rel="noreferrer">
+                                                                            <a href={`/productsImages/product_${product.Id}/${file.name}`} target="_blank" rel="noreferrer">
                                                                                 <Image className={styles.centerImage} src={URL.createObjectURL(file)} width={"100"} height={"100"} alt={file.name}/>
                                                                             </a>
                                                                     }
