@@ -187,7 +187,7 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
                                                                             </a>
                                                                         :
                                                                             //open the image in a new tab onClick
-                                                                            <a href={URL.createObjectURL(file)} target="_blank">
+                                                                            <a href={URL.createObjectURL(file)} target="_blank" rel="noreferrer">
                                                                                 <Image className={styles.centerImage} src={URL.createObjectURL(file)} width={"100"} height={"100"}/>
                                                                             </a>
                                                                     }
