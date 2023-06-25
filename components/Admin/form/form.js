@@ -167,39 +167,41 @@ const Form = ({categories,onSubmitForm,formType,product,images,setImages}) => {
                                         />
                                         {
                                             images.length > 0 &&
-                                            <table className={styles.mt_1}>
-                                                <thead>
-                                                    <tr>
-                                                        <th>Image</th>
-                                                        <th>Supprimer</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {
-                                                        images.map((file,index)=>(
-                                                            <tr key={index}>
-                                                                <td>
-                                                                    { 
-                                                                        formType == "modifying"?
-                                                                            //open the image in a new tab onClick
-                                                                            <a href={`/productsImages/product_${product[0].Id}/${file.name}`} target="_blank" rel="noreferrer">
-                                                                                <Image className={styles.centerImage} src={`/productsImages/product_${product[0].Id}/${file.name}`} width={"100"} height={"100"} alt={file.name}/>
-                                                                            </a>
-                                                                        :
-                                                                            //open the image in a new tab onClick
-                                                                            <a href={URL.createObjectURL(file)} target="_blank" rel="noreferrer">
-                                                                                <Image className={styles.centerImage} src={URL.createObjectURL(file)} width={"100"} height={"100"}/>
-                                                                            </a>
-                                                                    }
-                                                                </td>
-                                                                <td>
-                                                                    <Image className={styles.centerImage} src="/remove.svg" alt="remove" width={20} height={20} onClick={()=>{removeFile(file)}}/>
-                                                                </td>
-                                                            </tr>
-                                                        ))
-                                                    }
-                                                </tbody>
-                                            </table>
+                                            <div className={`${styles.mt_1} ${styles.tableContainer}`}>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Image</th>
+                                                            <th>Supprimer</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {
+                                                            images.map((file,index)=>(
+                                                                <tr key={index}>
+                                                                    <td>
+                                                                        {
+                                                                            formType == "modifying"?
+                                                                                //open the image in a new tab onClick
+                                                                                <a href={`/productsImages/product_${product[0].Id}/${file.name}`} target="_blank" rel="noreferrer">
+                                                                                    <Image className={styles.centerImage} src={`/productsImages/product_${product[0].Id}/${file.name}`} width={"100"} height={"100"} alt={file.name}/>
+                                                                                </a>
+                                                                            :
+                                                                                //open the image in a new tab onClick
+                                                                                <a href={URL.createObjectURL(file)} target="_blank" rel="noreferrer">
+                                                                                    <Image className={styles.centerImage} src={URL.createObjectURL(file)} width={"100"} height={"100"}/>
+                                                                                </a>
+                                                                        }
+                                                                    </td>
+                                                                    <td>
+                                                                        <Image className={styles.centerImage} src="/remove.svg" alt="remove" width={20} height={20} onClick={()=>{removeFile(file)}}/>
+                                                                    </td>
+                                                                </tr>
+                                                            ))
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         }
                                     </div>
                                 </div>

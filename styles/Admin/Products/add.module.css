@@ -122,6 +122,29 @@
     margin-top: 1em;
 }
 
+.tableContainer {
+    max-height: 400px; /* Adjust this value as needed */
+    overflow-y: auto;
+  }
+  
+  .tableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tableContainer thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+  }
+  
+  .tableContainer tbody {
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  
+
 .btn 
 {
     border-radius: 20px;
@@ -165,7 +188,7 @@
 {
     width: 80%;
 /*     height: 10em;
- */    background-color: white;
+ */ background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
